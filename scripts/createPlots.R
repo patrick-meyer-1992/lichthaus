@@ -13,7 +13,7 @@ db = 'lichthaus'
 host_db = 'lichthaus.ddns.net' 
 db_port = '54320' 
 db_user = 'patrick'
-db_password = readLines(con = "secrets.txt", warn = F)[2]
+db_password = readLines(con = "../secrets.txt", warn = F)[2]
 
 con = dbConnect(RPostgres::Postgres(), dbname = db, host=host_db, port=db_port, user=db_user, password=db_password) 
 
