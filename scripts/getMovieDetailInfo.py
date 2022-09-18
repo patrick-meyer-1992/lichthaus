@@ -38,14 +38,7 @@ def saveMovieInfo(id, apiKey, targetFolder):
 
 
 
-def loadFromJson(id, targetFolder):
-    """
-    Reads a json file at the given loaction.
-    Returns a dictionary
 
-    """
-    data = open(targetFolder + "\\" + id + ".json")
-    return json.load(data)
     
 
 # Connect to database
