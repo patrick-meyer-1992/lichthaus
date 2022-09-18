@@ -9,7 +9,7 @@ library(reticulate)
 pth = dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(pth)
 apiKey = readLines(con = "../secrets.txt", warn = F)[1]
-useAPI = T
+useAPI = F
 usedDate = lubridate::as_date("2022-09-17")
 
 #### Load python script and functions ####
@@ -42,18 +42,18 @@ suggestions = tibble(
   )
 
 # Enter each suggestions. If none were made by this participant on this evening leave as NA
-suggestions$vorschlag[which(suggestions$vorname == "Cem")] = c("Crime Busters", "Jumanji 1995")
-suggestions$vorschlag[which(suggestions$vorname == "Daniel")] = c(NA, NA)
-suggestions$vorschlag[which(suggestions$vorname == "Jan")] = c("The Voices", "Mom and Dad")
-suggestions$vorschlag[which(suggestions$vorname == "Patrick")] = c("Tron", "Babylon")
-suggestions$vorschlag[which(suggestions$vorname == "Stefan")] = c(NA, NA)
-suggestions$vorschlag[which(suggestions$vorname == "Timo")] = c("Knives Out 2019", "Idiocracy")
-suggestions$vorschlag[which(suggestions$vorname == "Toni")] = c(NA, NA)
+suggestions$vorschlag[which(suggestions$vorname == "Cem")] = c(NA, NA)
+suggestions$vorschlag[which(suggestions$vorname == "Daniel")] = c("District 9", "Wer")
+suggestions$vorschlag[which(suggestions$vorname == "Jan")] = c("Willy's Wonderland", "Die Farbe aus dem All")
+suggestions$vorschlag[which(suggestions$vorname == "Patrick")] = c("A Quiet Place", "The Batman")
+suggestions$vorschlag[which(suggestions$vorname == "Stefan")] = c("The Blob", "Mars Attacks")
+suggestions$vorschlag[which(suggestions$vorname == "Timo")] = c(NA, NA)
+suggestions$vorschlag[which(suggestions$vorname == "Toni")] = c("Unlocked", "SAS: Red Notice")
 
 # Enter the winners of the murmelbahn
 # Use the names which were entered as the original suggestions 'vorschlag'
 # (Not the original titles from imdb)
-survivors = c("Tron", "The Voices")
+survivors = c("District 9", "Willy's Wonderland", "A Quiet Place")
 suggestions$murmeled[which(suggestions$vorschlag %in% survivors)] = T
 
 #### Find id via API ####
@@ -64,7 +64,7 @@ if(useAPI){
       tryCatch({
         result = py$getMovieBaseInfo(suggestions$vorschlag[i], apiKey)
         suggestions$id[i] = result[[1]]
-        suggestions$originalTitel[i] = result[[2]]
+        suggestions$titel[i] = result[[2]]
         suggestions$erscheinungsjahr[i] = result[[3]]
       },
       error = function(e){
@@ -82,34 +82,34 @@ if(useAPI){
   suggestions$erscheinungsjahr[errIndex] = c()
 }else{
   # Manual fill if api doesn't work
-  suggestions$id[which(suggestions$vorname == "Cem")] = c("tt0074442", "tt0113497")
-  suggestions$id[which(suggestions$vorname == "Daniel")] = c(NA, NA)
-  suggestions$id[which(suggestions$vorname == "Jan")] = c("tt1567437", "tt5462326")
-  suggestions$id[which(suggestions$vorname == "Patrick")] = c("tt1104001", "tt10640346")
-  suggestions$id[which(suggestions$vorname == "Stefan")] = c(NA, NA)
-  suggestions$id[which(suggestions$vorname == "Timo")] = c("tt8946378", "tt0387808")
-  suggestions$id[which(suggestions$vorname == "Toni")] = c(NA, NA)
+  suggestions$id[which(suggestions$vorname == "Cem")] = c(NA, NA)
+  suggestions$id[which(suggestions$vorname == "Daniel")] = c("tt1136608", "tt2229511")
+  suggestions$id[which(suggestions$vorname == "Jan")] = c("tt8114980", "tt5073642")
+  suggestions$id[which(suggestions$vorname == "Patrick")] = c("tt6644200", "tt1877830")
+  suggestions$id[which(suggestions$vorname == "Stefan")] = c("tt0094761", "tt0116996")
+  suggestions$id[which(suggestions$vorname == "Timo")] = c(NA, NA)
+  suggestions$id[which(suggestions$vorname == "Toni")] = c("tt1734493", "tt4479380")
   
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Cem")] = c(1977, 1995)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Daniel")] = c(NA, NA)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Jan")] = c(2014, 2017)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Patrick")] = c(2010, 2022)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Stefan")] = c(NA, NA)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Timo")] = c(2019, 2006)
-  suggestions$erscheinungsjahr[which(suggestions$vorname == "Toni")] = c(NA, NA)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Cem")] = c(NA, NA)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Daniel")] = c(2009, 2013)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Jan")] = c(2021, 2019)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Patrick")] = c(2018, 2022)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Stefan")] = c(1988, 1996)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Timo")] = c(NA, NA)
+  suggestions$erscheinungsjahr[which(suggestions$vorname == "Toni")] = c(2017, 2021)
   
-  suggestions$titel[which(suggestions$vorname == "Cem")] = c("Zwei außer Rand und Band", "Jumanji")
-  suggestions$titel[which(suggestions$vorname == "Daniel")] = c(NA, NA)
-  suggestions$titel[which(suggestions$vorname == "Jan")] = c("The Voices", "Mom and Dad")
-  suggestions$titel[which(suggestions$vorname == "Patrick")] = c("Tron", "Babylon")
-  suggestions$titel[which(suggestions$vorname == "Stefan")] = c(NA, NA)
-  suggestions$titel[which(suggestions$vorname == "Timo")] = c("Knives Out", "Idiocracy")
-  suggestions$titel[which(suggestions$vorname == "Toni")] = c(NA, NA)
+  suggestions$titel[which(suggestions$vorname == "Cem")] = c(NA, NA)
+  suggestions$titel[which(suggestions$vorname == "Daniel")] = c("District 9", "Wer")
+  suggestions$titel[which(suggestions$vorname == "Jan")] = c("Willy's Wonderland", "Mom and Dad")
+  suggestions$titel[which(suggestions$vorname == "Patrick")] = c("A Quiet Place", "The Batman")
+  suggestions$titel[which(suggestions$vorname == "Stefan")] = c("The Blob", "Mars Attacks")
+  suggestions$titel[which(suggestions$vorname == "Timo")] = c(NA, NA)
+  suggestions$titel[which(suggestions$vorname == "Toni")] = c("Unlocked", "SAS: Red Notice")
 }
 
 #### Voting ####  
 numVotes = 2
-gesamtSieger = ""
+gesamtSieger = "Willy's Wonderland"
 # Create a frame to reflect the voting of the evening
 voting = tibble(
   vorname = rep(teilnehmer, each = numVotes), 
@@ -118,26 +118,26 @@ voting = tibble(
   sieger = F
 )
 # Enter votes from each participant
-voting[which(voting$vorname == "Cem"), c("vote", "wahldurchgang")] = list(c("The Voices", "Tron"), #Cem
+voting[which(voting$vorname == "Cem"), c("vote", "wahldurchgang")] = list(c(NA, NA), #Cem
                                                                           c(1:numVotes))
 
-voting[which(voting$vorname == "Daniel"), c("vote", "wahldurchgang")] = list(c(NA), #Daniel
-                                                                             c(NA))
+voting[which(voting$vorname == "Daniel"), c("vote", "wahldurchgang")] = list(c("District 9", "District 9"), #Daniel
+                                                                             c(1:numVotes))
 
-voting[which(voting$vorname == "Jan"), c("vote", "wahldurchgang")] = list(c("Tron", "Tron"), #Jan
+voting[which(voting$vorname == "Jan"), c("vote", "wahldurchgang")] = list(c("Willy's Wonderland", "Willy's Wonderland"), #Jan
                                                                           c(1:numVotes))
 
-voting[which(voting$vorname == "Patrick"), c("vote", "wahldurchgang")] = list(c("Tron", "Tron"), #Patrick
+voting[which(voting$vorname == "Patrick"), c("vote", "wahldurchgang")] = list(c("A Quiet Place", "Willy's Wonderland"), #Patrick
                                                                               c(1:numVotes))
 
 voting[which(voting$vorname == "Stefan"), c("vote", "wahldurchgang")] = list(c(NA), #Stefan
                                                                              c(NA))
 
-voting[which(voting$vorname == "Timo"), c("vote", "wahldurchgang")] = list(c("The Voices", "The Voices"), #Timo
+voting[which(voting$vorname == "Timo"), c("vote", "wahldurchgang")] = list(c(NA, NA), #Timo
                                                                            c(1:numVotes))
 
-voting[which(voting$vorname == "Toni"), c("vote", "wahldurchgang")] = list(c(NA), #Toni
-                                                                           c(NA))
+voting[which(voting$vorname == "Toni"), c("vote", "wahldurchgang")] = list(c("District 9", "District 9"), #Toni
+                                                                           c(1:numVotes))
 
 voting = inner_join(x = voting, 
                     y = suggestions[c("vorschlag", "id")], 
@@ -156,15 +156,15 @@ rating = tibble(
   wertung = NA,
 )
 
-ratedMovie = "tt1104001"
+ratedMovie = "tt0463854"
 # Enter each rating If none were made by this participant for this movie leave as NA
-rating[which(rating$vorname == "Cem"), c("id", "wertung")] = list(ratedMovie, 9)
-rating[which(rating$vorname == "Daniel"), c("id", "wertung")] = list(ratedMovie, NA)
-rating[which(rating$vorname == "Jan"), c("id", "wertung")] = list(ratedMovie, 9)
-rating[which(rating$vorname == "Patrick"), c("id", "wertung")] = list(ratedMovie, 9)
-rating[which(rating$vorname == "Stefan"), c("id", "wertung")] = list(ratedMovie, NA)
-rating[which(rating$vorname == "Timo"), c("id", "wertung")] = list(ratedMovie, 9)
-rating[which(rating$vorname == "Toni"), c("id", "wertung")] = list(ratedMovie, NA)
+rating[which(rating$vorname == "Cem"), c("id", "wertung")] = list(ratedMovie, NA)
+rating[which(rating$vorname == "Daniel"), c("id", "wertung")] = list(ratedMovie, 6)
+rating[which(rating$vorname == "Jan"), c("id", "wertung")] = list(ratedMovie, 6)
+rating[which(rating$vorname == "Patrick"), c("id", "wertung")] = list(ratedMovie, 7)
+rating[which(rating$vorname == "Stefan"), c("id", "wertung")] = list(ratedMovie, 7)
+rating[which(rating$vorname == "Timo"), c("id", "wertung")] = list(ratedMovie, NA)
+rating[which(rating$vorname == "Toni"), c("id", "wertung")] = list(ratedMovie, 5)
 rating = rating %>% filter(!is.na(wertung))
 
 #### Upload to database ####
