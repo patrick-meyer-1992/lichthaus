@@ -1,1 +1,108 @@
-{"id":"tt11138512","title":"The Northman","rating":7.1,"rating_count":167000,"release_year":2022,"popularity":43,"imdb_type":"movie","runtime":"2h 17m","genres":[],"countries":["United States","China"],"languages":["English","Norse, Old"],"director_names":["Robert Eggers"],"creator_names":[],"description":"","aka":["Chiến Binh Phương Bắc"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BMzVlMmY2NTctODgwOC00NDMzLWEzMWYtM2RiYmIyNTNhMTI0XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_QL75_UX190_CR0,0,190,281_.jpg","imdb_date":"2022-04-22","actors":[{"id":"nm0002907","name":"Alexander Skarsgård"},{"id":"nm0000173","name":"Nicole Kidman"},{"id":"nm0051903","name":"Claes Bang"},{"id":"nm0000160","name":"Ethan Hawke"},{"id":"nm5896355","name":"Anya Taylor-Joy"},{"id":"nm6625833","name":"Gustav Lindh"},{"id":"nm11830110","name":"Elliott Rose"},{"id":"nm0000353","name":"Willem Dafoe"},{"id":"nm4969843","name":"Phill Martin"},{"id":"nm6198408","name":"Eldar Skar"},{"id":"nm0288260","name":"Olwen Fouéré"},{"id":"nm11542893","name":"Edgar Abram"},{"id":"nm7801403","name":"Jack Gassmann"},{"id":"nm0797614","name":"Ingvar Sigurdsson"},{"id":"nm10861182","name":"Oscar Novak"},{"id":"nm1546538","name":"Jack Walsh"},{"id":"nm0001951","name":"Björk"},{"id":"nm1613839","name":"Ian Whyte"}]}
+{
+    "id": "tt11138512",
+    "title": "The Northman",
+    "rating": 7.1,
+    "rating_count": 167000,
+    "release_year": 2022,
+    "popularity": 43,
+    "imdb_type": "movie",
+    "runtime": "2h 17m",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+    ],
+    "countries": [
+        "United States",
+        "China"
+    ],
+    "languages": [
+        "English",
+        "Norse, Old"
+    ],
+    "director_names": [
+        "Robert Eggers"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Chiến Binh Phương Bắc"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzVlMmY2NTctODgwOC00NDMzLWEzMWYtM2RiYmIyNTNhMTI0XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2022-04-22",
+    "actors": [
+        {
+            "id": "nm0002907",
+            "name": "Alexander Skarsgård"
+        },
+        {
+            "id": "nm0000173",
+            "name": "Nicole Kidman"
+        },
+        {
+            "id": "nm0051903",
+            "name": "Claes Bang"
+        },
+        {
+            "id": "nm0000160",
+            "name": "Ethan Hawke"
+        },
+        {
+            "id": "nm5896355",
+            "name": "Anya Taylor-Joy"
+        },
+        {
+            "id": "nm6625833",
+            "name": "Gustav Lindh"
+        },
+        {
+            "id": "nm11830110",
+            "name": "Elliott Rose"
+        },
+        {
+            "id": "nm0000353",
+            "name": "Willem Dafoe"
+        },
+        {
+            "id": "nm4969843",
+            "name": "Phill Martin"
+        },
+        {
+            "id": "nm6198408",
+            "name": "Eldar Skar"
+        },
+        {
+            "id": "nm0288260",
+            "name": "Olwen Fouéré"
+        },
+        {
+            "id": "nm11542893",
+            "name": "Edgar Abram"
+        },
+        {
+            "id": "nm7801403",
+            "name": "Jack Gassmann"
+        },
+        {
+            "id": "nm0797614",
+            "name": "Ingvar Sigurdsson"
+        },
+        {
+            "id": "nm10861182",
+            "name": "Oscar Novak"
+        },
+        {
+            "id": "nm1546538",
+            "name": "Jack Walsh"
+        },
+        {
+            "id": "nm0001951",
+            "name": "Björk"
+        },
+        {
+            "id": "nm1613839",
+            "name": "Ian Whyte"
+        }
+    ]
+}
