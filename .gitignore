@@ -1,3 +1,4 @@
 *.xlsx
 secrets.txt
 *.Rhistory
+.Rproj.user
