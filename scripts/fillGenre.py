@@ -13,8 +13,8 @@ from sqlalchemy import create_engine
 from datetime import datetime
 
 # Initialize
-targetFolder = input("Choose target folder: \n")
-pwd = input("Enter password for db: \n")
+targetFolder = "data/json/"
+pwd = open("secrets.txt", "r").readlines()[1]
 
 def repeat(s, n):
     """
