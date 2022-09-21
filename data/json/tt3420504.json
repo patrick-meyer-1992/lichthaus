@@ -1,1 +1,60 @@
-{"id":"tt3420504","title":"Finch","rating":6.8,"rating_count":80000,"release_year":2021,"popularity":1193,"imdb_type":"movie","runtime":"1h 55m","genres":[],"countries":["United States","India"],"languages":["English"],"rated":"PG-13","director_names":["Miguel Sapochnik"],"creator_names":[],"description":"","aka":["BIOS"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BZTMxYjk3MmItMzk1OC00NmRhLThlMjYtNmQyNzA0MzgxMWI2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg","imdb_date":"2021-11-05","actors":[{"id":"nm0000158","name":"Tom Hanks"},{"id":"nm2655177","name":"Caleb Landry Jones"},{"id":"nm8037956","name":"Marie Wagenman"},{"id":"nm1254942","name":"Lora Martinez-Cunningham"},{"id":"nm3311570","name":"Oscar Avila"},{"id":"nm13099216","name":"Emily Jones"},{"id":"nm13098960","name":"Seamus"}]}
+{
+    "id": "tt3420504",
+    "title": "Finch",
+    "rating": 6.8,
+    "rating_count": 80000,
+    "release_year": 2021,
+    "popularity": 1193,
+    "imdb_type": "movie",
+    "runtime": "1h 55m",
+    "genres": [],
+    "countries": [
+        "United States",
+        "India"
+    ],
+    "languages": [
+        "English"
+    ],
+    "rated": "PG-13",
+    "director_names": [
+        "Miguel Sapochnik"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "BIOS"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZTMxYjk3MmItMzk1OC00NmRhLThlMjYtNmQyNzA0MzgxMWI2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2021-11-05",
+    "actors": [
+        {
+            "id": "nm0000158",
+            "name": "Tom Hanks"
+        },
+        {
+            "id": "nm2655177",
+            "name": "Caleb Landry Jones"
+        },
+        {
+            "id": "nm8037956",
+            "name": "Marie Wagenman"
+        },
+        {
+            "id": "nm1254942",
+            "name": "Lora Martinez-Cunningham"
+        },
+        {
+            "id": "nm3311570",
+            "name": "Oscar Avila"
+        },
+        {
+            "id": "nm13099216",
+            "name": "Emily Jones"
+        },
+        {
+            "id": "nm13098960",
+            "name": "Seamus"
+        }
+    ]
+}
