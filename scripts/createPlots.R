@@ -4,6 +4,7 @@ library(dplyr)
 library(plotly)
 library(RPostgres)
 library(reshape2)
+library(stringr)
 
 pth = dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(pth)
@@ -237,6 +238,171 @@ plt = ggplot(data = df) +
 plt
 
 ggsave(filename = "Genre Häufigkeit.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+##### Wer hat den längsten Nachnamen? ####
+df = tbl(con, "teilnehmer")
+df = df %>% select(nachname) %>% filter(nachname != "unknown") %>% collect()
+df$length = nchar(df$nachname)
+df = df %>% distinct(nachname, length)
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(nachname, length), 
+                         y = length
+  ),
+  stat = "identity") +
+  geom_text(aes(x = nachname,
+                y = 0,
+                label = nachname),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = -0.1) +
+  labs(title = "Längster Nachname",
+       x = "Nachname",
+       y = "Länge") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Nachname.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+##### Wer hat die meisten Vokale im Namen? ####
+df = tbl(con, "teilnehmer")
+df = df %>% filter(nachname != "unknown") %>% collect()
+df$fullName = paste0(df$vorname, df$nachname)
+vowels = str_extract_all(df$fullName, "[aeiouAEIOUäöüÄÖÜ]{1,}")
+df$length = NA
+for (i in 1:nrow(df)) {
+  df$length[i] = length(vowels[[i]])
+}
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(vorname, length), 
+                         y = length
+  ),
+  stat = "identity") +
+  geom_text(aes(x = vorname,
+                y = 0,
+                label = paste0(vorname, " ", nachname, " (" , length, ")")),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = -0.1) +
+  labs(title = "Die meisten Vokale im Namen") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Vokale.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+##### Wer hat die meisten aufeinanderfolgenden Konsonanten im Namen? ####
+
+df = tbl(con, "teilnehmer")
+df = df %>% filter(nachname != "unknown") %>% collect()
+df$fullName = paste0(df$vorname, df$nachname)
+notVowels = str_extract_all(df$fullName, "[^aeiouAEIOUäöüÄÖÜ]{1,}")
+df$length = NA
+for (i in 1:nrow(df)) {
+  df$length[i] = max(nchar(notVowels[[i]]))
+}
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(vorname, length), 
+                         y = length
+  ),
+  stat = "identity") +
+  geom_text(aes(x = vorname,
+                y = 0,
+                label = paste0(vorname, " ", nachname, " (" , length, ")")),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = -0.1) +
+  labs(title = "Die meisten aufeinanderfolgenden Konsonanten im Namen") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Konsonanten.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+#### Wer bewertet wessen Vorschläge wie gut? ####
+# Einschränkung: Es werden nur die als Vorschlagende eines Films gewertet,
+# die ihn an dem Abend vorgeschlagen haben, an dem er gewählt wurde.
+
+schlaegt_vor = tbl(con, "schlaegt_vor") %>% select(!upload_time) %>% collect()
+film = tbl(con, "film") %>% select(!upload_time) %>% collect()
+bewertet = tbl(con, "bewertet") %>% select(!upload_time) %>% collect()
+stimmt_fuer = tbl(con, "stimmt_fuer") %>% select(!upload_time) %>% collect()
+
+df = left_join(schlaegt_vor, film, by = "id") %>% 
+  left_join(stimmt_fuer, by = "id", 
+            suffix = c(".schlaegt_vor", ".stimmt_fuer")) %>% 
+  filter(sieger & stimmdatum == vorschlagsdatum) %>% 
+  select(c("vorname.schlaegt_vor", "id", "titel", )) %>% 
+  left_join(bewertet, by = "id",
+            suffix = c(".schlaegt_vor", ".bewertet")) %>% 
+  group_by(vorname.schlaegt_vor, vorname) %>% 
+  summarise(avg = mean(wertung)) %>% 
+  rename(vorschlagender = vorname.schlaegt_vor,
+         bewerter = vorname) %>% 
+  filter(!is.na(avg) & vorschlagender != "Ben")
+
+df$clr = sapply(df$avg, FUN = function(x){
+  if(x < 8) "white" else "black"
+})
+
+plt = ggplot(df, aes(vorschlagender, bewerter, fill= avg)) + 
+  geom_tile(show.legend = F) +
+  geom_text(aes(x = vorschlagender,
+                y = bewerter,
+                label = round(avg, 2)),
+            angle = 0,
+            size = 3.5,
+            color = df$clr,
+            hjust = 0.5) +
+  scale_fill_distiller(palette = "Greys") +
+  labs(title = "Wer wessen Vorschläge wie gut bewertet",
+       x = "Vorschlagender",
+       y = "Bewerter") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12), 
+        axis.title = element_text(size = 5), 
+        axis.text = element_text(size = 8)
+  )
+
+plt
+
+ggsave(filename = "Wertungsmatrix.png", 
        plot = plt, 
        path = "..\\results", 
        width = 1500, 

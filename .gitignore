@@ -3,3 +3,4 @@ secrets.txt
 *.Rhistory
 .Rproj.user
 .spyproject*
+*testArea.py
