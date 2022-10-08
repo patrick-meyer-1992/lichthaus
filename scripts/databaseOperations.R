@@ -1,3 +1,15 @@
+#### Database Connection ####
+connectToLichthausDB = function(pwd){
+  db = 'lichthaus'
+  host_db = 'lichthaus.ddns.net' 
+  db_port = '54320' 
+  db_user = 'patrick'
+  db_password = pwd
+  con = dbConnect(RPostgres::Postgres(), dbname = db, host=host_db, port=db_port, user=db_user, password=db_password)
+  return(con)
+}
+
+
 update_film = function(con, df){
   # Reads the ids that already exist in film from database
   # Uploads only the ids from the given df which were not already existent
