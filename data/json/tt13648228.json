@@ -1,0 +1,103 @@
+{
+    "id": "tt13648228",
+    "title": "How It Ends",
+    "rating": 5.1,
+    "rating_count": 2900,
+    "release_year": 2021,
+    "popularity": 3170,
+    "imdb_type": "movie",
+    "runtime": "1h 22m",
+    "genres": [],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Zoe Lister-Jones",
+        "Daryl Wein"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Нам всем конец"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYTk1NWEzZjUtZTYzNi00YjM1LThlMjctM2JmZDhiYTRjOWYzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2021-07-20",
+    "actors": [
+        {
+            "id": "nm1830380",
+            "name": "Zoe Lister-Jones"
+        },
+        {
+            "id": "nm8314228",
+            "name": "Cailee Spaeny"
+        },
+        {
+            "id": "nm1579753",
+            "name": "Whitney Cummings"
+        },
+        {
+            "id": "nm5634295",
+            "name": "Tawny Newsome"
+        },
+        {
+            "id": "nm6016511",
+            "name": "Finn Wolfhard"
+        },
+        {
+            "id": "nm1802209",
+            "name": "Nick Kroll"
+        },
+        {
+            "id": "nm1334869",
+            "name": "Logan Marshall-Green"
+        },
+        {
+            "id": "nm0496899",
+            "name": "Bobby Lee"
+        },
+        {
+            "id": "nm0035488",
+            "name": "Fred Armisen"
+        },
+        {
+            "id": "nm1097351",
+            "name": "Glenn Howerton"
+        },
+        {
+            "id": "nm0925966",
+            "name": "Bradley Whitford"
+        },
+        {
+            "id": "nm8731249",
+            "name": "Ayo Edebiri"
+        },
+        {
+            "id": "nm3495649",
+            "name": "Sharon Van Etten"
+        },
+        {
+            "id": "nm1312575",
+            "name": "Olivia Wilde"
+        },
+        {
+            "id": "nm3625953",
+            "name": "Paul W. Downs"
+        },
+        {
+            "id": "nm1219362",
+            "name": "Raymond Cham Jr."
+        },
+        {
+            "id": "nm2031358",
+            "name": "Lamorne Morris"
+        },
+        {
+            "id": "nm2512132",
+            "name": "Angelique Cabral"
+        }
+    ]
+}

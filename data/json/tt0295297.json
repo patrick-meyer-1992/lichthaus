@@ -1,0 +1,109 @@
+{
+    "id": "tt0295297",
+    "title": "Harry Potter and the Chamber of Secrets",
+    "rating": 7.4,
+    "rating_count": 613000,
+    "release_year": 2002,
+    "popularity": 354,
+    "imdb_type": "movie",
+    "runtime": "2h 41m",
+    "genres": [
+        "Adventure",
+        "Family",
+        "Fantasy",
+        "Mystery"
+    ],
+    "countries": [
+        "United Kingdom",
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Latin"
+    ],
+    "director_names": [
+        "Chris Columbus"
+    ],
+    "creator_names": [],
+    "description": "Forced to spend his summer holidays with his muggle relations, Harry Potter (Daniel Radcliffe) gets a real shock when he gets a surprise visitor: Dobby (Toby Jones) the house-elf, who warns Harry against returning to Hogwarts, for terrible things are going to happen. Harry decides to ignore Dobby's warning and continues with his pre-arranged schedule. But at Hogwarts, strange and terrible things are indeed happening. Harry is suddenly hearing mysterious voices from inside the walls, muggle-born students are being attacked, and a message scrawled on the wall in blood puts everyone on his or her guard, \"The Chamber Of Secrets Has Been Opened. Enemies Of The Heir, Beware\".",
+    "aka": [
+        "Harry Potter và Phòng Chứa Bí Mật"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_QL75_UY281_CR0,0,190,281_FMwebp.webp",
+    "imdb_date": "2002-11-15",
+    "actors": [
+        {
+            "id": "nm0705356",
+            "name": "Daniel Radcliffe"
+        },
+        {
+            "id": "nm0342488",
+            "name": "Rupert Grint"
+        },
+        {
+            "id": "nm0914612",
+            "name": "Emma Watson"
+        },
+        {
+            "id": "nm0001321",
+            "name": "Richard Harris"
+        },
+        {
+            "id": "nm0341743",
+            "name": "Richard Griffiths"
+        },
+        {
+            "id": "nm0789716",
+            "name": "Fiona Shaw"
+        },
+        {
+            "id": "nm0577982",
+            "name": "Harry Melling"
+        },
+        {
+            "id": "nm0429363",
+            "name": "Toby Jones"
+        },
+        {
+            "id": "nm0636235",
+            "name": "Jim Norton"
+        },
+        {
+            "id": "nm0166688",
+            "name": "Veronica Clifford"
+        },
+        {
+            "id": "nm0962359",
+            "name": "James Phelps"
+        },
+        {
+            "id": "nm0962360",
+            "name": "Oliver Phelps"
+        },
+        {
+            "id": "nm0910278",
+            "name": "Julie Walters"
+        },
+        {
+            "id": "nm0942247",
+            "name": "Bonnie Wright"
+        },
+        {
+            "id": "nm0931247",
+            "name": "Mark Williams"
+        },
+        {
+            "id": "nm0710242",
+            "name": "Chris Rankin"
+        },
+        {
+            "id": "nm0271657",
+            "name": "Tom Felton"
+        },
+        {
+            "id": "nm0005042",
+            "name": "Jason Isaacs"
+        }
+    ]
+}

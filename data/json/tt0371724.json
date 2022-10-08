@@ -1,0 +1,107 @@
+{
+    "id": "tt0371724",
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "rating": 6.7,
+    "rating_count": 196000,
+    "release_year": 2005,
+    "popularity": 539,
+    "imdb_type": "movie",
+    "runtime": "1h 49m",
+    "genres": [
+        "Adventure",
+        "Comedy",
+        "Sci-Fi"
+    ],
+    "countries": [
+        "United Kingdom",
+        "United States"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Garth Jennings"
+    ],
+    "creator_names": [],
+    "description": "Everyone has bad mornings. You wake up late, you stub your toe, you burn the toast, but for a man named Arthur Dent, this goes far beyond a bad day. When he learns that a friend of his is actually an alien with advanced knowledge of Earth's impending destruction, he is transported off the Earth seconds before it is blown up to make way for a new hyperspace motorway. And as if that's not enough, throw in being wanted by the Police, Earth II, an insane electronic encyclopedia, no tea whatsoever, a chronically depressed robot and the search for the meaning of life, and you've got the greatest adventure off Earth.",
+    "aka": [
+        "Đường Đến Dải Ngân Hà"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZmU5MGU4MjctNjA2OC00N2FhLWFhNWQtMzQyMGI2ZmQ0Y2YyL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UY281_CR0,0,190,281_.jpg",
+    "imdb_date": "2005-04-28",
+    "actors": [
+        {
+            "id": "nm0293509",
+            "name": "Martin Freeman"
+        },
+        {
+            "id": "nm0080049",
+            "name": "Yasiin Bey"
+        },
+        {
+            "id": "nm0005377",
+            "name": "Sam Rockwell"
+        },
+        {
+            "id": "nm0221046",
+            "name": "Zooey Deschanel"
+        },
+        {
+            "id": "nm0047155",
+            "name": "Bill Bailey"
+        },
+        {
+            "id": "nm0151250",
+            "name": "Anna Chancellor"
+        },
+        {
+            "id": "nm0001116",
+            "name": "Warwick Davis"
+        },
+        {
+            "id": "nm0254332",
+            "name": "Su Elliot"
+        },
+        {
+            "id": "nm0000410",
+            "name": "Stephen Fry"
+        },
+        {
+            "id": "nm0341743",
+            "name": "Richard Griffiths"
+        },
+        {
+            "id": "nm1165344",
+            "name": "Dominique Jackson"
+        },
+        {
+            "id": "nm0429254",
+            "name": "Simon Jones"
+        },
+        {
+            "id": "nm0502073",
+            "name": "Thomas Lennon"
+        },
+        {
+            "id": "nm0519339",
+            "name": "Mark Longhurst"
+        },
+        {
+            "id": "nm0531808",
+            "name": "Kelly Macdonald"
+        },
+        {
+            "id": "nm0000518",
+            "name": "John Malkovich"
+        },
+        {
+            "id": "nm0573862",
+            "name": "Ian McNeice"
+        },
+        {
+            "id": "nm0000545",
+            "name": "Helen Mirren"
+        }
+    ]
+}

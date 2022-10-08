@@ -1,0 +1,108 @@
+{
+    "id": "tt12592252",
+    "title": "Songbird",
+    "rating": 4.7,
+    "rating_count": 9700,
+    "release_year": 2020,
+    "popularity": 4847,
+    "imdb_type": "movie",
+    "runtime": "1h 24m",
+    "genres": [
+        "Drama",
+        "Sci-Fi",
+        "Thriller"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Spanish"
+    ],
+    "rated": "PG-13",
+    "director_names": [
+        "Adam Mason"
+    ],
+    "creator_names": [],
+    "description": "Over 4 years of lock-down in LA in 2024 and COVID-23 has mutated and has a 56% mortality rate. Only the few immune people can leave their homes. Nico is one of the few. He's a courier delivering packages on his bike. He has the LA streets to himself except a few checkpoints. People hate him as he's immune and can move around and they can't. He has a cute girlfriend but all communication is over cellphones. LA's Department of Sanitation forcefully collects infected people and their non-immune household members from their homes to take them to quarantine zones. Q zones are thought of as quick death zones.",
+    "aka": [
+        "Giữa Tâm Dịch"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZDA1MTYxNjctYjQyOS00OTQ2LWFkNGMtMmZkNDg0ZDNjNDYyXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2020-12-11",
+    "actors": [
+        {
+            "id": "nm6216001",
+            "name": "K.J. Apa"
+        },
+        {
+            "id": "nm6259860",
+            "name": "Sofia Carson"
+        },
+        {
+            "id": "nm0732497",
+            "name": "Craig Robinson"
+        },
+        {
+            "id": "nm0925966",
+            "name": "Bradley Whitford"
+        },
+        {
+            "id": "nm0001780",
+            "name": "Peter Stormare"
+        },
+        {
+            "id": "nm0001990",
+            "name": "Elpidia Carrillo"
+        },
+        {
+            "id": "nm1275259",
+            "name": "Alexandra Daddario"
+        },
+        {
+            "id": "nm7186321",
+            "name": "Lia McHugh"
+        },
+        {
+            "id": "nm3236159",
+            "name": "Paul Walter Hauser"
+        },
+        {
+            "id": "nm0000193",
+            "name": "Demi Moore"
+        },
+        {
+            "id": "nm0806002",
+            "name": "Paul Sloan"
+        },
+        {
+            "id": "nm0397110",
+            "name": "Andrew Howard"
+        },
+        {
+            "id": "nm1408804",
+            "name": "Carol Abney"
+        },
+        {
+            "id": "nm0925232",
+            "name": "Michole Briana White"
+        },
+        {
+            "id": "nm1889911",
+            "name": "Darri Ingolfsson"
+        },
+        {
+            "id": "nm0241983",
+            "name": "Ian Duncan"
+        },
+        {
+            "id": "nm4365438",
+            "name": "Lauren Sivan"
+        },
+        {
+            "id": "nm7089031",
+            "name": "Jesse Gabbard"
+        }
+    ]
+}

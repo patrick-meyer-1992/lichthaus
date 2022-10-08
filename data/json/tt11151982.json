@@ -1,0 +1,107 @@
+{
+    "id": "tt11151982",
+    "title": "Goblin Slayer: Goblin's Crown",
+    "rating": 6.6,
+    "rating_count": 1300,
+    "release_year": 2020,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 25m",
+    "genres": [
+        "Animation",
+        "Action",
+        "Adventure",
+        "Fantasy"
+    ],
+    "countries": [
+        "Japan"
+    ],
+    "languages": [
+        "Japanese"
+    ],
+    "director_names": [
+        "Takaharu Ozaki"
+    ],
+    "creator_names": [],
+    "description": "The humanity has been at war with different kinds of monsters for far too long, however, people are now used to it. For those who want to take part in this, there is a guild of adventurers, where everyone can accept a quest and fight monsters for a reward. Among all those monsters, goblins are believed to be the weakest creatures to fight, which makes rewards for killing them quite minimal. Being alone, goblins are easy to kill, since they are not smart and lack any strategy whatsoever. However, among these stupid creatures there are goblins that are much more powerful, smarter and deadlier than their small and foolish brothers. Together, they form a power that is able to trouble even experienced adventurers. The problem is that only a few understand it. Goblin Slayer, Orcbolg, or Beard-cutter is an underappreciated silver-ranked adventurer, who, for some reason, only accepts goblin-killing quests. What is his story?",
+    "aka": [
+        "Убийца гоблинов: Корона гоблина"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYzIzNTNkZmMtYTE2Mi00NWEwLTk5MzktNWM2ZTNlNDI2MmM4XkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_QL75_UY281_CR5,0,190,281_.jpg",
+    "imdb_date": "2020-02-01",
+    "actors": [
+        {
+            "id": "nm5211370",
+            "name": "Justin Briner"
+        },
+        {
+            "id": "nm4974834",
+            "name": "Matt Shipman"
+        },
+        {
+            "id": "nm5157463",
+            "name": "Clifford Chapin"
+        },
+        {
+            "id": "nm0370085",
+            "name": "Brad Hawkins"
+        },
+        {
+            "id": "nm6624141",
+            "name": "Dallas Reid"
+        },
+        {
+            "id": "nm0931060",
+            "name": "Kent Williams"
+        },
+        {
+            "id": "nm10931637",
+            "name": "Suzie Yeung"
+        },
+        {
+            "id": "nm6657487",
+            "name": "Anairis Quinones"
+        },
+        {
+            "id": "nm4583591",
+            "name": "Mark Allen Jr."
+        },
+        {
+            "id": "nm4860037",
+            "name": "Sumire Uesaka"
+        },
+        {
+            "id": "nm5204895",
+            "name": "Brittany Lauda"
+        },
+        {
+            "id": "nm9278652",
+            "name": "Kyle Igneczi"
+        },
+        {
+            "id": "nm3930854",
+            "name": "Jarrod Greene"
+        },
+        {
+            "id": "nm7083517",
+            "name": "Mallorie Rodak"
+        },
+        {
+            "id": "nm6442425",
+            "name": "Hayden Daviau"
+        },
+        {
+            "id": "nm1891168",
+            "name": "Anthony Bowling"
+        },
+        {
+            "id": "nm4033859",
+            "name": "Yui Ogura"
+        },
+        {
+            "id": "nm6728149",
+            "name": "Yuichiro Umehara"
+        }
+    ]
+}

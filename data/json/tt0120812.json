@@ -1,0 +1,109 @@
+{
+    "id": "tt0120812",
+    "title": "Rush Hour",
+    "rating": 7,
+    "rating_count": 261000,
+    "release_year": 1998,
+    "popularity": 1172,
+    "imdb_type": "movie",
+    "runtime": "1h 38m",
+    "genres": [
+        "Action",
+        "Comedy",
+        "Crime",
+        "Thriller"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Cantonese",
+        "Mandarin"
+    ],
+    "director_names": [
+        "Brett Ratner"
+    ],
+    "creator_names": [],
+    "description": "Cultures clash and tempers flares as the two cops named Detective Inspector Lee a Hong Kong Detective and Detective James Carter FBI, a big-mouthed work-alone Los Angeles cop who are from different worlds discovers one thing in common: they can't stand each other. With time running out, they must join forces to catch the criminals and save the eleven-year-old Chinese girl of the Chinese consul named Soo Yung.",
+    "aka": [
+        "Giờ Cao Điểm"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYWM2NDZmYmYtNzlmZC00M2MyLWJmOGUtMjhiYmQ2OGU1YTE1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY281_CR1,0,190,281_FMwebp.webp",
+    "imdb_date": "1998-12-04",
+    "actors": [
+        {
+            "id": "nm0000329",
+            "name": "Jackie Chan"
+        },
+        {
+            "id": "nm0000676",
+            "name": "Chris Tucker"
+        },
+        {
+            "id": "nm0504962",
+            "name": "Ken Leung"
+        },
+        {
+            "id": "nm0929489",
+            "name": "Tom Wilkinson"
+        },
+        {
+            "id": "nm0002245",
+            "name": "Tzi Ma"
+        },
+        {
+            "id": "nm0514783",
+            "name": "Robert Littman"
+        },
+        {
+            "id": "nm0159485",
+            "name": "Michael Chow"
+        },
+        {
+            "id": "nm0398830",
+            "name": "Julia Hsu"
+        },
+        {
+            "id": "nm0001606",
+            "name": "Chris Penn"
+        },
+        {
+            "id": "nm0502097",
+            "name": "Kai Lennox"
+        },
+        {
+            "id": "nm0837942",
+            "name": "Larry Sullivan"
+        },
+        {
+            "id": "nm0510967",
+            "name": "Yang Lin"
+        },
+        {
+            "id": "nm0266656",
+            "name": "Roger Fan"
+        },
+        {
+            "id": "nm0156475",
+            "name": "George Cheung"
+        },
+        {
+            "id": "nm0510926",
+            "name": "Lucy Lin"
+        },
+        {
+            "id": "nm0513010",
+            "name": "Rex Linn"
+        },
+        {
+            "id": "nm0001679",
+            "name": "Mark Rolston"
+        },
+        {
+            "id": "nm0001615",
+            "name": "Elizabeth Peña"
+        }
+    ]
+}

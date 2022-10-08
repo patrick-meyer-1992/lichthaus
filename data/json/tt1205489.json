@@ -1,0 +1,106 @@
+{
+    "id": "tt1205489",
+    "title": "Gran Torino",
+    "rating": 8.1,
+    "rating_count": 760000,
+    "release_year": 2008,
+    "popularity": 1734,
+    "imdb_type": "movie",
+    "runtime": "1h 56m",
+    "genres": [
+        "Drama"
+    ],
+    "countries": [
+        "Germany",
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Hmong"
+    ],
+    "director_names": [
+        "Clint Eastwood"
+    ],
+    "creator_names": [],
+    "description": "Walt Kowalski (Clint Eastwood) is a widower who holds onto his prejudices despite the changes in his Michigan neighborhood and the world around him. Kowalski is a grumpy, tough-minded, unhappy old man who can't get along with either his kids or his neighbors. He is a Korean War veteran whose prize possession is a 1972 Gran Torino he keeps in mint condition. When his neighbor Thao Lor (Bee Vang), a young Hmong teenager under pressure from his gang member cousin, tries to steal his Gran Torino, Kowalski sets out to reform the youth. Drawn against his will into the life of Thao's family, Kowalski is soon taking steps to protect them from the gangs that infest their neighborhood.",
+    "aka": [
+        "Ngọt Và Đắng"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg@@._V1_QL75_UY281_CR0,0,190,281_FMwebp.webp",
+    "imdb_date": "2009-02-20",
+    "actors": [
+        {
+            "id": "nm0000142",
+            "name": "Clint Eastwood"
+        },
+        {
+            "id": "nm3057402",
+            "name": "Bee Vang"
+        },
+        {
+            "id": "nm1542291",
+            "name": "Christopher Carley"
+        },
+        {
+            "id": "nm3115704",
+            "name": "Ahney Her"
+        },
+        {
+            "id": "nm0355083",
+            "name": "Brian Haley"
+        },
+        {
+            "id": "nm0400625",
+            "name": "Geraldine Hughes"
+        },
+        {
+            "id": "nm2439111",
+            "name": "Dreama Walker"
+        },
+        {
+            "id": "nm0397788",
+            "name": "Brian Howe"
+        },
+        {
+            "id": "nm0002253",
+            "name": "John Carroll Lynch"
+        },
+        {
+            "id": "nm0384771",
+            "name": "William Hill"
+        },
+        {
+            "id": "nm3146066",
+            "name": "Brooke Chia Thao"
+        },
+        {
+            "id": "nm3146363",
+            "name": "Chee Thao"
+        },
+        {
+            "id": "nm3175843",
+            "name": "Choua Kue"
+        },
+        {
+            "id": "nm2207222",
+            "name": "Scott Eastwood"
+        },
+        {
+            "id": "nm3214286",
+            "name": "Xia Soua Chang"
+        },
+        {
+            "id": "nm3116410",
+            "name": "Sonny Vue"
+        },
+        {
+            "id": "nm1732080",
+            "name": "Doua Moua"
+        },
+        {
+            "id": "nm1041781",
+            "name": "Greg Trzaskoma"
+        }
+    ]
+}

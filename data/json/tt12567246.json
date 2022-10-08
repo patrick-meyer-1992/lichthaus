@@ -1,0 +1,60 @@
+{
+    "id": "tt12567246",
+    "title": "Ip Man: Kung Fu Master",
+    "rating": 4.5,
+    "rating_count": 864,
+    "release_year": 2019,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 24m",
+    "genres": [
+        "Action"
+    ],
+    "countries": [
+        "China"
+    ],
+    "languages": [
+        "Mandarin"
+    ],
+    "director_names": [
+        "Liming Li"
+    ],
+    "creator_names": [],
+    "description": "During his time as a police captain in Foshan, Ip Man is targeted by a vengeful gangster just as the Japanese army invades the region.",
+    "aka": [
+        "Ип Ман: Мастер кунг-фу"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZjA1YWEzOGQtNDEzOS00ODlkLWFjZGEtZDM4NmRmMjFmZjlhXkEyXkFqcGdeQXVyMTA2MDU0NjM5._V1_QL75_UX190_CR0,13,190,281_.jpg",
+    "imdb_date": "2019-12-23",
+    "actors": [
+        {
+            "id": "nm3573347",
+            "name": "Matt Fowler"
+        },
+        {
+            "id": "nm1042831",
+            "name": "Philip Hersh"
+        },
+        {
+            "id": "nm3253626",
+            "name": "Yu-Hang To"
+        },
+        {
+            "id": "nm7079317",
+            "name": "Xiaohu Tong"
+        },
+        {
+            "id": "nm0939255",
+            "name": "Michael Wong"
+        },
+        {
+            "id": "nm11681153",
+            "name": "Wanliruo Xin"
+        },
+        {
+            "id": "nm11681152",
+            "name": "Dongfeng Yue"
+        }
+    ]
+}

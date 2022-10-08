@@ -1,0 +1,104 @@
+{
+    "id": "tt10341034",
+    "title": "Black Box",
+    "rating": 7.2,
+    "rating_count": 9600,
+    "release_year": 2021,
+    "popularity": 3981,
+    "imdb_type": "movie",
+    "runtime": "2h 9m",
+    "genres": [],
+    "countries": [
+        "France",
+        "Belgium"
+    ],
+    "languages": [
+        "French",
+        "English"
+    ],
+    "director_names": [
+        "Yann Gozlan"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Чорна скринька"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZDllNzczOTUtMTJjMy00ZjA3LTk2ODgtNDZhZWVkMzI1YWE2XkEyXkFqcGdeQXVyODgzNDIwODA@._V1_QL75_UY281_CR9,0,190,281_.jpg",
+    "imdb_date": "2021-09-08",
+    "actors": [
+        {
+            "id": "nm2582755",
+            "name": "Pierre Niney"
+        },
+        {
+            "id": "nm3650704",
+            "name": "Lou de Laâge"
+        },
+        {
+            "id": "nm0244707",
+            "name": "André Dussollier"
+        },
+        {
+            "id": "nm3540169",
+            "name": "Sébastien Pouderoux"
+        },
+        {
+            "id": "nm0705005",
+            "name": "Olivier Rabourdin"
+        },
+        {
+            "id": "nm3657567",
+            "name": "Guillaume Marquet"
+        },
+        {
+            "id": "nm4567471",
+            "name": "Mehdi Djaadi"
+        },
+        {
+            "id": "nm0044386",
+            "name": "Anne Azoulay"
+        },
+        {
+            "id": "nm0714534",
+            "name": "Aurélien Recoing"
+        },
+        {
+            "id": "nm0246362",
+            "name": "Grégori Derangère"
+        },
+        {
+            "id": "nm0545838",
+            "name": "André Marcon"
+        },
+        {
+            "id": "nm7827473",
+            "name": "Octave Bossuet"
+        },
+        {
+            "id": "nm5095015",
+            "name": "Marie Dompnier"
+        },
+        {
+            "id": "nm0562721",
+            "name": "Philippe Maymat"
+        },
+        {
+            "id": "nm5044502",
+            "name": "Boris Ravaine"
+        },
+        {
+            "id": "nm5047543",
+            "name": "Lorène Devienne"
+        },
+        {
+            "id": "nm3869310",
+            "name": "Claire Viville"
+        },
+        {
+            "id": "nm1882918",
+            "name": "Niki Zischka"
+        }
+    ]
+}

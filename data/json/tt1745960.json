@@ -1,0 +1,103 @@
+{
+    "id": "tt1745960",
+    "title": "Top Gun: Maverick",
+    "rating": 8.4,
+    "rating_count": 383000,
+    "release_year": 2022,
+    "popularity": 14,
+    "imdb_type": "movie",
+    "runtime": "2h 10m",
+    "genres": [],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English"
+    ],
+    "rated": "PG-13",
+    "director_names": [
+        "Joseph Kosinski"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Phi Công Siêu Đẳng Maverick"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2022-05-27",
+    "actors": [
+        {
+            "id": "nm0000129",
+            "name": "Tom Cruise"
+        },
+        {
+            "id": "nm0000124",
+            "name": "Jennifer Connelly"
+        },
+        {
+            "id": "nm1886602",
+            "name": "Miles Teller"
+        },
+        {
+            "id": "nm0000174",
+            "name": "Val Kilmer"
+        },
+        {
+            "id": "nm1506981",
+            "name": "Bashir Salahuddin"
+        },
+        {
+            "id": "nm0358316",
+            "name": "Jon Hamm"
+        },
+        {
+            "id": "nm0663174",
+            "name": "Charles Parnell"
+        },
+        {
+            "id": "nm4834815",
+            "name": "Monica Barbaro"
+        },
+        {
+            "id": "nm5730649",
+            "name": "Lewis Pullman"
+        },
+        {
+            "id": "nm1337350",
+            "name": "Jay Ellis"
+        },
+        {
+            "id": "nm6639989",
+            "name": "Danny Ramirez"
+        },
+        {
+            "id": "nm1412974",
+            "name": "Glen Powell"
+        },
+        {
+            "id": "nm7453477",
+            "name": "Jack Schumacher"
+        },
+        {
+            "id": "nm3254274",
+            "name": "Manny Jacinto"
+        },
+        {
+            "id": "nm2745297",
+            "name": "Kara Wang"
+        },
+        {
+            "id": "nm8241861",
+            "name": "Greg Tarzan Davis"
+        },
+        {
+            "id": "nm4917623",
+            "name": "Jake Picking"
+        },
+        {
+            "id": "nm3100463",
+            "name": "Raymond Lee"
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "id": "tt1206885",
+    "title": "Rambo: Last Blood",
+    "rating": 6.1,
+    "rating_count": 94000,
+    "release_year": 2019,
+    "popularity": 1925,
+    "imdb_type": "movie",
+    "runtime": "1h 29m",
+    "genres": [
+        "Action",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "Hong Kong",
+        "France",
+        "Bulgaria",
+        "Spain",
+        "Sweden"
+    ],
+    "languages": [
+        "English",
+        "Spanish"
+    ],
+    "director_names": [
+        "Adrian Grunberg"
+    ],
+    "creator_names": [],
+    "description": "Almost four decades after they drew first blood, Sylvester Stallone is back as one of the greatest action heroes of all time, John Rambo. Now, Rambo must confront his past and unearth his ruthless combat skills to exact revenge in a final mission. A deadly journey of vengeance, RAMBO: LAST BLOOD marks the last chapter of the legendary series.",
+    "aka": [
+        "Rambo: Hồi Kết Đẫm Máu"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BNTAxZWM2OTgtOTQzOC00ZTI5LTgyYjktZTRhYWM4YWQxNWI0XkEyXkFqcGdeQXVyMjMwNDgzNjc@._V1_QL75_UY281_CR0,0,190,281_FMwebp.webp",
+    "imdb_date": "2019-09-19",
+    "actors": [
+        {
+            "id": "nm0000230",
+            "name": "Sylvester Stallone"
+        },
+        {
+            "id": "nm0891895",
+            "name": "Paz Vega"
+        },
+        {
+            "id": "nm0673824",
+            "name": "Sergio Peris-Mencheta"
+        },
+        {
+            "id": "nm0056770",
+            "name": "Adriana Barraza"
+        },
+        {
+            "id": "nm6060991",
+            "name": "Yvette Monreal"
+        },
+        {
+            "id": "nm1377487",
+            "name": "Genie Kim"
+        },
+        {
+            "id": "nm1370408",
+            "name": "Joaquín Cosio"
+        },
+        {
+            "id": "nm2099799",
+            "name": "Pascacio López"
+        },
+        {
+            "id": "nm1049982",
+            "name": "Óscar Jaenada"
+        },
+        {
+            "id": "nm7091593",
+            "name": "Alexander Dimitrov"
+        },
+        {
+            "id": "nm3831767",
+            "name": "Aaron Cohen"
+        },
+        {
+            "id": "nm4788175",
+            "name": "Nick Wittman"
+        },
+        {
+            "id": "nm7289044",
+            "name": "Jessica Madsen"
+        },
+        {
+            "id": "nm0541909",
+            "name": "Louis Mandylor"
+        },
+        {
+            "id": "nm3799259",
+            "name": "Owen Davis"
+        },
+        {
+            "id": "nm8935029",
+            "name": "Jamieson Urquhart"
+        },
+        {
+            "id": "nm11022701",
+            "name": "Brayden Pindur"
+        },
+        {
+            "id": "nm2209074",
+            "name": "Fenessa Pineda"
+        }
+    ]
+}

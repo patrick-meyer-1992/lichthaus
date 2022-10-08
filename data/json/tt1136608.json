@@ -1,0 +1,114 @@
+{
+    "id": "tt1136608",
+    "title": "District 9",
+    "rating": 7.9,
+    "rating_count": 669000,
+    "release_year": 2009,
+    "popularity": 877,
+    "imdb_type": "movie",
+    "runtime": "1h 52m",
+    "genres": [
+        "Action",
+        "Sci-Fi",
+        "Thriller"
+    ],
+    "countries": [
+        "South Africa",
+        "United States",
+        "New Zealand",
+        "Canada"
+    ],
+    "languages": [
+        "English",
+        "Nyanja",
+        "Afrikaans",
+        "Zulu",
+        "Xhosa",
+        "Sotho"
+    ],
+    "director_names": [
+        "Neill Blomkamp"
+    ],
+    "creator_names": [],
+    "description": "In 1982, a massive star ship bearing a bedraggled alien population, nicknamed \"The Prawns,\" appeared over Johannesburg, South Africa. Twenty-eight years later, the initial welcome by the human population has faded. The refugee camp where the aliens were located has deteriorated into a militarized ghetto called District 9, where they are confined and exploited in squalor. In 2010, the munitions corporation, Multi-National United, is contracted to forcibly evict the population with operative Wikus van der Merwe in charge. In this operation, Wikus is exposed to a strange alien chemical and must rely on the help of his only two new 'Prawn' friends.",
+    "aka": [
+        "District Nine"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYmQ5MzFjYWMtMTMwNC00ZGU5LWI3YTQtYzhkMGExNGFlY2Q0XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_QL75_UX190_CR0,0,190,281_FMwebp.webp",
+    "imdb_date": "2009-09-04",
+    "actors": [
+        {
+            "id": "nm1663205",
+            "name": "Sharlto Copley"
+        },
+        {
+            "id": "nm3107870",
+            "name": "David James"
+        },
+        {
+            "id": "nm2271261",
+            "name": "Jason Cope"
+        },
+        {
+            "id": "nm1410076",
+            "name": "Nathalie Boltt"
+        },
+        {
+            "id": "nm0834501",
+            "name": "Sylvaine Strike"
+        },
+        {
+            "id": "nm3522550",
+            "name": "Elizabeth Mkandawie"
+        },
+        {
+            "id": "nm0838605",
+            "name": "John Sumner"
+        },
+        {
+            "id": "nm0950165",
+            "name": "William Allen Young"
+        },
+        {
+            "id": "nm0578458",
+            "name": "Greg Melvill-Smith"
+        },
+        {
+            "id": "nm1693223",
+            "name": "Nick Blake"
+        },
+        {
+            "id": "nm3522267",
+            "name": "Morena Busa Sesatsa"
+        },
+        {
+            "id": "nm3522165",
+            "name": "Themba Nkosi"
+        },
+        {
+            "id": "nm3521239",
+            "name": "Mzwandile Nqoba"
+        },
+        {
+            "id": "nm3508983",
+            "name": "Barry Strydom"
+        },
+        {
+            "id": "nm0112400",
+            "name": "Jed Brophy"
+        },
+        {
+            "id": "nm3227023",
+            "name": "Louis Minnaar"
+        },
+        {
+            "id": "nm3241306",
+            "name": "Vanessa Haywood"
+        },
+        {
+            "id": "nm3520357",
+            "name": "Marian Hooman"
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "id": "tt8579674",
+    "title": "1917",
+    "rating": 8.2,
+    "rating_count": 546000,
+    "release_year": 2019,
+    "popularity": 240,
+    "imdb_type": "movie",
+    "runtime": "1h 59m",
+    "genres": [
+        "Action",
+        "Drama",
+        "War"
+    ],
+    "countries": [
+        "United Kingdom",
+        "United States",
+        "India",
+        "Spain"
+    ],
+    "languages": [
+        "English",
+        "French",
+        "German"
+    ],
+    "director_names": [
+        "Sam Mendes"
+    ],
+    "creator_names": [],
+    "description": "April 1917, the Western Front. Two British soldiers are sent to deliver an urgent message to an isolated regiment. If the message is not received in time the regiment will walk into a trap and be massacred. To get to the regiment they will need to cross through enemy territory. Time is of the essence and the journey will be fraught with danger.",
+    "aka": [
+        "Thế Chiến 1917"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_QL75_UX190_CR0,10,190,281_FMwebp.webp",
+    "imdb_date": "2020-01-10",
+    "actors": [
+        {
+            "id": "nm2835616",
+            "name": "Dean-Charles Chapman"
+        },
+        {
+            "id": "nm1126657",
+            "name": "George MacKay"
+        },
+        {
+            "id": "nm0990547",
+            "name": "Daniel Mays"
+        },
+        {
+            "id": "nm0000147",
+            "name": "Colin Firth"
+        },
+        {
+            "id": "nm2553988",
+            "name": "Pip Carter"
+        },
+        {
+            "id": "nm5121393",
+            "name": "Andy Apollo"
+        },
+        {
+            "id": "nm4078775",
+            "name": "Paul Tinto"
+        },
+        {
+            "id": "nm6919812",
+            "name": "Josef Davies"
+        },
+        {
+            "id": "nm5037475",
+            "name": "Billy Postlethwaite"
+        },
+        {
+            "id": "nm9419368",
+            "name": "Gabriel Akuwudike"
+        },
+        {
+            "id": "nm0778831",
+            "name": "Andrew Scott"
+        },
+        {
+            "id": "nm10711826",
+            "name": "Spike Leighton"
+        },
+        {
+            "id": "nm4130813",
+            "name": "Robert Maaser"
+        },
+        {
+            "id": "nm2228294",
+            "name": "Gerran Howell"
+        },
+        {
+            "id": "nm9273822",
+            "name": "Adam Hugill"
+        },
+        {
+            "id": "nm0835016",
+            "name": "Mark Strong"
+        },
+        {
+            "id": "nm0564500",
+            "name": "Richard McCabe"
+        },
+        {
+            "id": "nm11227848",
+            "name": "Benjamin Adams"
+        }
+    ]
+}

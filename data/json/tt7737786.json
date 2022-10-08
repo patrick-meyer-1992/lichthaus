@@ -1,0 +1,111 @@
+{
+    "id": "tt7737786",
+    "title": "Greenland",
+    "rating": 6.4,
+    "rating_count": 111000,
+    "release_year": 2020,
+    "popularity": 569,
+    "imdb_type": "movie",
+    "runtime": "1h 59m",
+    "genres": [
+        "Action",
+        "Drama",
+        "Sci-Fi",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "United Kingdom"
+    ],
+    "languages": [
+        "English",
+        "Spanish",
+        "Russian"
+    ],
+    "rated": "PG-13",
+    "director_names": [
+        "Ric Roman Waugh"
+    ],
+    "creator_names": [],
+    "description": "A family fights for survival as a planet-killing comet races to Earth. John Garrity (Gerard Butler), his estranged wife Allison (Morena Baccarin), and young son Nathan make a perilous journey to their only hope for sanctuary. Amid terrifying news accounts of cities around the world being leveled by the comet's fragments, the Garritys experience the best and worst in humanity while they battle the increasing panic and lawlessness surrounding them. As the countdown to global apocalypse approaches zero, their incredible trek culminates in a desperate and last-minute flight to a possible safe haven.",
+    "aka": [
+        "Greenland: Thảm Họa Thiên Thạch"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzcyMzU4MDUtM2JhOC00ZDg2LTg5MGMtZjc2OGMyMjhlMGE2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL75_UX190_CR0,0,190,281_FMwebp.webp",
+    "imdb_date": "2021-01-01",
+    "actors": [
+        {
+            "id": "nm0124930",
+            "name": "Gerard Butler"
+        },
+        {
+            "id": "nm1072555",
+            "name": "Morena Baccarin"
+        },
+        {
+            "id": "nm9819444",
+            "name": "Roger Dale Floyd"
+        },
+        {
+            "id": "nm0001277",
+            "name": "Scott Glenn"
+        },
+        {
+            "id": "nm5381015",
+            "name": "Randal Gonzalez"
+        },
+        {
+            "id": "nm0664710",
+            "name": "Rick Pasqualone"
+        },
+        {
+            "id": "nm2068832",
+            "name": "Nicola Lambo"
+        },
+        {
+            "id": "nm1830016",
+            "name": "Alan Pietruszewski"
+        },
+        {
+            "id": "nm1407651",
+            "name": "Scott Poythress"
+        },
+        {
+            "id": "nm1683133",
+            "name": "Claire Bronson"
+        },
+        {
+            "id": "nm4244597",
+            "name": "Madison Johnson"
+        },
+        {
+            "id": "nm0917314",
+            "name": "Gary Weeks"
+        },
+        {
+            "id": "nm2111132",
+            "name": "Tracey Bonner"
+        },
+        {
+            "id": "nm0242257",
+            "name": "Merrin Dungey"
+        },
+        {
+            "id": "nm11813073",
+            "name": "Brandon Miller"
+        },
+        {
+            "id": "nm1911280",
+            "name": "Mike Senior"
+        },
+        {
+            "id": "nm2643745",
+            "name": "Hayes Mercure"
+        },
+        {
+            "id": "nm7542600",
+            "name": "Esosa Idahosa"
+        }
+    ]
+}

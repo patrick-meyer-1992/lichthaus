@@ -1,0 +1,109 @@
+{
+    "id": "tt1860357",
+    "title": "Deepwater Horizon",
+    "rating": 7.1,
+    "rating_count": 166000,
+    "release_year": 2016,
+    "popularity": 2019,
+    "imdb_type": "movie",
+    "runtime": "1h 47m",
+    "genres": [
+        "Action",
+        "Drama",
+        "History",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "Hong Kong",
+        "China"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Peter Berg"
+    ],
+    "creator_names": [],
+    "description": "In April 2010, there is no oil exploration operation in the Gulf of Mexico to compare with the Deepwater Horizon oil rig with its size or sheer depth of its drilling. However, the project for the BP oil company is beset with technical difficulties to the point where the general operational supervisor, Jimmy Harrell, and his Chief Electrical Engineer, Mike Williams, are concerned potentially dangerous trouble is brewing. Unfortunately, visiting BP executives, frustrated by the project's long delays, order curtailed site inspections and slanted system tests to make up for lost time even as Harrell, Williams and his team helplessly protest for the sake of proper safety. On April 20, the workers' fears are realized in the worst possible way when the rig's various structural and system flaws spark a catastrophic cascade of failures that would create a massive blowout and explosion that threatens them all, even as it also begins the worst environmental disaster in US history.",
+    "aka": [
+        "Thảm Họa Giàn Khoan"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BOTEzNDU0OTgxM15BMl5BanBnXkFtZTgwNjA0ODM2OTE@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2016-09-29",
+    "actors": [
+        {
+            "id": "nm0000242",
+            "name": "Mark Wahlberg"
+        },
+        {
+            "id": "nm0000621",
+            "name": "Kurt Russell"
+        },
+        {
+            "id": "nm0341174",
+            "name": "Douglas M. Griffin"
+        },
+        {
+            "id": "nm0003069",
+            "name": "James DuMont"
+        },
+        {
+            "id": "nm0159609",
+            "name": "Joe Chrest"
+        },
+        {
+            "id": "nm1752221",
+            "name": "Gina Rodriguez"
+        },
+        {
+            "id": "nm0500894",
+            "name": "Brad Leland"
+        },
+        {
+            "id": "nm0000518",
+            "name": "John Malkovich"
+        },
+        {
+            "id": "nm1296223",
+            "name": "David Maldonado"
+        },
+        {
+            "id": "nm0263625",
+            "name": "J.D. Evermore"
+        },
+        {
+            "id": "nm0839486",
+            "name": "Ethan Suplee"
+        },
+        {
+            "id": "nm8461204",
+            "name": "Jason Pine"
+        },
+        {
+            "id": "nm3187553",
+            "name": "Jason Kirkpatrick"
+        },
+        {
+            "id": "nm5580827",
+            "name": "Robert Walker Branchaud"
+        },
+        {
+            "id": "nm3729721",
+            "name": "Dylan O'Brien"
+        },
+        {
+            "id": "nm0029470",
+            "name": "Jonathan Angel"
+        },
+        {
+            "id": "nm2917315",
+            "name": "Bill McMullen"
+        },
+        {
+            "id": "nm3274961",
+            "name": "Jeremy Sande"
+        }
+    ]
+}

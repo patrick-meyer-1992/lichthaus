@@ -1,0 +1,108 @@
+{
+    "id": "tt1656190",
+    "title": "Safe",
+    "rating": 6.5,
+    "rating_count": 110000,
+    "release_year": 2012,
+    "popularity": 4897,
+    "imdb_type": "movie",
+    "runtime": "1h 34m",
+    "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Mandarin",
+        "Russian"
+    ],
+    "director_names": [
+        "Boaz Yakin"
+    ],
+    "creator_names": [],
+    "description": "In China, the girl Mei is a genius that looks like a computer in numbers. She is abducted by the Chinese Triads and the boss Han Jiao takes Mei to New York's Chinatown in order to help him in his criminal activities. Meanwhile, the fighter Luke Wright has his life destroyed when he wins a fight against the will of the Russian Mafia and accidentally kills his opponent. The Russian mobsters kill his wife and the alcoholic Luke wanders aimlessly on the streets and homeless shelters. One day, Han Jiao asks Mei to memorize a long number and soon the Russian Mafia abducts the girl from the Chinese mobs. She escapes from the mobsters and is chased by the Russians; by the corrupt detectives from the NYPD; and by the Triads. When Luke sees the girl fleeing from the Russian mobs in the subway, he protects the girl and discovers that the number she had memorized is the combination of a safe where the Triads keep 30 million dollars. Luke is an elite agent and uses his skills to protect the girl.",
+    "aka": [
+        "Mật Mã Sống"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcxNDI0NzUxMF5BMl5BanBnXkFtZTcwOTIzMjkyNw@@._V1_QL75_UX190_CR0,6,190,281_FMwebp.webp",
+    "imdb_date": "2012-05-04",
+    "actors": [
+        {
+            "id": "nm0005458",
+            "name": "Jason Statham"
+        },
+        {
+            "id": "nm4313845",
+            "name": "Catherine Chan"
+        },
+        {
+            "id": "nm0001697",
+            "name": "Chris Sarandon"
+        },
+        {
+            "id": "nm0121559",
+            "name": "Robert John Burke"
+        },
+        {
+            "id": "nm0393222",
+            "name": "James Hong"
+        },
+        {
+            "id": "nm0609845",
+            "name": "Anson Mount"
+        },
+        {
+            "id": "nm0879381",
+            "name": "Sándor Técsy"
+        },
+        {
+            "id": "nm0797746",
+            "name": "Joseph Sikora"
+        },
+        {
+            "id": "nm1216826",
+            "name": "Igor Jijikine"
+        },
+        {
+            "id": "nm0498046",
+            "name": "Reggie Lee"
+        },
+        {
+            "id": "nm0170357",
+            "name": "James Colby"
+        },
+        {
+            "id": "nm0642867",
+            "name": "Matt O'Toole"
+        },
+        {
+            "id": "nm0350304",
+            "name": "Jack Gwaltney"
+        },
+        {
+            "id": "nm0102997",
+            "name": "Barry Bradford"
+        },
+        {
+            "id": "nm0316310",
+            "name": "Jay Giannone"
+        },
+        {
+            "id": "nm5011801",
+            "name": "James Tolbert III"
+        },
+        {
+            "id": "nm3003737",
+            "name": "Danni DanDan Gadigan"
+        },
+        {
+            "id": "nm2686795",
+            "name": "Julian Marzal"
+        }
+    ]
+}

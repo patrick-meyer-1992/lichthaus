@@ -1,0 +1,109 @@
+{
+    "id": "tt4566758",
+    "title": "Mulan",
+    "rating": 5.7,
+    "rating_count": 144000,
+    "release_year": 2020,
+    "popularity": 1199,
+    "imdb_type": "movie",
+    "runtime": "1h 55m",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy"
+    ],
+    "countries": [
+        "United States",
+        "China"
+    ],
+    "languages": [
+        "English",
+        "Mandarin"
+    ],
+    "director_names": [
+        "Niki Caro"
+    ],
+    "creator_names": [],
+    "description": "A young Chinese maiden disguises herself as a male warrior in order to save her father.",
+    "aka": [
+        "Hoa Mộc Lan"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BNDliY2E1MjUtNzZkOS00MzJlLTgyOGEtZDg4MTI1NzZkMTBhXkEyXkFqcGdeQXVyNjMwMzc3MjE@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2020-09-04",
+    "actors": [
+        {
+            "id": "nm1703577",
+            "name": "Liu Yifei"
+        },
+        {
+            "id": "nm0947447",
+            "name": "Donnie Yen"
+        },
+        {
+            "id": "nm0000084",
+            "name": "Gong Li"
+        },
+        {
+            "id": "nm0001472",
+            "name": "Jet Li"
+        },
+        {
+            "id": "nm0001462",
+            "name": "Jason Scott Lee"
+        },
+        {
+            "id": "nm5256788",
+            "name": "Yoson An"
+        },
+        {
+            "id": "nm0002245",
+            "name": "Tzi Ma"
+        },
+        {
+            "id": "nm0001034",
+            "name": "Rosalind Chao"
+        },
+        {
+            "id": "nm0155607",
+            "name": "Pei-Pei Cheng"
+        },
+        {
+            "id": "nm3487897",
+            "name": "Xana Tang"
+        },
+        {
+            "id": "nm0950620",
+            "name": "Ron Yuan"
+        },
+        {
+            "id": "nm10182589",
+            "name": "Jun Yu"
+        },
+        {
+            "id": "nm3247936",
+            "name": "Chen Tang"
+        },
+        {
+            "id": "nm1732080",
+            "name": "Doua Moua"
+        },
+        {
+            "id": "nm4136296",
+            "name": "Jimmy Wong"
+        },
+        {
+            "id": "nm1116914",
+            "name": "Nelson Lee"
+        },
+        {
+            "id": "nm1229640",
+            "name": "Hoon Lee"
+        },
+        {
+            "id": "nm11283837",
+            "name": "Crystal Rao"
+        }
+    ]
+}

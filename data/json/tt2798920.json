@@ -1,0 +1,110 @@
+{
+    "id": "tt2798920",
+    "title": "Annihilation",
+    "rating": 6.8,
+    "rating_count": 312000,
+    "release_year": 2018,
+    "popularity": 437,
+    "imdb_type": "movie",
+    "runtime": "1h 55m",
+    "genres": [
+        "Adventure",
+        "Drama",
+        "Horror",
+        "Mystery",
+        "Sci-Fi",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "United Kingdom"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Alex Garland"
+    ],
+    "creator_names": [],
+    "description": "A biologist's husband disappears. She puts her name forward for an expedition into an environmental disaster zone, but does not find what she's expecting. The expedition team is made up of the biologist, an anthropologist, a psychologist, a surveyor, and a linguist.",
+    "aka": [
+        "Vùng Hủy Diệt"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTk2Mjc2NzYxNl5BMl5BanBnXkFtZTgwMTA2OTA1NDM@._V1_QL75_UX190_CR0,8,190,281_.jpg",
+    "imdb_date": "2018-02-23",
+    "actors": [
+        {
+            "id": "nm0000204",
+            "name": "Natalie Portman"
+        },
+        {
+            "id": "nm0000492",
+            "name": "Jennifer Jason Leigh"
+        },
+        {
+            "id": "nm1935086",
+            "name": "Tessa Thompson"
+        },
+        {
+            "id": "nm0938950",
+            "name": "Benedict Wong"
+        },
+        {
+            "id": "nm4420495",
+            "name": "Sonoya Mizuno"
+        },
+        {
+            "id": "nm1408543",
+            "name": "David Gyasi"
+        },
+        {
+            "id": "nm1209966",
+            "name": "Oscar Isaac"
+        },
+        {
+            "id": "nm1134945",
+            "name": "John Schwab"
+        },
+        {
+            "id": "nm1752221",
+            "name": "Gina Rodriguez"
+        },
+        {
+            "id": "nm0637259",
+            "name": "Tuva Novotny"
+        },
+        {
+            "id": "nm0371363",
+            "name": "Sammy Hayman"
+        },
+        {
+            "id": "nm7397928",
+            "name": "Josh Danford"
+        },
+        {
+            "id": "nm9631942",
+            "name": "Kristen McGarrity"
+        },
+        {
+            "id": "nm6703520",
+            "name": "Kola Bokinni"
+        },
+        {
+            "id": "nm7707203",
+            "name": "Annarie Boor"
+        },
+        {
+            "id": "nm8308583",
+            "name": "Kirk Bowett"
+        },
+        {
+            "id": "nm9553643",
+            "name": "Luis Cherubini"
+        },
+        {
+            "id": "nm5753065",
+            "name": "Richard Clark"
+        }
+    ]
+}

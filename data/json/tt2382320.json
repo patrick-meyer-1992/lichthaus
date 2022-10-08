@@ -1,0 +1,109 @@
+{
+    "id": "tt2382320",
+    "title": "No Time to Die",
+    "rating": 7.3,
+    "rating_count": 390000,
+    "release_year": 2021,
+    "popularity": 124,
+    "imdb_type": "movie",
+    "runtime": "2h 43m",
+    "genres": [],
+    "countries": [
+        "United Kingdom",
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "French",
+        "Italian",
+        "Russian",
+        "Spanish",
+        "German"
+    ],
+    "rated": "PG-13",
+    "director_names": [
+        "Cary Joji Fukunaga"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Không Phải Lúc Chết"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYWQ2NzQ1NjktMzNkNS00MGY1LTgwMmMtYTllYTI5YzNmMmE0XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2021-10-08",
+    "actors": [
+        {
+            "id": "nm0185819",
+            "name": "Daniel Craig"
+        },
+        {
+            "id": "nm1869101",
+            "name": "Ana de Armas"
+        },
+        {
+            "id": "nm1785339",
+            "name": "Rami Malek"
+        },
+        {
+            "id": "nm2244205",
+            "name": "Léa Seydoux"
+        },
+        {
+            "id": "nm2736476",
+            "name": "Lashana Lynch"
+        },
+        {
+            "id": "nm0000146",
+            "name": "Ralph Fiennes"
+        },
+        {
+            "id": "nm0924210",
+            "name": "Ben Whishaw"
+        },
+        {
+            "id": "nm0365140",
+            "name": "Naomie Harris"
+        },
+        {
+            "id": "nm1239499",
+            "name": "Rory Kinnear"
+        },
+        {
+            "id": "nm0942482",
+            "name": "Jeffrey Wright"
+        },
+        {
+            "id": "nm2915105",
+            "name": "Billy Magnussen"
+        },
+        {
+            "id": "nm0910607",
+            "name": "Christoph Waltz"
+        },
+        {
+            "id": "nm1399770",
+            "name": "David Dencik"
+        },
+        {
+            "id": "nm8437705",
+            "name": "Dali Benssalah"
+        },
+        {
+            "id": "nm11645469",
+            "name": "Lisa-Dorah Sonnet"
+        },
+        {
+            "id": "nm12986347",
+            "name": "Coline Defaud"
+        },
+        {
+            "id": "nm6749529",
+            "name": "Mathilde Bourbin"
+        },
+        {
+            "id": "nm0219465",
+            "name": "Hugh Dennis"
+        }
+    ]
+}

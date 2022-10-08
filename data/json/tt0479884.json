@@ -1,0 +1,109 @@
+{
+    "id": "tt0479884",
+    "title": "Crank",
+    "rating": 6.9,
+    "rating_count": 246000,
+    "release_year": 2006,
+    "popularity": 2585,
+    "imdb_type": "movie",
+    "runtime": "1h 28m",
+    "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English",
+        "Spanish",
+        "Korean"
+    ],
+    "director_names": [
+        "Mark Neveldine",
+        "Brian Taylor"
+    ],
+    "creator_names": [],
+    "description": "Poisoned by the potent and deadly mix of synthetic drugs called \"The Beijing Cocktail\" for getting in the way of the Triads, the tough-as-nails British hitman living in Los Angeles, Chev Chelios, wakes up with a terrible headache. With less than an hour to live, Chev will have to use all the help he can get from his doctor, and use every trick in the book, to consistently keep his heart rate up so that the adrenaline in his bloodstream staves off the effects of the deadly toxin. Now, his heart is pounding faster than any other human being, and as Chelios darts across the city's streets in search of an antidote and the arrogant criminal, Ricky Verona, to exact his revenge, he finds himself compelled to pick fights with no-nonsense drug dealers, murderous assassins, and an army of thugs. But, can Chelios stay alive long enough to protect those he loves, and make it through the day?",
+    "aka": [
+        "Kẻ Lập Dị"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjg0NjAxNDY4MV5BMl5BanBnXkFtZTcwODA5MjMzMw@@._V1_QL75_UX190_CR0,1,190,281_.jpg",
+    "imdb_date": "2006-09-01",
+    "actors": [
+        {
+            "id": "nm0005458",
+            "name": "Jason Statham"
+        },
+        {
+            "id": "nm0005442",
+            "name": "Amy Smart"
+        },
+        {
+            "id": "nm0764430",
+            "name": "Carlos Sanz"
+        },
+        {
+            "id": "nm1504678",
+            "name": "Jose Pablo Cantillo"
+        },
+        {
+            "id": "nm0708293",
+            "name": "Efren Ramirez"
+        },
+        {
+            "id": "nm0948267",
+            "name": "Dwight Yoakam"
+        },
+        {
+            "id": "nm0934008",
+            "name": "Reno Wilson"
+        },
+        {
+            "id": "nm1346230",
+            "name": "Edi Gathegi"
+        },
+        {
+            "id": "nm1097351",
+            "name": "Glenn Howerton"
+        },
+        {
+            "id": "nm2361782",
+            "name": "Jay Xcala"
+        },
+        {
+            "id": "nm0949775",
+            "name": "Keone Young"
+        },
+        {
+            "id": "nm0589474",
+            "name": "Valarie Rae Miller"
+        },
+        {
+            "id": "nm0796325",
+            "name": "Yousuf Azami"
+        },
+        {
+            "id": "nm0776963",
+            "name": "Laurent Schwaar"
+        },
+        {
+            "id": "nm1369461",
+            "name": "David Brown"
+        },
+        {
+            "id": "nm1141776",
+            "name": "Dorian Kingi"
+        },
+        {
+            "id": "nm2362979",
+            "name": "Med Abrous"
+        },
+        {
+            "id": "nm1174894",
+            "name": "Daniel Stevens"
+        }
+    ]
+}
