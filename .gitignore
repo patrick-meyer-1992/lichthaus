@@ -1,4 +1,5 @@
 *.xlsx
+*.tsv
 secrets.txt
 *.Rhistory
 .Rproj.user
