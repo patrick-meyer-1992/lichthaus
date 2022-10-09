@@ -1,0 +1,108 @@
+{
+    "id": "tt2975578",
+    "title": "The Purge: Anarchy",
+    "rating": 6.4,
+    "rating_count": 150000,
+    "release_year": 2014,
+    "popularity": 2167,
+    "imdb_type": "movie",
+    "runtime": "1h 43m",
+    "genres": [
+        "Action",
+        "Horror",
+        "Sci-Fi",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "France"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "James DeMonaco"
+    ],
+    "creator_names": [],
+    "description": "A couple are driving home when their car breaks down just as the Purge commences. Meanwhile, a police sergeant goes out into the streets to get revenge on the man who killed his son, and a mother and daughter run from their home after assailants destroy it. The five people meet up as they attempt to survive the night in Los Angeles.",
+    "aka": [
+        "The Purge 2"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjE2ODMxMTk1Nl5BMl5BanBnXkFtZTgwMDEzNjEzMTE@._V1_QL75_UX190_CR0,10,190,281_FMwebp.webp",
+    "imdb_date": "2014-07-25",
+    "actors": [
+        {
+            "id": "nm0342029",
+            "name": "Frank Grillo"
+        },
+        {
+            "id": "nm0252238",
+            "name": "Carmen Ejogo"
+        },
+        {
+            "id": "nm1472917",
+            "name": "Zach Gilford"
+        },
+        {
+            "id": "nm0760989",
+            "name": "Kiele Sanchez"
+        },
+        {
+            "id": "nm2954703",
+            "name": "Zoë Soul"
+        },
+        {
+            "id": "nm0532461",
+            "name": "Justina Machado"
+        },
+        {
+            "id": "nm0064040",
+            "name": "John Beasley"
+        },
+        {
+            "id": "nm0174780",
+            "name": "Jack Conley"
+        },
+        {
+            "id": "nm0346595",
+            "name": "Noel Gugliemi"
+        },
+        {
+            "id": "nm0346003",
+            "name": "Castulo Guerra"
+        },
+        {
+            "id": "nm0931324",
+            "name": "Michael Kenneth Williams"
+        },
+        {
+            "id": "nm0388064",
+            "name": "Edwin Hodge"
+        },
+        {
+            "id": "nm3147751",
+            "name": "LaKeith Stanfield"
+        },
+        {
+            "id": "nm0883595",
+            "name": "Roberta Valderrama"
+        },
+        {
+            "id": "nm1294002",
+            "name": "Niko Nicotera"
+        },
+        {
+            "id": "nm0379518",
+            "name": "Bel Hernandez"
+        },
+        {
+            "id": "nm0460990",
+            "name": "Lily Knight"
+        },
+        {
+            "id": "nm0170594",
+            "name": "Jasper Cole"
+        }
+    ]
+}

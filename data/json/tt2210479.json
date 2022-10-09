@@ -1,1 +1,111 @@
-{"id":"tt2210479","title":"Berserk: The Golden Age Arc I - The Egg of the King","rating":7.5,"rating_count":12000,"release_year":2012,"popularity":null,"imdb_type":"movie","runtime":"1h 16m","genres":["Animation","Action","Adventure","Drama","Fantasy","Horror"],"countries":["Japan"],"languages":["Japanese","English","German"],"director_names":["Toshiyuki Kubooka"],"creator_names":[],"description":"This arc is a flashback showing Guts' youth and what led him to become the \"Black Swordsman\". Guts grows up as a young mercenary until his enrollment in the Band of the Hawk. He develops complex relationships with Casca and Griffith, the Band's charismatic leader and holder of the mystical artifact known as the Crimson Behelit, who leads the Band to its rise to prominence within the Midland army.","aka":["Berserk. La Edad de Oro I: El Huevo del Rey Conquistador"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BYzA0ZGYxYzAtMmJlOC00OTFkLThhNmItYTdlMTdkNDY2NzQ4L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UY281_CR4,0,190,281_.jpg","imdb_date":"2012-04-26","actors":[{"id":"nm4284529","name":"Hiroaki Iwanaga"},{"id":"nm1321026","name":"Carrie Keranen"},{"id":"nm0757327","name":"Takahiro Sakurai"},{"id":"nm0998439","name":"Kevin T. Collins"},{"id":"nm5001722","name":"Toa Yukinari"},{"id":"nm2569233","name":"Yûki Kaji"},{"id":"nm2612728","name":"Yoshiro Matsumoto"},{"id":"nm2964162","name":"Minako Kotobuki"},{"id":"nm5001430","name":"Takahiro Fujiwara"},{"id":"nm0946295","name":"Kazuki Yao"},{"id":"nm2760504","name":"Aki Toyosaki"},{"id":"nm1399925","name":"Kenta Miyake"},{"id":"nm0441528","name":"Nobuyuki Katsube"},{"id":"nm0468711","name":"Rikiya Koyama"},{"id":"nm1432796","name":"Hiroshi Arikawa"},{"id":"nm0960037","name":"Hôchû Ôtsuka"},{"id":"nm2174347","name":"Kendô Kobayashi"},{"id":"nm2868707","name":"Shingo Egami"}]}
+{
+    "id": "tt2210479",
+    "title": "Berserk: The Golden Age Arc I - The Egg of the King",
+    "rating": 7.5,
+    "rating_count": 12000,
+    "release_year": 2012,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 16m",
+    "genres": [
+        "Animation",
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Horror"
+    ],
+    "countries": [
+        "Japan"
+    ],
+    "languages": [
+        "Japanese",
+        "English",
+        "German"
+    ],
+    "director_names": [
+        "Toshiyuki Kubooka"
+    ],
+    "creator_names": [],
+    "description": "This arc is a flashback showing Guts' youth and what led him to become the \"Black Swordsman\". Guts grows up as a young mercenary until his enrollment in the Band of the Hawk. He develops complex relationships with Casca and Griffith, the Band's charismatic leader and holder of the mystical artifact known as the Crimson Behelit, who leads the Band to its rise to prominence within the Midland army.",
+    "aka": [
+        "Berserk. La Edad de Oro I: El Huevo del Rey Conquistador"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYzA0ZGYxYzAtMmJlOC00OTFkLThhNmItYTdlMTdkNDY2NzQ4L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UY281_CR4,0,190,281_.jpg",
+    "imdb_date": "2012-04-26",
+    "actors": [
+        {
+            "id": "nm4284529",
+            "name": "Hiroaki Iwanaga"
+        },
+        {
+            "id": "nm1321026",
+            "name": "Carrie Keranen"
+        },
+        {
+            "id": "nm0757327",
+            "name": "Takahiro Sakurai"
+        },
+        {
+            "id": "nm0998439",
+            "name": "Kevin T. Collins"
+        },
+        {
+            "id": "nm5001722",
+            "name": "Toa Yukinari"
+        },
+        {
+            "id": "nm2569233",
+            "name": "Yï¿½ki Kaji"
+        },
+        {
+            "id": "nm2612728",
+            "name": "Yoshiro Matsumoto"
+        },
+        {
+            "id": "nm2964162",
+            "name": "Minako Kotobuki"
+        },
+        {
+            "id": "nm5001430",
+            "name": "Takahiro Fujiwara"
+        },
+        {
+            "id": "nm0946295",
+            "name": "Kazuki Yao"
+        },
+        {
+            "id": "nm2760504",
+            "name": "Aki Toyosaki"
+        },
+        {
+            "id": "nm1399925",
+            "name": "Kenta Miyake"
+        },
+        {
+            "id": "nm0441528",
+            "name": "Nobuyuki Katsube"
+        },
+        {
+            "id": "nm0468711",
+            "name": "Rikiya Koyama"
+        },
+        {
+            "id": "nm1432796",
+            "name": "Hiroshi Arikawa"
+        },
+        {
+            "id": "nm0960037",
+            "name": "Hï¿½chï¿½ ï¿½tsuka"
+        },
+        {
+            "id": "nm2174347",
+            "name": "Kendï¿½ Kobayashi"
+        },
+        {
+            "id": "nm2868707",
+            "name": "Shingo Egami"
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "id": "tt2764598",
+    "title": "Eine andere Zeit",
+    "rating": 8.1,
+    "rating_count": 852,
+    "release_year": 2013,
+    "imdb_type": "tvEpisode",
+    "runtime": "1h 31m",
+    "genres": [
+        "Action",
+        "Drama",
+        "History",
+        "War"
+    ],
+    "countries": [
+        "Germany"
+    ],
+    "languages": [
+        "German",
+        "Russian"
+    ],
+    "director_names": [
+        "Philipp Kadelbach"
+    ],
+    "creator_names": [],
+    "description": "As Hitler starts the war, the Berlin Winter family and their friends are confident it will soon be won. Popular Wilhelm, a rising army lieutenant, promises their father to look after 'rebel' kid brother Friedhelm, a broody intellectual, whose doubts about the propaganda's triumphant picture soon start proving more then justified, as the Russian winter proves as cruel to them as the SS-enforced treatment of Slavic and Jewish 'subhuman' locals. Their friend Viktor, son and heir of naively loyal tailor Goldstein, must flee, which is only possible if his girlfriend seduces an SS officer, who also helps launch her singing career",
+    "aka": [],
+    "image": "https://m.media-amazon.com/images/M/MV5BNjcxNDIxMmMtMzU2OS00NGU0LTg1OWEtOTdjZDhlZTM3YjVjXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_FMjpg_UX500_.jpg",
+    "imdb_date": "2013-03-17",
+    "actors": [
+        {
+            "id": "nm1432815",
+            "name": "Volker Bruch"
+        },
+        {
+            "id": "nm0771713",
+            "name": "Tom Schilling"
+        },
+        {
+            "id": "nm0778348",
+            "name": "Katharina Schüttler"
+        },
+        {
+            "id": "nm0872225",
+            "name": "Ludwig Trepte"
+        },
+        {
+            "id": "nm0825587",
+            "name": "Miriam Stein"
+        },
+        {
+            "id": "nm2409219",
+            "name": "Mark Waschke"
+        },
+        {
+            "id": "nm0666788",
+            "name": "Christiane Paul"
+        },
+        {
+            "id": "nm0343857",
+            "name": "Sylvester Groth"
+        },
+        {
+            "id": "nm1007965",
+            "name": "Henriette Richter-Röhl"
+        },
+        {
+            "id": "nm0775794",
+            "name": "Götz Schubert"
+        },
+        {
+            "id": "nm0994950",
+            "name": "Maxim Mehmet"
+        },
+        {
+            "id": "nm0278373",
+            "name": "Samuel Finzi"
+        },
+        {
+            "id": "nm0344802",
+            "name": "Dorka Gryllus"
+        },
+        {
+            "id": "nm0309404",
+            "name": "Johanna Gastdorf"
+        },
+        {
+            "id": "nm0470793",
+            "name": "Peter Kremer"
+        },
+        {
+            "id": "nm2012595",
+            "name": "Trystan Pütter"
+        },
+        {
+            "id": "nm2418053",
+            "name": "David Zimmerschied"
+        },
+        {
+            "id": "nm2056274",
+            "name": "Joel Basman"
+        }
+    ]
+}
