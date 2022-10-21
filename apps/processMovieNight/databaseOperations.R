@@ -35,13 +35,17 @@ update_film = function(con, df_movie){
   missingNames = names(film)[!(names(film) %in% names(df))]
   df[missingNames] = NA
   
-  df = df %>% mutate(upload_time = now())
-  DBI::dbWriteTable(conn = con, name = "film", value = df, append = T)
-  return(tibble(df))
-  #print("The following titles were added to 'film':")
-  #for(i in 1:nrow(df)) print(paste0(df$titel[i], " (", df$id[i], ")"))
+  if(nrow(df) > 0){
+    df = df %>% mutate(upload_time = now())
+    DBI::dbWriteTable(conn = con, name = "film", value = df, append = T)
+    return(tibble(df))
+  }else{
+    return("--Nothing--")
+  }
+  
+
 }
-update_schlaegt_vor = function(con, df_movie, df_murmeled, d){
+update_schlaegt_vor = function(con, df_movie, df_murmeled, d, targetFolder){
   
   df = df_movie %>% 
     filter(rows == "Vorschlag") %>% 
@@ -53,14 +57,24 @@ update_schlaegt_vor = function(con, df_movie, df_murmeled, d){
     filter(id != "") %>% 
     mutate(murmeled = id %in% df_murmeled$murmeled)
   
-  df = df %>% mutate(upload_time = now())
-  DBI::dbWriteTable(conn = con, name = "schlaegt_vor", value = df, append = T)
-  return(tibble(df))
-  #print("The following titles were added to 'schlaegt_vor':")
-  #for(i in 1:nrow(df)) print(paste0(df$vorname[i], ": ", df$titel[i]," (", df$id[i], ")"))
+  existing = tbl(con, "schlaegt_vor") %>% 
+    filter(vorschlagsdatum == d) %>% 
+    collect()
+  
+  df = anti_join(df, existing)
+  
+  write.csv(tbl(con, "schlaegt_vor"), paste0(targetFolder, as.character(d), "_schlaegt_vor.csv"), row.names = F)
+  
+  if(nrow(df) > 0){
+    df = df %>% mutate(upload_time = now())
+    DBI::dbWriteTable(conn = con, name = "schlaegt_vor", value = df, append = T)
+    return(tibble(df))
+  }else{
+    return("--Nothing--")
+  }
 }
-update_stimmt_fuer = function(con, df_movie, winner, d){
-  n = sum(df_movie$rows == "Abstimmung")
+update_stimmt_fuer = function(con, df_movie, winner, d, targetFolder){
+  n = 1:sum(df_movie$rows == "Abstimmung")
   df = df_movie %>% 
     filter(rows == "Abstimmung") %>% 
     select(!rows) %>% 
@@ -70,14 +84,22 @@ update_stimmt_fuer = function(con, df_movie, winner, d){
          value.name = "id") %>% 
     filter(id != "") %>% 
     mutate(sieger = id == winner)
+  
+  existing = tbl(con, "stimmt_fuer") %>% 
+    filter(stimmdatum == d) %>% 
+    collect()
 
-  df = df %>% mutate(upload_time = now())
-  DBI::dbWriteTable(conn = con, name = "stimmt_fuer", value = df, append = T)
-  return(tibble(df))
-  #print("The following votes were added to 'stimmt_fuer':")
-  #for(i in 1:nrow(df)) print(paste0(df$vorname[i], ": ", df$titel[i], " (", df$id[i], "), Wahlgang: ", df$wahldurchgang[i]))
+  write.csv(tbl(con, "stimmt_fuer"), paste0(targetFolder, as.character(d), "_stimmt_fuer.csv"), row.names = F)
+  
+  if(nrow(df) > 0){
+    df = df %>% mutate(upload_time = now())
+    DBI::dbWriteTable(conn = con, name = "stimmt_fuer", value = df, append = T)
+    return(tibble(df))
+  }else{
+    return("--Nothing--")
+  }
 }
-update_bewertet = function(con, df_movie, movieToday){
+update_bewertet = function(con, df_movie, movieToday, d, targetFolder){
   
   df = df_movie %>% 
     filter(rows == "Bewertung") %>% 
@@ -91,20 +113,43 @@ update_bewertet = function(con, df_movie, movieToday){
            id = movieToday) %>%
     select(!proxy)
   
-  df = df %>% mutate(upload_time = now())
-  DBI::dbWriteTable(conn = con, name = "bewertet", value = df, append = T)
-  return(tibble(df))
-  #print(paste0("The following ratings were added to 'bewertet' for the movie: ", titel, " (", ratedId, ")" ))
-  #for(i in 1:nrow(df)) print(paste0(df$vorname[i], ": ", df$wertung[i]))
+  existing = tbl(con, "bewertet") %>% 
+    filter(id == movieToday) %>% 
+    collect()
+  
+  df = anti_join(df, existing)
+  
+  write.csv(tbl(con, "bewertet"), paste0(targetFolder, as.character(d), "_bewertet.csv"), row.names = F)
+  
+  if(nrow(df) > 0){
+    df = df %>% mutate(upload_time = now())
+    DBI::dbWriteTable(conn = con, name = "bewertet", value = df, append = T)
+    return(tibble(df))
+  }else{
+    return("--Nothing--")
+  }
 }
-update_filmabend = function(con, movieToday, host, d){
+update_filmabend = function(con, movieToday, host, d, targetFolder){
   df = tibble(
     datum = d,
     gehostet_von = host,
     id = movieToday
   )
   
-  df = df %>% mutate(upload_time = now())
-  DBI::dbWriteTable(conn = con, name = "filmabend", value = df, append = T)
-  return(tibble(df))
+  existing = tbl(con, "filmabend") %>% 
+    filter(datum == d) %>% 
+    collect()
+  
+  df = anti_join(df, existing)
+  
+  write.csv(tbl(con, "filmabend"), paste0(targetFolder, as.character(d), "_filmabend.csv"), row.names = F)
+  
+  if(nrow(df) > 0){
+    df = df %>% mutate(upload_time = now())
+    DBI::dbWriteTable(conn = con, name = "filmabend", value = df, append = T)
+    return(tibble(df))
+  }else{
+    return("--Nothing--")
+  }
+
 }

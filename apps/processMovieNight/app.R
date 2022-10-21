@@ -18,19 +18,19 @@ library(stringr)
 
 devMode = F
 testTable = tibble(
-  "rows" = c("Bewertung", "Vorschlag", "Vorschlag", "Abstimmung"),
-  "Ben" = c("", "", "", ""),
-  "Cem" = c("6", "tt2229511", "tt2229511", "tt2229511"),
-  "Daniel" = c("8", "tt0120812", "tt2229511", "tt2229511"),
-  "Jan" = c("5", "tt2210479", "tt12593682", "tt12593682"),
-  "Patrick" = c("6", "tt5649108", "tt6644200", "tt0120812"),
-  "Stefan" = c("5", "tt0116996", "tt0094761", "tt12593682"),
-  "Timo" = c("8", "tt0092644", "tt1396484", "tt2229511"),
-  "Toni" = c("4", "tt4479380", "tt1734493", "tt4479380"),
+  "rows" = c("Bewertung", "Vorschlag", "Vorschlag", "Abstimmung", "Abstimmung"),
+  "Ben" = c("", "", "", "", ""),
+  "Cem" = c("", "", "", "", ""),
+  "Daniel" = c("6", "tt1136608", "tt2229511", "tt1136608", "tt1136608"),
+  "Jan" = c("6", "tt8114980", "tt5073642", "tt1136608", "tt1136608"),
+  "Patrick" = c("7", "tt6644200", "tt1877830", "tt6644200", "tt1136608"),
+  "Stefan" = c("7", "tt0094761", "tt0116996", "tt1136608", "tt1136608"),
+  "Timo" = c("", "", "", "", ""),
+  "Toni" = c("5", "tt1734493", "tt4479380", "tt1136608", "tt1136608"),
 )
 
 testMurmel = tibble(
-  murmeled = c("tt2229511", "tt12593682", "tt4479380", "tt0120812")
+  murmeled = c("tt1136608", "tt1136608", "tt6644200")
 )
 
 #### Load custom functions ####
@@ -49,7 +49,7 @@ ui <- fluidPage(
     fluidRow(
       column(
         width = 2,
-        dateInput(inputId = "in_movieDate", label = "Datum Filmabend"),
+        dateInput(inputId = "in_movieDate", label = "Datum Filmabend", weekstart = 1),
         textInput(inputId = "in_movieToday", label = "Heutiger Film"),
         textOutput(outputId = "out_movieToday"),
         
@@ -270,16 +270,17 @@ server <- function(input, output) {
   
   observeEvent(input$btn_confirm, {
     
+    backupDestination = paste0(getwd(), "/../../data/backup/")
     print("The following table was uploaded to film:")
     print(update_film(con, idTable$data))
     print("The following table was uploaded to schlaegt_vor:")
-    print(update_schlaegt_vor(con, idTable$data, murmelTable_id$data, input$in_movieDate))
+    print(update_schlaegt_vor(con, idTable$data, murmelTable_id$data, input$in_movieDate, backupDestination))
     print("The following table was uploaded to stimmt_fuer:")
-    print(update_stimmt_fuer(con, idTable$data, input$in_winner, input$in_movieDate))
+    print(update_stimmt_fuer(con, idTable$data, input$in_winner, input$in_movieDate, backupDestination))
     print("The following table was uploaded to bewertet:")
-    print(update_bewertet(con, idTable$data, input$in_movieToday))
+    print(update_bewertet(con, idTable$data, input$in_movieToday, input$in_movieDate, backupDestination))
     print("The following table was uploaded to filmabend:")
-    print(update_filmabend(con, input$in_movieToday, input$in_host, input$in_movieDate))
+    print(update_filmabend(con, input$in_movieToday, input$in_host, input$in_movieDate, backupDestination))
     print("Upload finished")
   })
 }
