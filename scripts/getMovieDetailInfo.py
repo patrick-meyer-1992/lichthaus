@@ -13,6 +13,7 @@ def saveMovieInfo(lst, apiKey, folder):
     folder
     """
     if len(lst) == 0:
+        print("No new IDs")
         return
     
     conn = http.client.HTTPSConnection("movie-details1.p.rapidapi.com")
