@@ -1,1 +1,106 @@
-{"id":"tt0088763","title":"Back to the Future","rating":8.5,"rating_count":1200000,"release_year":1985,"popularity":195,"imdb_type":"movie","runtime":"1h 56m","genres":["Adventure","Comedy","Sci-Fi"],"countries":["United States"],"languages":["English"],"director_names":["Robert Zemeckis"],"creator_names":[],"description":"Marty McFly, a typical American teenager of the Eighties, is accidentally sent back to 1955 in a plutonium-powered DeLorean \"time machine\" invented by a slightly mad scientist. During his often hysterical, always amazing trip back in time, Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.","aka":["Povratak u buducnost"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX190_CR0,7,190,281_FMwebp.webp","imdb_date":"1985-12-04","actors":[{"id":"nm0000150","name":"Michael J. Fox"},{"id":"nm0000502","name":"Christopher Lloyd"},{"id":"nm0000670","name":"Lea Thompson"},{"id":"nm0000417","name":"Crispin Glover"},{"id":"nm0001855","name":"Tom Wilson"},{"id":"nm0920148","name":"Claudia Wells"},{"id":"nm0566013","name":"Marc McClure"},{"id":"nm0818274","name":"Wendie Jo Sperber"},{"id":"nm0225191","name":"George DiCenzo"},{"id":"nm0564589","name":"Frances Lee McCain"},{"id":"nm0866055","name":"James Tolkan"},{"id":"nm0169454","name":"J.J. Cohen"},{"id":"nm0797150","name":"Casey Siemaszko"},{"id":"nm0000708","name":"Billy Zane"},{"id":"nm0914023","name":"Harry Waters Jr."},{"id":"nm0298412","name":"Donald Fullilove"},{"id":"nm0293483","name":"Lisa Freeman"},{"id":"nm0442022","name":"Cristen Kauffman"}]}
+{
+    "id": "tt0088763",
+    "title": "Back to the Future",
+    "rating": 8.5,
+    "rating_count": 1200000,
+    "release_year": 1985,
+    "popularity": 195,
+    "imdb_type": "movie",
+    "runtime": "1h 56m",
+    "genres": [
+        "Adventure",
+        "Comedy",
+        "Sci-Fi"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Robert Zemeckis"
+    ],
+    "creator_names": [],
+    "description": "Marty McFly, a typical American teenager of the Eighties, is accidentally sent back to 1955 in a plutonium-powered DeLorean \"time machine\" invented by a slightly mad scientist. During his often hysterical, always amazing trip back in time, Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.",
+    "aka": [
+        "Povratak u buducnost"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX190_CR0,7,190,281_FMwebp.webp",
+    "imdb_date": "1985-12-04",
+    "actors": [
+        {
+            "id": "nm0000150",
+            "name": "Michael J. Fox"
+        },
+        {
+            "id": "nm0000502",
+            "name": "Christopher Lloyd"
+        },
+        {
+            "id": "nm0000670",
+            "name": "Lea Thompson"
+        },
+        {
+            "id": "nm0000417",
+            "name": "Crispin Glover"
+        },
+        {
+            "id": "nm0001855",
+            "name": "Tom Wilson"
+        },
+        {
+            "id": "nm0920148",
+            "name": "Claudia Wells"
+        },
+        {
+            "id": "nm0566013",
+            "name": "Marc McClure"
+        },
+        {
+            "id": "nm0818274",
+            "name": "Wendie Jo Sperber"
+        },
+        {
+            "id": "nm0225191",
+            "name": "George DiCenzo"
+        },
+        {
+            "id": "nm0564589",
+            "name": "Frances Lee McCain"
+        },
+        {
+            "id": "nm0866055",
+            "name": "James Tolkan"
+        },
+        {
+            "id": "nm0169454",
+            "name": "J.J. Cohen"
+        },
+        {
+            "id": "nm0797150",
+            "name": "Casey Siemaszko"
+        },
+        {
+            "id": "nm0000708",
+            "name": "Billy Zane"
+        },
+        {
+            "id": "nm0914023",
+            "name": "Harry Waters Jr."
+        },
+        {
+            "id": "nm0298412",
+            "name": "Donald Fullilove"
+        },
+        {
+            "id": "nm0293483",
+            "name": "Lisa Freeman"
+        },
+        {
+            "id": "nm0442022",
+            "name": "Cristen Kauffman"
+        }
+    ]
+}

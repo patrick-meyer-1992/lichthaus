@@ -1,1 +1,106 @@
-{"id":"tt0087148","title":"Didi und die Rache der Enterbten","rating":6.4,"rating_count":917,"release_year":1985,"popularity":null,"imdb_type":"movie","runtime":"1h 31m","genres":["Comedy"],"countries":["West Germany"],"languages":["German","Italian"],"director_names":["Dieter Hallervorden","Christian Rateuke"],"creator_names":[],"description":"A series of murders eliminates the poverty-stricken heirs to a 10 million-dollar fortune while Didi Dodel, the unsuspecting main heir, blithely escapes the attempts on his life. After a wealthy miser dies and leaves his fortune to Didi and five others, the five each hit upon the idea of eliminating Didi from the list (Didi does not know he has been named), but they do not realize how fate can step in and alter the best and worst of intentions.","aka":["Nonstop Trouble with the Family"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BYWE5ZmQ4NDctMDUyNS00YWM0LWIwNTItZDc5Y2QyMWUwMTJmXkEyXkFqcGdeQXVyMTAyNTQ0MTk@._V1_QL75_UY281_CR8,0,190,281_.jpg","imdb_date":"1985-02-08","actors":[{"id":"nm0356448","name":"Dieter Hallervorden"},{"id":"nm0452471","name":"Wolfgang Kieling"},{"id":"nm0938613","name":"Gerhard Wollner"},{"id":"nm0389421","name":"Christoph Hofrichter"},{"id":"nm0776486","name":"Karl Schulz"},{"id":"nm0121566","name":"Gert Burkard"},{"id":"nm0250557","name":"Harald Effenberg"},{"id":"nm0369193","name":"Gert Haucke"},{"id":"nm0797164","name":"Friedrich Siemers"},{"id":"nm0938342","name":"Inge Wolffberg"},{"id":"nm0312092","name":"Margit Geissler"},{"id":"nm0618226","name":"Klaus A. Müller"},{"id":"nm0851461","name":"Manfred Tauchen"},{"id":"nm0010636","name":"Charlotte Adami"},{"id":"nm0919208","name":"Herbert Weissbach"},{"id":"nm0353123","name":"Erna Haffner"},{"id":"nm0035258","name":"Yekta Arman"},{"id":"nm0343875","name":"Andreas Grothusen"}]}
+{
+    "id": "tt0087148",
+    "title": "Didi und die Rache der Enterbten",
+    "rating": 6.4,
+    "rating_count": 917,
+    "release_year": 1985,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 31m",
+    "genres": [
+        "Comedy"
+    ],
+    "countries": [
+        "West Germany"
+    ],
+    "languages": [
+        "German",
+        "Italian"
+    ],
+    "director_names": [
+        "Dieter Hallervorden",
+        "Christian Rateuke"
+    ],
+    "creator_names": [],
+    "description": "A series of murders eliminates the poverty-stricken heirs to a 10 million-dollar fortune while Didi Dodel, the unsuspecting main heir, blithely escapes the attempts on his life. After a wealthy miser dies and leaves his fortune to Didi and five others, the five each hit upon the idea of eliminating Didi from the list (Didi does not know he has been named), but they do not realize how fate can step in and alter the best and worst of intentions.",
+    "aka": [
+        "Nonstop Trouble with the Family"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYWE5ZmQ4NDctMDUyNS00YWM0LWIwNTItZDc5Y2QyMWUwMTJmXkEyXkFqcGdeQXVyMTAyNTQ0MTk@._V1_QL75_UY281_CR8,0,190,281_.jpg",
+    "imdb_date": "1985-02-08",
+    "actors": [
+        {
+            "id": "nm0356448",
+            "name": "Dieter Hallervorden"
+        },
+        {
+            "id": "nm0452471",
+            "name": "Wolfgang Kieling"
+        },
+        {
+            "id": "nm0938613",
+            "name": "Gerhard Wollner"
+        },
+        {
+            "id": "nm0389421",
+            "name": "Christoph Hofrichter"
+        },
+        {
+            "id": "nm0776486",
+            "name": "Karl Schulz"
+        },
+        {
+            "id": "nm0121566",
+            "name": "Gert Burkard"
+        },
+        {
+            "id": "nm0250557",
+            "name": "Harald Effenberg"
+        },
+        {
+            "id": "nm0369193",
+            "name": "Gert Haucke"
+        },
+        {
+            "id": "nm0797164",
+            "name": "Friedrich Siemers"
+        },
+        {
+            "id": "nm0938342",
+            "name": "Inge Wolffberg"
+        },
+        {
+            "id": "nm0312092",
+            "name": "Margit Geissler"
+        },
+        {
+            "id": "nm0618226",
+            "name": "Klaus A. Mï¿½ller"
+        },
+        {
+            "id": "nm0851461",
+            "name": "Manfred Tauchen"
+        },
+        {
+            "id": "nm0010636",
+            "name": "Charlotte Adami"
+        },
+        {
+            "id": "nm0919208",
+            "name": "Herbert Weissbach"
+        },
+        {
+            "id": "nm0353123",
+            "name": "Erna Haffner"
+        },
+        {
+            "id": "nm0035258",
+            "name": "Yekta Arman"
+        },
+        {
+            "id": "nm0343875",
+            "name": "Andreas Grothusen"
+        }
+    ]
+}

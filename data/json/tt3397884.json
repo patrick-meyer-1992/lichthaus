@@ -1,1 +1,111 @@
-{"id":"tt3397884","title":"Sicario","rating":7.6,"rating_count":416000,"release_year":2015,"popularity":272,"imdb_type":"movie","runtime":"2h 1m","genres":["Action","Crime","Drama","Mystery","Thriller"],"countries":["United States","Mexico","Hong Kong"],"languages":["English","Spanish"],"director_names":["Denis Villeneuve"],"creator_names":[],"description":"Kate Macer leads a Phoenix based kidnap response unit for the FBI. Following Kate's team leading a raid on a known drug den in nearby Chandler, Kate is recruited to work on a special ops team led by Matt Graver of the CIA, he who is on special assignment for the Department of Defense. They recruited her because they wanted someone with tactical procedures knowledge. Outwardly, the team's mission, which works behind a Delta Force team as its primary gun power as required, is to decapitate a Mexican drug cartel by capturing or dismembering the workings of the main players, cartel head Manuel Díaz, his second in command Guillermo Díaz (Manuel's brother), and drug lord Fausto Alarcón. Kate agrees to the assignment as she feels the work of this team would be more effective in stopping the drug trade in the US than the piecemeal work of her current kidnap response unit. The third on the team is a mysterious Hispanic or Latino man Kate only knows as Alejandro, and who she does not fully trust as she can tell that he is suffering from a very traumatic past. When Kate and the team arrive in El Paso for their first mission, Kate learns that the team's workings are not all they appear on the surface - many of the proceedings which would not be considered above board or legal - despite the end goal being as she knows it to be. Still largely in the dark and only given information on a need to know basis, Kate decides to stick it out with the team if only to discover all that she is not told while still believing in the end goal. She may have changing or at least mixed emotions as she learns more and more about what is going on, including the specific reason why she was recruited.","aka":["Sicario: Ranh Giới"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BMjA5NjM3NTk1M15BMl5BanBnXkFtZTgwMzg1MzU2NjE@._V1_QL75_UX190_CR0,2,190,281_.jpg","imdb_date":"2015-10-08","actors":[{"id":"nm1289434","name":"Emily Blunt"},{"id":"nm0000982","name":"Josh Brolin"},{"id":"nm0001125","name":"Benicio Del Toro"},{"id":"nm1256532","name":"Jon Bernthal"},{"id":"nm0001255","name":"Victor Garber"},{"id":"nm2257207","name":"Daniel Kaluuya"},{"id":"nm0232998","name":"Jeffrey Donovan"},{"id":"nm0874232","name":"Raoul Max Trujillo"},{"id":"nm0147814","name":"Julio Cesar Cedillo"},{"id":"nm0737276","name":"Hank Rogerson"},{"id":"nm3229268","name":"Bernardo Saracino"},{"id":"nm0380073","name":"Maximiliano Hernández"},{"id":"nm0927794","name":"Kevin Wiggins"},{"id":"nm1598758","name":"Edgar Arreola"},{"id":"nm2484906","name":"Kim Larrichio"},{"id":"nm7608281","name":"Jesus Nevarez-Castillo"},{"id":"nm0961185","name":"Dylan Kenin"},{"id":"nm2823321","name":"John Trejo"}]}
+{
+    "id": "tt3397884",
+    "title": "Sicario",
+    "rating": 7.6,
+    "rating_count": 416000,
+    "release_year": 2015,
+    "popularity": 272,
+    "imdb_type": "movie",
+    "runtime": "2h 1m",
+    "genres": [
+        "Action",
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller"
+    ],
+    "countries": [
+        "United States",
+        "Mexico",
+        "Hong Kong"
+    ],
+    "languages": [
+        "English",
+        "Spanish"
+    ],
+    "director_names": [
+        "Denis Villeneuve"
+    ],
+    "creator_names": [],
+    "description": "Kate Macer leads a Phoenix based kidnap response unit for the FBI. Following Kate's team leading a raid on a known drug den in nearby Chandler, Kate is recruited to work on a special ops team led by Matt Graver of the CIA, he who is on special assignment for the Department of Defense. They recruited her because they wanted someone with tactical procedures knowledge. Outwardly, the team's mission, which works behind a Delta Force team as its primary gun power as required, is to decapitate a Mexican drug cartel by capturing or dismembering the workings of the main players, cartel head Manuel Díaz, his second in command Guillermo Díaz (Manuel's brother), and drug lord Fausto Alarcón. Kate agrees to the assignment as she feels the work of this team would be more effective in stopping the drug trade in the US than the piecemeal work of her current kidnap response unit. The third on the team is a mysterious Hispanic or Latino man Kate only knows as Alejandro, and who she does not fully trust as she can tell that he is suffering from a very traumatic past. When Kate and the team arrive in El Paso for their first mission, Kate learns that the team's workings are not all they appear on the surface - many of the proceedings which would not be considered above board or legal - despite the end goal being as she knows it to be. Still largely in the dark and only given information on a need to know basis, Kate decides to stick it out with the team if only to discover all that she is not told while still believing in the end goal. She may have changing or at least mixed emotions as she learns more and more about what is going on, including the specific reason why she was recruited.",
+    "aka": [
+        "Sicario: Ranh Giới"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA5NjM3NTk1M15BMl5BanBnXkFtZTgwMzg1MzU2NjE@._V1_QL75_UX190_CR0,2,190,281_.jpg",
+    "imdb_date": "2015-10-08",
+    "actors": [
+        {
+            "id": "nm1289434",
+            "name": "Emily Blunt"
+        },
+        {
+            "id": "nm0000982",
+            "name": "Josh Brolin"
+        },
+        {
+            "id": "nm0001125",
+            "name": "Benicio Del Toro"
+        },
+        {
+            "id": "nm1256532",
+            "name": "Jon Bernthal"
+        },
+        {
+            "id": "nm0001255",
+            "name": "Victor Garber"
+        },
+        {
+            "id": "nm2257207",
+            "name": "Daniel Kaluuya"
+        },
+        {
+            "id": "nm0232998",
+            "name": "Jeffrey Donovan"
+        },
+        {
+            "id": "nm0874232",
+            "name": "Raoul Max Trujillo"
+        },
+        {
+            "id": "nm0147814",
+            "name": "Julio Cesar Cedillo"
+        },
+        {
+            "id": "nm0737276",
+            "name": "Hank Rogerson"
+        },
+        {
+            "id": "nm3229268",
+            "name": "Bernardo Saracino"
+        },
+        {
+            "id": "nm0380073",
+            "name": "Maximiliano Hernández"
+        },
+        {
+            "id": "nm0927794",
+            "name": "Kevin Wiggins"
+        },
+        {
+            "id": "nm1598758",
+            "name": "Edgar Arreola"
+        },
+        {
+            "id": "nm2484906",
+            "name": "Kim Larrichio"
+        },
+        {
+            "id": "nm7608281",
+            "name": "Jesus Nevarez-Castillo"
+        },
+        {
+            "id": "nm0961185",
+            "name": "Dylan Kenin"
+        },
+        {
+            "id": "nm2823321",
+            "name": "John Trejo"
+        }
+    ]
+}

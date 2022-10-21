@@ -1,1 +1,105 @@
-{"id":"tt6189022","title":"Angel Has Fallen","rating":6.4,"rating_count":94000,"release_year":2019,"popularity":1069,"imdb_type":"movie","runtime":"2h 1m","genres":["Action","Thriller"],"countries":["United States"],"languages":["English"],"director_names":["Ric Roman Waugh"],"creator_names":[],"description":"After the events in the previous film, Secret Service agent Mike Banning finds himself framed for an assassination attempt on the President. Pursued by his own agency and the FBI, Banning races to clear his name and uncover the real terrorist threat which has set its sights on Air Force One.","aka":["Nhà Trắng Thất Thủ: Kẻ Phản Bội"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BYmRmMWZhZGItYzA4MC00ZDYyLWE0OTMtYmM0MWRiN2Q4NGU2XkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_QL75_UX190_CR0,0,190,281_.jpg","imdb_date":"2019-08-21","actors":[{"id":"nm0124930","name":"Gerard Butler"},{"id":"nm5520750","name":"Frederick Schmidt"},{"id":"nm0396812","name":"Danny Huston"},{"id":"nm6875258","name":"Rocci Williams"},{"id":"nm0005305","name":"Piper Perabo"},{"id":"nm0228533","name":"Harry Ditson"},{"id":"nm3779922","name":"Linda John-Pierre"},{"id":"nm0714698","name":"Lance Reddick"},{"id":"nm1035854","name":"Ori Pfeffer"},{"id":"nm0000151","name":"Morgan Freeman"},{"id":"nm1543264","name":"Jasmine Hyde"},{"id":"nm0692139","name":"Ian Porter"},{"id":"nm0499014","name":"Laurel Lefkow"},{"id":"nm0484678","name":"Michael Landes"},{"id":"nm0036553","name":"Mark Arnold"},{"id":"nm0787715","name":"Kerry Shale"},{"id":"nm0625789","name":"Tim Blake Nelson"},{"id":"nm1019398","name":"John Strong"}]}
+{
+    "id": "tt6189022",
+    "title": "Angel Has Fallen",
+    "rating": 6.4,
+    "rating_count": 94000,
+    "release_year": 2019,
+    "popularity": 1069,
+    "imdb_type": "movie",
+    "runtime": "2h 1m",
+    "genres": [
+        "Action",
+        "Thriller"
+    ],
+    "countries": [
+        "United States"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Ric Roman Waugh"
+    ],
+    "creator_names": [],
+    "description": "After the events in the previous film, Secret Service agent Mike Banning finds himself framed for an assassination attempt on the President. Pursued by his own agency and the FBI, Banning races to clear his name and uncover the real terrorist threat which has set its sights on Air Force One.",
+    "aka": [
+        "Nhà Trắng Thất Thủ: Kẻ Phản Bội"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYmRmMWZhZGItYzA4MC00ZDYyLWE0OTMtYmM0MWRiN2Q4NGU2XkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "imdb_date": "2019-08-21",
+    "actors": [
+        {
+            "id": "nm0124930",
+            "name": "Gerard Butler"
+        },
+        {
+            "id": "nm5520750",
+            "name": "Frederick Schmidt"
+        },
+        {
+            "id": "nm0396812",
+            "name": "Danny Huston"
+        },
+        {
+            "id": "nm6875258",
+            "name": "Rocci Williams"
+        },
+        {
+            "id": "nm0005305",
+            "name": "Piper Perabo"
+        },
+        {
+            "id": "nm0228533",
+            "name": "Harry Ditson"
+        },
+        {
+            "id": "nm3779922",
+            "name": "Linda John-Pierre"
+        },
+        {
+            "id": "nm0714698",
+            "name": "Lance Reddick"
+        },
+        {
+            "id": "nm1035854",
+            "name": "Ori Pfeffer"
+        },
+        {
+            "id": "nm0000151",
+            "name": "Morgan Freeman"
+        },
+        {
+            "id": "nm1543264",
+            "name": "Jasmine Hyde"
+        },
+        {
+            "id": "nm0692139",
+            "name": "Ian Porter"
+        },
+        {
+            "id": "nm0499014",
+            "name": "Laurel Lefkow"
+        },
+        {
+            "id": "nm0484678",
+            "name": "Michael Landes"
+        },
+        {
+            "id": "nm0036553",
+            "name": "Mark Arnold"
+        },
+        {
+            "id": "nm0787715",
+            "name": "Kerry Shale"
+        },
+        {
+            "id": "nm0625789",
+            "name": "Tim Blake Nelson"
+        },
+        {
+            "id": "nm1019398",
+            "name": "John Strong"
+        }
+    ]
+}
