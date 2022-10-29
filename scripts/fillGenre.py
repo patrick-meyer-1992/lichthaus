@@ -10,12 +10,12 @@ import pandas as pd
 import json
 from sqlalchemy import create_engine
 from datetime import datetime
-from scripts.getMovieDetailInfo import saveMovieInfo
+from getMovieDetailInfo import saveMovieInfo
 
 #%% Initialize
-targetFolder = "data/json/"
-pwd = open("secrets.txt", "r").readlines()[1]
-apiKey = open("secrets.txt", "r").readlines()[0].replace("\n", "")
+targetFolder = "../data/json/"
+pwd = open("../secrets.txt", "r").readlines()[1]
+apiKey = open("../secrets.txt", "r").readlines()[0].replace("\n", "")
 def repeat(s, n):
     """
     Takes a string and returns a list with the string repeated n times.

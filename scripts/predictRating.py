@@ -10,7 +10,7 @@ import psycopg2
 from sqlalchemy import create_engine
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-pwd = open("secrets.txt", "r").readlines()[1]
+pwd = open("../secrets.txt", "r").readlines()[1]
 
 # Connect to database
 con = psycopg2.connect(
