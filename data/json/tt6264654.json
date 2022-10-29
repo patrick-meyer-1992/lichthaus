@@ -7,7 +7,11 @@
     "popularity": 192,
     "imdb_type": "movie",
     "runtime": "1h 55m",
-    "genres": [],
+    "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+    ],
     "countries": [
         "United States"
     ],
