@@ -30,11 +30,11 @@ plt = ggplot(data = df) +
            stat = "identity") +
   geom_text(aes(x = vorname,
                 y = 0,
-                label = vorname),
+                label = paste0(" ", vorname)),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Längster Vorname",
        x = "vorname",
        y = "Länge") +
@@ -86,11 +86,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = vorname,
                 y = 0,
-                label = paste0(vorname, " (", avg, ")")),
+                label = paste0(" ", vorname, " (", avg, ")")),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Wessen Vorschläge wurden wie gut bewertet?",
        x = "vorname",
        y = "Durchschnittliche Wertung") +
@@ -123,6 +123,8 @@ df = left_join(tmp, film[c("id", "titel")], "id") %>%
   arrange(desc(freq)) %>% 
   slice(1:10)
 
+df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
+
 plt = ggplot(data = df) +
   geom_bar(mapping = aes(x = reorder(titel, freq), 
                          y = freq
@@ -130,11 +132,13 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = titel,
                 y = 0,
-                label = paste0(titel, " (", freq, ")" )),
+                label = paste0(" ", titel, " (", freq, ")" )
+                ),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0
+            ) +
   labs(title = "Welcher Film wurde am häufigsten vorgeschlagen?",
        x = "vorname",
        y = "Durchschnittliche Wertung") +
@@ -173,11 +177,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = vorname,
                 y = 0,
-                label = paste0(vorname, " (", rate, "%)" )),
+                label = paste0(" ", vorname, " (", rate, "%)" )),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Wer hat am meisten Glück bei der Murmelbahn?",
        x = "vorname",
        y = "Durchschnittliche Wertung") +
@@ -202,12 +206,12 @@ film = tbl(con, "film")
 bewertet = tbl(con, "bewertet")
 genre = tbl(con, "genre")
 gehoert_zu = tbl(con, "gehoert_zu")
+filmabend = tbl(con, "filmabend")
 
 # Welches Genre wurde am häfigsten geschaut?
-df = left_join(film, gehoert_zu, by = "id") %>% 
-  left_join(genre, by = "bezeichnung") %>% 
-  filter(!is.na(zeigedatum) & !is.na(bezeichnung)) %>% 
-  select(id, titel, zeigedatum, bezeichnung) %>% 
+df = left_join(filmabend, gehoert_zu, by = "id") %>% 
+  left_join(genre, by = "bezeichnung") %>%
+  select(bezeichnung) %>% 
   group_by(bezeichnung) %>% 
   summarise(freq = n()) %>% 
   arrange(desc(freq)) %>% 
@@ -222,11 +226,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = bezeichnung,
                 y = 0,
-                label = paste0(bezeichnung, " (", freq, ")" )),
+                label = paste0(" ", bezeichnung, " (", freq, ")" )),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Welches Genre wurde am häufigsten angesehen?",
        x = "Genre",
        y = "Häufigkeit") +
@@ -257,11 +261,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = nachname,
                 y = 0,
-                label = nachname),
+                label = paste0(" ", nachname)),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Längster Nachname",
        x = "Nachname",
        y = "Länge") +
@@ -297,11 +301,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = vorname,
                 y = 0,
-                label = paste0(vorname, " ", nachname, " (" , length, ")")),
+                label = paste0(" ", vorname, " ", nachname, " (" , length, ")")),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Die meisten Vokale im Namen") +
   theme(plot.title = element_text(hjust = 0.5, size = 12),
         axis.title = element_blank(),
@@ -335,11 +339,11 @@ plt = ggplot(data = df) +
   stat = "identity") +
   geom_text(aes(x = vorname,
                 y = 0,
-                label = paste0(vorname, " ", nachname, " (" , length, ")")),
+                label = paste0(" ", vorname, " ", nachname, " (" , length, ")")),
             angle = 90,
             size = 3.5,
             color = "white",
-            hjust = -0.1) +
+            hjust = 0) +
   labs(title = "Die meisten aufeinanderfolgenden Konsonanten im Namen") +
   theme(plot.title = element_text(hjust = 0.5, size = 12),
         axis.title = element_blank(),
