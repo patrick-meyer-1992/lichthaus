@@ -18,9 +18,21 @@ db_password = readLines(con = "../secrets.txt", warn = F)[2]
 
 con = dbConnect(RPostgres::Postgres(), dbname = db, host=host_db, port=db_port, user=db_user, password=db_password) 
 
+# Download tables
+teilnehmer = tbl(con, "teilnehmer") %>% collect()
+schlaegt_vor = tbl(con, "schlaegt_vor") %>% select(!upload_time) %>% collect() 
+film = tbl(con, "film") %>% select(!upload_time) %>% collect()
+bewertet = tbl(con, "bewertet") %>% select(!upload_time) %>% collect()
+genre = tbl(con, "genre") %>% select(!upload_time) %>% collect()
+gehoert_zu = tbl(con, "gehoert_zu") %>% select(!upload_time) %>% collect()
+filmabend = tbl(con, "filmabend") %>% select(!upload_time) %>% collect()
+schauspieler = tbl(con, "schauspieler") %>% select(!upload_time) %>% collect()
+spielt_mit = tbl(con, "spielt_mit") %>% select(!upload_time) %>% collect()
+stimmt_fuer = tbl(con, "stimmt_fuer") %>% select(!upload_time) %>% collect()
+
 ##### Wer hat den längsten Vornamen? ####
-df = tbl(con, "teilnehmer")
-df = df %>% select(vorname) %>% filter(vorname != "unknown") %>% collect()
+df = teilnehmer
+df = df %>% select(vorname) %>% filter(vorname != "unknown")
 df$length = nchar(df$vorname)
 
 plt = ggplot(data = df) +
@@ -54,30 +66,18 @@ ggsave(filename = "Vorname.png",
        units = "px")
 
 ##### Wessen Vorschläge wurden im Schnitt am besten bewertet? ####
-schlaegt_vor = tbl(con, "schlaegt_vor") %>% collect()
-bewertet = tbl(con, "bewertet") %>% collect()
-film = tbl(con, "film") %>% collect()
-
-schlaegt_vor = schlaegt_vor %>% 
-  select(vorname, id) %>% 
-  distinct(vorname, id) %>% 
-  arrange(vorname)
-
-bewertet = bewertet %>% 
-  select(id, wertung) %>% 
-  filter(id != "#N/A") %>% 
-  group_by(id) %>% 
-  summarise(avg = mean(wertung))
-
-df = left_join(schlaegt_vor, bewertet, "id")
-df = left_join(x = df, y = film[c("id", "titel")], by = "id")
-
-df = df %>% 
-  filter(!is.na(avg)) %>% 
+df = schlaegt_vor %>% 
+  left_join(stimmt_fuer, by = "id") %>% 
+  filter(sieger &
+         vorschlagsdatum == stimmdatum) %>% 
+  select(vorname.x, id) %>%
+  rename(vorname = vorname.x) %>% 
+  distinct() %>% 
+  left_join(bewertet %>% select(!vorname), by = "id") %>% 
+  filter(!is.na(wertung)) %>% 
   group_by(vorname) %>% 
-  summarise(avg = mean(avg))
+  summarise(avg = round(mean(wertung), 2))
 
-df$avg = round(df$avg, 2)
 
 plt = ggplot(data = df) +
   geom_bar(mapping = aes(x = reorder(vorname, avg), 
@@ -110,9 +110,6 @@ ggsave(filename = "Wertung.png",
        units = "px")
 
 #### Welcher Film wurde am häufigsten vorgeschlagen? ####
-schlaegt_vor = tbl(con, "schlaegt_vor") %>% collect()
-film = tbl(con, "film") %>% collect()
-
 tmp = schlaegt_vor %>% 
   select(vorname, id) %>% 
   group_by(id) %>% 
@@ -158,9 +155,6 @@ ggsave(filename = "Vorschlag.png",
        units = "px")
 
 #### Wessen Vorschläge kommen am häufigsten durch die Murmelbahn ####
-schlaegt_vor = tbl(con, "schlaegt_vor") %>% collect()
-film = tbl(con, "film") %>% collect()
-
 df = schlaegt_vor %>% 
   select(id, vorname, murmeled) %>% 
   group_by(vorname) %>% 
@@ -201,13 +195,6 @@ ggsave(filename = "Glück.png",
        units = "px")
 
 #### Was ist unser Lieblingsgenre? ####
-schlaegt_vor = tbl(con, "schlaegt_vor")
-film = tbl(con, "film")
-bewertet = tbl(con, "bewertet")
-genre = tbl(con, "genre")
-gehoert_zu = tbl(con, "gehoert_zu")
-filmabend = tbl(con, "filmabend")
-
 # Welches Genre wurde am häfigsten geschaut?
 df = left_join(filmabend, gehoert_zu, by = "id") %>% 
   left_join(genre, by = "bezeichnung") %>%
@@ -248,8 +235,46 @@ ggsave(filename = "Genre Häufigkeit.png",
        height = 1188, 
        units = "px")
 
+# Welches Genre wurde am besten bewertet? 
+df = 
+  left_join(bewertet, gehoert_zu, by = "id") %>% 
+  select(bezeichnung, wertung) %>% 
+  group_by(bezeichnung) %>% 
+  summarise(avg = round(mean(wertung), 2)) %>% 
+  arrange(desc(avg))
+  slice(1:10)
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(bezeichnung, avg), 
+                         y = avg
+  ),
+  stat = "identity") +
+  geom_text(aes(x = bezeichnung,
+                y = 0,
+                label = paste0(" ", bezeichnung, " (", avg, ")" )),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Welches Genre wurde am besten bewertet?",
+       x = "Genre",
+       y = "Wertung") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+plt
+
+ggsave(filename = "Genre Wertung.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
 ##### Wer hat den längsten Nachnamen? ####
-df = tbl(con, "teilnehmer")
+df = teilnehmer
 df = df %>% select(nachname) %>% filter(nachname != "unknown") %>% collect()
 df$length = nchar(df$nachname)
 df = df %>% distinct(nachname, length)
@@ -285,7 +310,7 @@ ggsave(filename = "Nachname.png",
        units = "px")
 
 ##### Wer hat die meisten Vokale im Namen? ####
-df = tbl(con, "teilnehmer")
+df = teilnehmer
 df = df %>% filter(nachname != "unknown") %>% collect()
 df$fullName = paste0(df$vorname, df$nachname)
 vowels = str_extract_all(df$fullName, "[aeiouAEIOUäöüÄÖÜ]{1,}")
@@ -323,7 +348,7 @@ ggsave(filename = "Vokale.png",
        units = "px")
 ##### Wer hat die meisten aufeinanderfolgenden Konsonanten im Namen? ####
 
-df = tbl(con, "teilnehmer")
+df = teilnehmer
 df = df %>% filter(nachname != "unknown") %>% collect()
 df$fullName = paste0(df$vorname, df$nachname)
 notVowels = str_extract_all(df$fullName, "[^aeiouAEIOUäöüÄÖÜ]{1,}")
@@ -363,12 +388,6 @@ ggsave(filename = "Konsonanten.png",
 #### Wer bewertet wessen Vorschläge wie gut? ####
 # Einschränkung: Es werden nur die als Vorschlagende eines Films gewertet,
 # die ihn an dem Abend vorgeschlagen haben, an dem er gewählt wurde.
-
-schlaegt_vor = tbl(con, "schlaegt_vor") %>% select(!upload_time) %>% collect()
-film = tbl(con, "film") %>% select(!upload_time) %>% collect()
-bewertet = tbl(con, "bewertet") %>% select(!upload_time) %>% collect()
-stimmt_fuer = tbl(con, "stimmt_fuer") %>% select(!upload_time) %>% collect()
-
 df = left_join(schlaegt_vor, film, by = "id") %>% 
   left_join(stimmt_fuer, by = "id", 
             suffix = c(".schlaegt_vor", ".stimmt_fuer")) %>% 
@@ -407,6 +426,194 @@ plt = ggplot(df, aes(vorschlagender, bewerter, fill= avg)) +
 plt
 
 ggsave(filename = "Wertungsmatrix.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+#### Wer hat die meisten unterschiedlichen Vorschläge eingebracht? ####
+df = # Anzahl individueller Vorschläge
+  schlaegt_vor %>% 
+  select(vorname, id) %>%
+  distinct() %>% 
+  group_by(vorname) %>% 
+  summarise(freq = n()) %>% 
+  arrange(desc(freq)) %>% 
+  slice(1:8)
+
+df_total = # Anzahl Vorschläge insgesamt
+  schlaegt_vor %>% 
+  select(vorname, id) %>% 
+  group_by(vorname) %>% 
+  summarise(freq_total = n()) %>% 
+  arrange(desc(freq_total)) %>% 
+  slice(1:8)
+
+df = left_join(df, df_total, by = "vorname")
+df = mutate(df, ratio = round(freq / freq_total * 100, 2))
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(vorname, ratio), 
+                         y = ratio
+  ),
+  stat = "identity") +
+  geom_text(aes(x = vorname,
+                y = 0,
+                label = paste0(" ", vorname, " (", ratio, "%)" )),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Wer hat die meisten unterschiedlichen Vorschläge eingebracht?",
+       x = "Name",
+       y = "Vorschläge") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+plt
+
+ggsave(filename = "Anzahl Vorschläge.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+
+#### Wer hat am häufigsten für die Filme gestimmt, die an dem Abend auch gewonnen haben?####
+df = # Anzahl Abstimmungen für Sieger des Abends
+  stimmt_fuer %>% 
+  filter(sieger) %>% 
+  group_by(vorname) %>% 
+  summarise(freq = n()) %>% 
+  arrange(desc(freq)) %>% 
+  slice(1:8)
+
+df_total = # Anzahl Abstimmungen insgesamt
+  stimmt_fuer %>% 
+  group_by(vorname) %>% 
+  summarise(freq_total = n()) %>% 
+  arrange(desc(freq_total)) %>% 
+  slice(1:8)
+
+df = left_join(df, df_total, by = "vorname")
+df = mutate(df, ratio = round(freq / freq_total * 100, 2))
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(vorname, ratio), 
+                         y = ratio
+  ),
+  stat = "identity") +
+  geom_text(aes(x = vorname,
+                y = 0,
+                label = paste0(" ", vorname, " (", ratio, "%)" )),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Wer hat am häufigsten für den Sieger des Abends gestimmt?",
+       x = "Name",
+       y = "Abstimmung") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+plt
+
+ggsave(filename = "Königsmacher.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+#### Welcher Film hat am längsten gebraucht vom ersten Vorschlag bis zur Ausstrahlung? ####
+df = 
+  left_join(filmabend, schlaegt_vor, by = "id") %>% 
+  select(id, datum, vorschlagsdatum) %>% 
+  arrange(id, datum, vorschlagsdatum) %>% 
+  distinct(id, .keep_all = T) %>% 
+  mutate(diff = datum - vorschlagsdatum) %>% 
+  left_join(film, by = "id") %>% 
+  select(titel, diff) %>% 
+  arrange(desc(diff)) %>% 
+  slice(1:10)
+
+df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(titel, diff), 
+                         y = diff
+  ),
+  stat = "identity") +
+  geom_text(aes(x = titel,
+                y = 0,
+                label = paste0(" ", titel, " (", diff, " Tage)" )),
+            angle = 90,
+            size = 2.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Welcher Film hat am längsten vom ersten Vorschlag zur Ausstrahlung gebraucht?",
+       x = "Titel",
+       y = "Dauer") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+plt
+
+ggsave(filename = "Längste Wartezeit.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+#### Welche Filme werden wie gut bewertet, wenn man die Person ignoriert, die ihn vorgeschlagen hat? ####
+df = 
+  left_join(schlaegt_vor, stimmt_fuer, by = "id") %>% 
+  filter(sieger & vorschlagsdatum == stimmdatum) %>% 
+  rename(vorschlagender = vorname.x, abstimmer = vorname.y) %>% 
+  arrange(id, vorschlagender) %>% 
+  distinct(vorschlagender, id, .keep_all = T) %>% 
+  select(vorschlagender, id) %>% 
+  left_join(bewertet, by = "id") %>% 
+  rename(bewerter = vorname) %>% 
+  filter(vorschlagender != bewerter) %>% 
+  group_by(id) %>% 
+  summarise(avg = round(mean(wertung), 2)) %>% 
+  arrange(desc(avg)) %>% 
+  slice(1:10) %>% 
+  left_join(film, by = "id") %>% 
+  select(titel, avg)
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(titel, avg), 
+                         y = avg
+  ),
+  stat = "identity") +
+  geom_text(aes(x = titel,
+                y = 0,
+                label = paste0(" ", titel, " (", avg, ")")),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Beste Filme (ohne Wertung des Vorschlagenden)",
+       x = "Titel",
+       y = "Durchschnittliche Wertung") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Beste Filmwertungen (ohne Vorschlagenden).png", 
        plot = plt, 
        path = "..\\results", 
        width = 1500, 
