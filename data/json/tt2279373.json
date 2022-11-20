@@ -1,1 +1,111 @@
-{"id":"tt2279373","title":"The SpongeBob Movie: Sponge Out of Water","rating":6,"rating_count":54000,"release_year":2015,"popularity":null,"imdb_type":"movie","runtime":"1h 32m","genres":["Animation","Adventure","Comedy","Family","Fantasy"],"countries":["United States","South Korea","Australia"],"languages":["English"],"director_names":["Paul Tibbitt","Mike Mitchell"],"creator_names":[],"description":"During a fight between the Krusty Krab and Plankton, the secret formula disappears and all of Bikini Bottom goes into a terrible apocalypse. The Bikini Bottomites go crazy and they all believe that Spongebob and Plankton stole the secret formula. The two new teammates create a time machine to get the secret formula before it disappears and also go to some weird places along the way including a time paralex where they meet a time wizard named Bubbles who is a dolphin. The two later get to the time when the formula disappeared and take it back to the present day time. They then realized that it's a fake formula Plankton made when he was taking the real one and the Bikini Bottomites try to destroy Spongebob (Plankton runs away) Spongebob smells Krabby patties and so does everyone else so the Bikini Bottomites follow it (instead of destroying Spongebob) and they arrive at the bank of the surface. Everyone except Spongebob, Patrick, Mr. Krabs, Squidward, Sandy, and a stowaway Plankton go back home while the six characters that stayed are greeted by Bubbles who takes them to the surface where a pirate is selling Krabby Patties. The team learns that they can write in a magic book and it'll make whatever they write in it become true. They decide to turn themselves into superheroes and battle the pirate. Meanwhile, Plankton writes himself as a superhero too.","aka":["SpongeBob an Scannán: Spúinse as Uisce"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BMGEzNGRjYzYtNmRjNy00ZTI0LTgwOTYtOTViMGM0MWUwMzQ5XkEyXkFqcGdeQXVyMTM0NTUzNDIy._V1_QL75_UX190_CR0,1,190,281_FMwebp.webp","imdb_date":"2015-03-27","actors":[{"id":"nm0444786","name":"Tom Kenny"},{"id":"nm0000104","name":"Antonio Banderas"},{"id":"nm0265067","name":"Bill Fagerbakke"},{"id":"nm0000317","name":"Clancy Brown"},{"id":"nm1082823","name":"Eric Bauza"},{"id":"nm0176792","name":"Tim Conway"},{"id":"nm0214430","name":"Eddie Deezen"},{"id":"nm0667326","name":"Rob Paulsen"},{"id":"nm0724656","name":"Kevin Michael Richardson"},{"id":"nm0829181","name":"April Stewart"},{"id":"nm0838588","name":"Cree Summer"},{"id":"nm0921942","name":"Billy West"},{"id":"nm0016141","name":"Carlos Alazraqui"},{"id":"nm0636046","name":"Nolan North"},{"id":"nm1196684","name":"Paul Tibbitt"},{"id":"nm0120309","name":"Rodger Bumpass"},{"id":"nm0492951","name":"Mr. Lawrence"},{"id":"nm0848154","name":"Jill Talley"}]}
+{
+    "id": "tt2279373",
+    "title": "Sponge Out of Water",
+    "rating": 6,
+    "rating_count": 54000,
+    "release_year": 2015,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 32m",
+    "genres": [
+        "Animation",
+        "Adventure",
+        "Comedy",
+        "Family",
+        "Fantasy"
+    ],
+    "countries": [
+        "United States",
+        "South Korea",
+        "Australia"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Paul Tibbitt",
+        "Mike Mitchell"
+    ],
+    "creator_names": [],
+    "description": "During a fight between the Krusty Krab and Plankton, the secret formula disappears and all of Bikini Bottom goes into a terrible apocalypse. The Bikini Bottomites go crazy and they all believe that Spongebob and Plankton stole the secret formula. The two new teammates create a time machine to get the secret formula before it disappears and also go to some weird places along the way including a time paralex where they meet a time wizard named Bubbles who is a dolphin. The two later get to the time when the formula disappeared and take it back to the present day time. They then realized that it's a fake formula Plankton made when he was taking the real one and the Bikini Bottomites try to destroy Spongebob (Plankton runs away) Spongebob smells Krabby patties and so does everyone else so the Bikini Bottomites follow it (instead of destroying Spongebob) and they arrive at the bank of the surface. Everyone except Spongebob, Patrick, Mr. Krabs, Squidward, Sandy, and a stowaway Plankton go back home while the six characters that stayed are greeted by Bubbles who takes them to the surface where a pirate is selling Krabby Patties. The team learns that they can write in a magic book and it'll make whatever they write in it become true. They decide to turn themselves into superheroes and battle the pirate. Meanwhile, Plankton writes himself as a superhero too.",
+    "aka": [
+        "SpongeBob an Scannï¿½n: Spï¿½inse as Uisce"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMGEzNGRjYzYtNmRjNy00ZTI0LTgwOTYtOTViMGM0MWUwMzQ5XkEyXkFqcGdeQXVyMTM0NTUzNDIy._V1_QL75_UX190_CR0,1,190,281_FMwebp.webp",
+    "imdb_date": "2015-03-27",
+    "actors": [
+        {
+            "id": "nm0444786",
+            "name": "Tom Kenny"
+        },
+        {
+            "id": "nm0000104",
+            "name": "Antonio Banderas"
+        },
+        {
+            "id": "nm0265067",
+            "name": "Bill Fagerbakke"
+        },
+        {
+            "id": "nm0000317",
+            "name": "Clancy Brown"
+        },
+        {
+            "id": "nm1082823",
+            "name": "Eric Bauza"
+        },
+        {
+            "id": "nm0176792",
+            "name": "Tim Conway"
+        },
+        {
+            "id": "nm0214430",
+            "name": "Eddie Deezen"
+        },
+        {
+            "id": "nm0667326",
+            "name": "Rob Paulsen"
+        },
+        {
+            "id": "nm0724656",
+            "name": "Kevin Michael Richardson"
+        },
+        {
+            "id": "nm0829181",
+            "name": "April Stewart"
+        },
+        {
+            "id": "nm0838588",
+            "name": "Cree Summer"
+        },
+        {
+            "id": "nm0921942",
+            "name": "Billy West"
+        },
+        {
+            "id": "nm0016141",
+            "name": "Carlos Alazraqui"
+        },
+        {
+            "id": "nm0636046",
+            "name": "Nolan North"
+        },
+        {
+            "id": "nm1196684",
+            "name": "Paul Tibbitt"
+        },
+        {
+            "id": "nm0120309",
+            "name": "Rodger Bumpass"
+        },
+        {
+            "id": "nm0492951",
+            "name": "Mr. Lawrence"
+        },
+        {
+            "id": "nm0848154",
+            "name": "Jill Talley"
+        }
+    ]
+}

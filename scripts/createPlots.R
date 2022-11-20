@@ -118,44 +118,68 @@ tmp = schlaegt_vor %>%
   group_by(id) %>% 
   summarise(freq = n())
 
-df = left_join(tmp, film[c("id", "titel")], "id") %>% 
-  select(titel, freq) %>% 
+df = left_join(tmp, film[c("id", "titel", "image_link")], "id") %>% 
+  select(titel, freq, image_link) %>% 
   arrange(desc(freq)) %>% 
-  slice(1:10)
+  slice(1:10) %>% 
+  arrange(freq)
 
-df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
+top_row = c()
+# Combine each movie into a picture
+for (i in 1:nrow(df)) {
+  titel = df$titel[i]
+  freq = df$freq[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", freq, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+  img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+  
+  top_row = image_join(top_row, img)
+}
+top_row = image_append(top_row)
+top_row = image_annotate(image = top_row, text = paste0("Anzahl Vorschläge"), size = 20, gravity = "north")
+image_write(top_row, path = paste0("..\\results\\Vorschlag", ".png"), format = "png")
 
-plt = ggplot(data = df) +
-  geom_bar(mapping = aes(x = reorder(titel, freq), 
-                         y = freq
-  ),
-  stat = "identity") +
-  geom_text(aes(x = titel,
-                y = 0,
-                label = paste0(" ", titel, " (", freq, ")" )
-                ),
-            angle = 90,
-            size = 3.5,
-            color = "white",
-            hjust = 0
-            ) +
-  labs(title = "Welcher Film wurde am häufigsten vorgeschlagen?",
-       x = "vorname",
-       y = "Durchschnittliche Wertung") +
-  theme(plot.title = element_text(hjust = 0.5, size = 12),  
-        axis.title = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank()
-  )
 
-plt
 
-ggsave(filename = "Vorschlag.png", 
-       plot = plt, 
-       path = "..\\results", 
-       width = 1500, 
-       height = 1188, 
-       units = "px")
+# plt = ggplot(data = df) +
+#   geom_bar(mapping = aes(x = reorder(titel, freq), 
+#                          y = freq
+#   ),
+#   stat = "identity") +
+#   geom_text(aes(x = titel,
+#                 y = 0,
+#                 label = paste0(" ", titel, " (", freq, ")" )
+#                 ),
+#             angle = 90,
+#             size = 3.5,
+#             color = "white",
+#             hjust = 0
+#             ) +
+#   labs(title = "Welcher Film wurde am häufigsten vorgeschlagen?",
+#        x = "vorname",
+#        y = "Durchschnittliche Wertung") +
+#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
+#         axis.title = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank()
+#   )
+# 
+# plt
+# 
+# ggsave(filename = "Vorschlag.png", 
+#        plot = plt, 
+#        path = "..\\results", 
+#        width = 1500, 
+#        height = 1188, 
+#        units = "px")
 
 #### Wessen Vorschläge kommen am häufigsten durch die Murmelbahn ####
 df = schlaegt_vor %>% 
@@ -541,39 +565,64 @@ df =
   distinct(id, .keep_all = T) %>% 
   mutate(diff = datum - vorschlagsdatum) %>% 
   left_join(film, by = "id") %>% 
-  select(titel, diff) %>% 
+  select(titel, diff, image_link) %>% 
   arrange(desc(diff)) %>% 
-  slice(1:10)
+  slice(1:10) %>% 
+  arrange(diff)
 
-df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
-plt = ggplot(data = df) +
-  geom_bar(mapping = aes(x = reorder(titel, diff), 
-                         y = diff
-  ),
-  stat = "identity") +
-  geom_text(aes(x = titel,
-                y = 0,
-                label = paste0(" ", titel, " (", diff, " Tage)" )),
-            angle = 90,
-            size = 2.5,
-            color = "white",
-            hjust = 0) +
-  labs(title = "Welcher Film hat am längsten vom ersten Vorschlag zur Ausstrahlung gebraucht?",
-       x = "Titel",
-       y = "Dauer") +
-  theme(plot.title = element_text(hjust = 0.5, size = 12),  
-        axis.title = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank()
-  )
-plt
+#df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
 
-ggsave(filename = "Längste Wartezeit.png", 
-       plot = plt, 
-       path = "..\\results", 
-       width = 1500, 
-       height = 1188, 
-       units = "px")
+top_row = c()
+# Combine each movie into a picture
+for (i in 1:nrow(df)) {
+  titel = df$titel[i]
+  diff = df$diff[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", diff, " Tage)"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+  img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+  
+  top_row = image_join(top_row, img)
+}
+top_row = image_append(top_row)
+top_row = image_annotate(image = top_row, text = paste0("Tage vom ersten Vorschlag bis zur Ausstrahlung"), size = 20, gravity = "north")
+image_write(top_row, path = paste0("..\\results\\Längste Wartezeit", ".png"), format = "png")
+
+# plt = ggplot(data = df) +
+#   geom_bar(mapping = aes(x = reorder(titel, diff), 
+#                          y = diff
+#   ),
+#   stat = "identity") +
+#   geom_text(aes(x = titel,
+#                 y = 0,
+#                 label = paste0(" ", titel, " (", diff, " Tage)" )),
+#             angle = 90,
+#             size = 2.5,
+#             color = "white",
+#             hjust = 0) +
+#   labs(title = "Welcher Film hat am längsten vom ersten Vorschlag zur Ausstrahlung gebraucht?",
+#        x = "Titel",
+#        y = "Dauer") +
+#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
+#         axis.title = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank()
+#   )
+# plt
+# 
+# ggsave(filename = "Längste Wartezeit.png", 
+#        plot = plt, 
+#        path = "..\\results", 
+#        width = 1500, 
+#        height = 1188, 
+#        units = "px")
 
 #### Welche Filme werden wie gut bewertet, wenn man die Person berücksichtigt, die ihn vorgeschlagen hat? ####
 df = 
@@ -590,37 +639,61 @@ df =
   arrange(desc(avg)) %>% 
   slice(1:10) %>% 
   left_join(film, by = "id") %>% 
-  select(titel, avg)
+  select(titel, avg, image_link) %>% 
+  arrange(avg)
 
-plt = ggplot(data = df) +
-  geom_bar(mapping = aes(x = reorder(titel, avg), 
-                         y = avg
-  ),
-  stat = "identity") +
-  geom_text(aes(x = titel,
-                y = 0,
-                label = paste0(" ", titel, " (", avg, ")")),
-            angle = 90,
-            size = 3.5,
-            color = "white",
-            hjust = 0) +
-  labs(title = "Beste Filme (mit Wertung des Vorschlagenden)",
-       x = "Titel",
-       y = "Durchschnittliche Wertung") +
-  theme(plot.title = element_text(hjust = 0.5, size = 12),  
-        axis.title = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank()
-  )
+top_row = c()
+# Combine each movie into a picture
+for (i in 1:nrow(df)) {
+  titel = df$titel[i]
+  avg = df$avg[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", avg, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+  img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+  
+  top_row = image_join(top_row, img)
+}
+top_row = image_append(top_row)
+top_row = image_annotate(image = top_row, text = paste0("Beste Wertung (mit Vorschlagendem)"), size = 20, gravity = "north")
+image_write(top_row, path = paste0("..\\results\\Beste Filmwertungen (mit Vorschlagenden)", ".png"), format = "png")
 
-plt
-
-ggsave(filename = "Beste Filmwertungen (mit Vorschlagenden).png", 
-       plot = plt, 
-       path = "..\\results", 
-       width = 1500, 
-       height = 1188, 
-       units = "px")
+# plt = ggplot(data = df) +
+#   geom_bar(mapping = aes(x = reorder(titel, avg), 
+#                          y = avg
+#   ),
+#   stat = "identity") +
+#   geom_text(aes(x = titel,
+#                 y = 0,
+#                 label = paste0(" ", titel, " (", avg, ")")),
+#             angle = 90,
+#             size = 3.5,
+#             color = "white",
+#             hjust = 0) +
+#   labs(title = "Beste Filme (mit Wertung des Vorschlagenden)",
+#        x = "Titel",
+#        y = "Durchschnittliche Wertung") +
+#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
+#         axis.title = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank()
+#   )
+# 
+# plt
+# 
+# ggsave(filename = "Beste Filmwertungen (mit Vorschlagenden).png", 
+#        plot = plt, 
+#        path = "..\\results", 
+#        width = 1500, 
+#        height = 1188, 
+#        units = "px")
 
 #### Welche Filme werden wie gut bewertet, wenn man die Person ignoriert, die ihn vorgeschlagen hat? ####
 df = 
@@ -638,37 +711,62 @@ df =
   arrange(desc(avg)) %>% 
   slice(1:10) %>% 
   left_join(film, by = "id") %>% 
-  select(titel, avg)
+  select(titel, avg, image_link) %>% 
+  arrange(avg)
 
-plt = ggplot(data = df) +
-  geom_bar(mapping = aes(x = reorder(titel, avg), 
-                         y = avg
-  ),
-  stat = "identity") +
-  geom_text(aes(x = titel,
-                y = 0,
-                label = paste0(" ", titel, " (", avg, ")")),
-            angle = 90,
-            size = 3.5,
-            color = "white",
-            hjust = 0) +
-  labs(title = "Beste Filme (ohne Wertung des Vorschlagenden)",
-       x = "Titel",
-       y = "Durchschnittliche Wertung") +
-  theme(plot.title = element_text(hjust = 0.5, size = 12),  
-        axis.title = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank()
-  )
+top_row = c()
+# Combine each movie into a picture
+for (i in 1:nrow(df)) {
+  titel = df$titel[i]
+  avg = df$avg[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", avg, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+  img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+  
+  top_row = image_join(top_row, img)
+}
+top_row = image_append(top_row)
+top_row = image_annotate(image = top_row, text = paste0("Beste Wertung (ohne Vorschlagenden)"), size = 20, gravity = "north")
+image_write(top_row, path = paste0("..\\results\\Beste Filmwertungen (ohne Vorschlagenden)", ".png"), format = "png")
 
-plt
 
-ggsave(filename = "Beste Filmwertungen (ohne Vorschlagenden).png", 
-       plot = plt, 
-       path = "..\\results", 
-       width = 1500, 
-       height = 1188, 
-       units = "px")
+# plt = ggplot(data = df) +
+#   geom_bar(mapping = aes(x = reorder(titel, avg), 
+#                          y = avg
+#   ),
+#   stat = "identity") +
+#   geom_text(aes(x = titel,
+#                 y = 0,
+#                 label = paste0(" ", titel, " (", avg, ")")),
+#             angle = 90,
+#             size = 3.5,
+#             color = "white",
+#             hjust = 0) +
+#   labs(title = "Beste Filme (ohne Wertung des Vorschlagenden)",
+#        x = "Titel",
+#        y = "Durchschnittliche Wertung") +
+#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
+#         axis.title = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank()
+#   )
+# 
+# plt
+# 
+# ggsave(filename = "Beste Filmwertungen (ohne Vorschlagenden).png", 
+#        plot = plt, 
+#        path = "..\\results", 
+#        width = 1500, 
+#        height = 1188, 
+#        units = "px")
 
 
 #### Wie beeinflusst welches Genre die Wertung der einzelnen Teilnehmer (Regressionkoeffizienten)? ####
