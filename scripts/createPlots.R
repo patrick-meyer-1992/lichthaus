@@ -5,11 +5,13 @@ library(plotly)
 library(RPostgres)
 library(reshape2)
 library(stringr)
+library(cowplot)
+library(magick)
 
 pth = dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(pth)
 
-# Connect to database
+#### Connect to database ####
 db = 'lichthaus'
 host_db = 'lichthaus.ddns.net' 
 db_port = '54320' 
@@ -18,7 +20,7 @@ db_password = readLines(con = "../secrets.txt", warn = F)[2]
 
 con = dbConnect(RPostgres::Postgres(), dbname = db, host=host_db, port=db_port, user=db_user, password=db_password) 
 
-# Download tables
+#### Download tables #### 
 teilnehmer = tbl(con, "teilnehmer") %>% collect()
 schlaegt_vor = tbl(con, "schlaegt_vor") %>% select(!upload_time) %>% collect() 
 film = tbl(con, "film") %>% select(!upload_time) %>% collect()
@@ -29,6 +31,7 @@ filmabend = tbl(con, "filmabend") %>% select(!upload_time) %>% collect()
 schauspieler = tbl(con, "schauspieler") %>% select(!upload_time) %>% collect()
 spielt_mit = tbl(con, "spielt_mit") %>% select(!upload_time) %>% collect()
 stimmt_fuer = tbl(con, "stimmt_fuer") %>% select(!upload_time) %>% collect()
+vorschlagende = tbl(con, "vorschlagende") %>% collect()
 
 ##### Wer hat den längsten Vornamen? ####
 df = teilnehmer
@@ -195,7 +198,7 @@ ggsave(filename = "Glück.png",
        units = "px")
 
 #### Was ist unser Lieblingsgenre? ####
-# Welches Genre wurde am häfigsten geschaut?
+# Welches Genre wurde am häufigsten geschaut?
 df = left_join(filmabend, gehoert_zu, by = "id") %>% 
   left_join(genre, by = "bezeichnung") %>%
   select(bezeichnung) %>% 
@@ -241,7 +244,7 @@ df =
   select(bezeichnung, wertung) %>% 
   group_by(bezeichnung) %>% 
   summarise(avg = round(mean(wertung), 2)) %>% 
-  arrange(desc(avg))
+  arrange(desc(avg)) %>% 
   slice(1:10)
 
 plt = ggplot(data = df) +
@@ -572,6 +575,53 @@ ggsave(filename = "Längste Wartezeit.png",
        height = 1188, 
        units = "px")
 
+#### Welche Filme werden wie gut bewertet, wenn man die Person berücksichtigt, die ihn vorgeschlagen hat? ####
+df = 
+  left_join(schlaegt_vor, stimmt_fuer, by = "id") %>% 
+  filter(sieger & vorschlagsdatum == stimmdatum) %>% 
+  rename(vorschlagender = vorname.x, abstimmer = vorname.y) %>% 
+  arrange(id, vorschlagender) %>% 
+  distinct(vorschlagender, id, .keep_all = T) %>% 
+  select(vorschlagender, id) %>% 
+  left_join(bewertet, by = "id") %>% 
+  rename(bewerter = vorname) %>% 
+  group_by(id) %>% 
+  summarise(avg = round(mean(wertung), 2)) %>% 
+  arrange(desc(avg)) %>% 
+  slice(1:10) %>% 
+  left_join(film, by = "id") %>% 
+  select(titel, avg)
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(titel, avg), 
+                         y = avg
+  ),
+  stat = "identity") +
+  geom_text(aes(x = titel,
+                y = 0,
+                label = paste0(" ", titel, " (", avg, ")")),
+            angle = 90,
+            size = 3.5,
+            color = "white",
+            hjust = 0) +
+  labs(title = "Beste Filme (mit Wertung des Vorschlagenden)",
+       x = "Titel",
+       y = "Durchschnittliche Wertung") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Beste Filmwertungen (mit Vorschlagenden).png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
 #### Welche Filme werden wie gut bewertet, wenn man die Person ignoriert, die ihn vorgeschlagen hat? ####
 df = 
   left_join(schlaegt_vor, stimmt_fuer, by = "id") %>% 
@@ -619,3 +669,183 @@ ggsave(filename = "Beste Filmwertungen (ohne Vorschlagenden).png",
        width = 1500, 
        height = 1188, 
        units = "px")
+
+
+#### Wie beeinflusst welches Genre die Wertung der einzelnen Teilnehmer (Regressionkoeffizienten)? ####
+df = 
+  read.csv("../results/predictedRatings.csv") %>% 
+  tibble()
+
+minRange = -10
+maxRange = 10
+
+lst = list()
+for (candidate in distinct(df, vorname) %>% pull()) {
+  tmp = df %>% filter(vorname == candidate)
+  subplt = 
+    ggplot(
+      data = tmp
+      ) + 
+    geom_bar(
+      mapping = aes(
+        x = genre, 
+        y = Coefficient
+      ),
+      stat = "identity"
+    ) +
+    # geom_text(
+    #   aes(
+    #     x = genre,
+    #     y = 0, 
+    #     label = paste0(Coefficient)
+    #   ),
+    #   size = 5,
+    #   color = "white",
+    #   hjust = 0.5
+    # ) +
+    labs(title = candidate,
+         y = "Koeffizient") +
+    theme(plot.title = element_text(hjust = 0.5, size = 12),  
+          axis.title = element_blank()
+    ) +
+    ylim(minRange, maxRange)
+  
+  lst[[length(lst) + 1]] = subplt
+}
+
+plt = plot_grid(plotlist = lst, ncol = 1)
+
+ggsave(filename = "Genrekoeffizienten.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 4500, 
+       height = 3564, 
+       units = "px")
+
+
+
+#### Wessen Bewertungen haben die höchste Korrelation mit den Ratings von imdb? ####
+df = 
+  left_join(bewertet, film, by = "id") %>% 
+  select(vorname, id, wertung, imdb_rating) %>% 
+  #filter(vorname == "Timo")
+  group_by(vorname) %>% 
+  summarise(correlation = round(cor(x = wertung, y = imdb_rating, method = "pearson"), 2),
+            significance = cor.test(wertung, imdb_rating, method = "pearson")[["p.value"]],
+            low_conf = cor.test(wertung, imdb_rating, method = "pearson")[["conf.int"]][1],
+            high_conf = cor.test(wertung, imdb_rating, method = "pearson")[["conf.int"]][2]) %>% 
+  mutate(direction = if_else(correlation < 0, 270, 90))
+
+tmp = 
+  left_join(bewertet, film, by = "id") %>% 
+  select(vorname, id, wertung, imdb_rating) %>% 
+  filter(vorname == "Timo")
+
+plot(tmp$wertung, tmp$imdb_rating)
+
+plt = ggplot(data = df) +
+  geom_bar(mapping = aes(x = reorder(vorname, correlation), 
+                         y = correlation
+  ),
+  stat = "identity") +
+  geom_text(aes(x = vorname,
+                y = 0,
+                label = paste0(" ", vorname, " (", correlation, ")"),
+                angle = direction),
+            size = 3,
+            color = "lightgrey",
+            hjust = 0) +
+  labs(title = "Korrelation mit imdb-ratings",
+       x = "Name",
+       y = "Korrelationskoeffizient") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),  
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()
+  )
+
+plt
+
+ggsave(filename = "Korrelation mit imdb-Ratings.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
+       units = "px")
+
+#### Die Top 5 und Worst 5 Vorschläge von jedem (gem. Wertung jedes Teilnehmers) ####
+df =
+  left_join(vorschlagende, select(bewertet, !vorname), by = "id") %>% 
+  select(id, vorname, wertung) %>% 
+  group_by(id, vorname) %>% 
+  summarise(avg = round(mean(wertung), 2),) %>% 
+  left_join(select(film, id, titel, image_link), by = "id") %>% 
+  filter(!is.na(avg))
+
+for(name in unique(df$vorname)){
+  top_img = c()
+  flop_img = c()
+  
+  # Filter candidate
+  tmp = 
+    df %>% 
+    filter(vorname == name) %>% 
+    arrange(desc(avg))
+  
+  if(nrow(tmp) > 5) {
+    # Choose top and flop rows
+    n = nrow(tmp)
+    top = tmp[1:5,] %>% 
+      arrange(avg)
+    flop = tmp[(n-4):n,] %>% 
+      arrange(avg)
+    
+    
+    # Choose top images and combine them
+    for (i in 1:nrow(top)) {
+      titel = top$titel[i]
+      rating = top$avg[i]
+      s = if (str_length(top$titel[i]) > 20) 11 else 18
+      img = magick::image_read(path = top$image_link[i]) # Initialize image
+      img = image_scale(image = img, geometry = "190") # Cut to...
+      img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+      img = image_border(image = img, geometry = "0x45") # Add grey...
+      img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+      img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+      img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+      img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+      img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+      img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+      
+      top_img = image_join(top_img, img)
+    }
+    top_img = image_append(top_img)
+    top_img = image_annotate(image = top_img, text = paste0(name, "\n", "Top"), size = 20, gravity = "north")
+    
+    # Choose flop images and combine them
+    for (i in 1:nrow(flop)) {
+      titel = flop$titel[i]
+      rating = flop$avg[i]
+      s = if (str_length(flop$titel[i]) > 20) 11 else 18
+      img = magick::image_read(path = flop$image_link[i]) # Initialize image
+      img = image_scale(image = img, geometry = "190") # Cut to...
+      img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+      img = image_border(image = img, geometry = "0x45") # Add grey...
+      img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+      img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+      img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+      img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+      img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+      
+      flop_img = image_join(flop_img, img)
+    }
+    flop_img = image_append(flop_img)
+    flop_img = image_annotate(image = flop_img, text = "Flop", size = 20, gravity = "north")
+    
+    comb_image = image_append(c(top_img, flop_img), stack = T)
+    image_write(comb_image, path = paste0("..\\results\\Top-Flop-Vorschläge_", name, ".png"), format = "png")
+  }
+}
+
+
+

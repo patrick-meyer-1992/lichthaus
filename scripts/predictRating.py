@@ -50,6 +50,9 @@ dfBase = dfBase.drop_duplicates(subset = ["titel", "vorname"])
 vorname = pd.read_sql_table("teilnehmer", engine)
 vorname = list(vorname["vorname"])
 
+# Create a dataframe to store the results
+df_out = pd.DataFrame()
+
 for teilnehmer in vorname:
     df = dfBase[dfBase["vorname"] == teilnehmer] 
     if df.shape[0] == 0:
@@ -62,13 +65,21 @@ for teilnehmer in vorname:
     
     model = LinearRegression()
     model.fit(X_train,y_train)
-    coeff_parameter = pd.DataFrame(model.coef_,X.columns,columns=['Coefficient'])
-    coeff_parameter["Coefficient"] = coeff_parameter["Coefficient"].round(3)
-    
-    
     predictions = model.predict(X_test)
     diff = (predictions - y_test).abs()
-    print("#################### " + teilnehmer + " ####################")
-    print(coeff_parameter)
-    print("Mean difference: " + str(round(diff.mean(), 3)))
-    print("Standard deviation: " + str(round(diff.std(), 3)))
+    tmp = pd.DataFrame(model.coef_, columns=['Coefficient'])
+    tmp["genre"] = X.columns
+    tmp["Coefficient"] = tmp["Coefficient"].round(3)
+    tmp["vorname"] = teilnehmer
+    tmp["mean_difference"] = (round(diff.mean(), 3))
+    tmp["sd_difference"] = (round(diff.std(), 3))
+    
+    frames = [df_out, tmp]
+    df_out = pd.concat(frames)
+    
+    #print("#################### " + teilnehmer + " ####################")
+    #print("Mean difference: " + str(round(diff.mean(), 3)))
+    #print("Standard deviation: " + str(round(diff.std(), 3)))
+
+
+df_out.to_csv("../results/predictedRatings.csv", index = False)
