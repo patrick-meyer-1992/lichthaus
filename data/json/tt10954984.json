@@ -1,1 +1,108 @@
-{"id":"tt10954984","title":"Nope","rating":6.9,"rating_count":137000,"release_year":2022,"popularity":42,"imdb_type":"movie","runtime":"2h 10m","genres":[],"countries":["United States","Japan","Canada"],"languages":["English"],"director_names":["Jordan Peele"],"creator_names":[],"description":"","aka":["Không"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BNGM1MDc3ZjgtODlkOS00NmZjLWJlOTItNGQ5OGFhN2JlNjgxXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_QL75_UY281_CR18,0,190,281_.jpg","imdb_date":"2022-07-22","actors":[{"id":"nm2257207","name":"Daniel Kaluuya"},{"id":"nm1551130","name":"Keke Palmer"},{"id":"nm5155952","name":"Brandon Perea"},{"id":"nm0000699","name":"Michael Wincott"},{"id":"nm3081796","name":"Steven Yeun"},{"id":"nm2486357","name":"Wrenn Schmidt"},{"id":"nm0202966","name":"Keith David"},{"id":"nm1984458","name":"Devon Graye"},{"id":"nm1024953","name":"Terry Notary"},{"id":"nm9209960","name":"Barbie Ferreira"},{"id":"nm0005234","name":"Donna Mills"},{"id":"nm0674020","name":"Oz Perkins"},{"id":"nm0420646","name":"Eddie Jemison"},{"id":"nm13074616","name":"Jacob Kim"},{"id":"nm8733808","name":"Sophia Coto"},{"id":"nm1436209","name":"Jennifer Lafleur"},{"id":"nm0707795","name":"Andrew Patrick Ralston"},{"id":"nm8160012","name":"Lincoln Lambert"}]}
+{
+    "id": "tt10954984",
+    "title": "Nope",
+    "rating": 6.9,
+    "rating_count": 137000,
+    "release_year": 2022,
+    "popularity": 42,
+    "imdb_type": "movie",
+    "runtime": "2h 10m",
+    "genres": [
+        "Horror",
+        "Mystery",
+        "Sci-Fi"
+    ],
+    "countries": [
+        "United States",
+        "Japan",
+        "Canada"
+    ],
+    "languages": [
+        "English"
+    ],
+    "director_names": [
+        "Jordan Peele"
+    ],
+    "creator_names": [],
+    "description": "",
+    "aka": [
+        "Không"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BNGM1MDc3ZjgtODlkOS00NmZjLWJlOTItNGQ5OGFhN2JlNjgxXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_QL75_UY281_CR18,0,190,281_.jpg",
+    "imdb_date": "2022-07-22",
+    "actors": [
+        {
+            "id": "nm2257207",
+            "name": "Daniel Kaluuya"
+        },
+        {
+            "id": "nm1551130",
+            "name": "Keke Palmer"
+        },
+        {
+            "id": "nm5155952",
+            "name": "Brandon Perea"
+        },
+        {
+            "id": "nm0000699",
+            "name": "Michael Wincott"
+        },
+        {
+            "id": "nm3081796",
+            "name": "Steven Yeun"
+        },
+        {
+            "id": "nm2486357",
+            "name": "Wrenn Schmidt"
+        },
+        {
+            "id": "nm0202966",
+            "name": "Keith David"
+        },
+        {
+            "id": "nm1984458",
+            "name": "Devon Graye"
+        },
+        {
+            "id": "nm1024953",
+            "name": "Terry Notary"
+        },
+        {
+            "id": "nm9209960",
+            "name": "Barbie Ferreira"
+        },
+        {
+            "id": "nm0005234",
+            "name": "Donna Mills"
+        },
+        {
+            "id": "nm0674020",
+            "name": "Oz Perkins"
+        },
+        {
+            "id": "nm0420646",
+            "name": "Eddie Jemison"
+        },
+        {
+            "id": "nm13074616",
+            "name": "Jacob Kim"
+        },
+        {
+            "id": "nm8733808",
+            "name": "Sophia Coto"
+        },
+        {
+            "id": "nm1436209",
+            "name": "Jennifer Lafleur"
+        },
+        {
+            "id": "nm0707795",
+            "name": "Andrew Patrick Ralston"
+        },
+        {
+            "id": "nm8160012",
+            "name": "Lincoln Lambert"
+        }
+    ]
+}
