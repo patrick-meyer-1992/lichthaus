@@ -7,6 +7,7 @@ library(reshape2)
 library(stringr)
 library(cowplot)
 library(magick)
+library(gridExtra)
 
 pth = dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(pth)
@@ -947,3 +948,69 @@ for(name in unique(df$vorname)){
 
 
 
+
+#### Histogram der Wertungen jedes Teilnehmers ####
+
+nms = 
+  bewertet %>% 
+  distinct(vorname) %>% 
+  arrange(vorname) %>% 
+  pull()
+
+l = list()
+
+for (name in nms) {
+  df = 
+    bewertet %>% 
+    filter(vorname == name) %>% 
+    group_by(wertung) %>% 
+    summarise(n = n()) %>% 
+    mutate(ratio = round((n / sum(n)) * 100, 2))
+  
+  df = 
+    left_join(tibble(wertung = 1:10), df, by = "wertung") %>% 
+    replace(is.na(.), 0)
+  
+  plt = ggplot(data = df) +
+    geom_bar(mapping = aes(x = wertung,
+                           y = ratio),
+             stat = "identity") +
+    geom_text(aes(x = wertung,
+                  y = ratio,
+                  label = paste0(ratio, "%"),
+                  angle = 90),
+              size = 3,
+              color = "black",
+              hjust = 0) +
+    labs(title = name,
+         x = "Wertung",
+         y = "Relative Häufigkeit") +
+    scale_x_discrete(limits = as.character(c(1:10))) +
+    scale_y_continuous(expand = expansion(mult = c(0.01, 0.05)),
+                       limits = c(0,35)) +
+    theme(plot.title = element_text(hjust = 0.5, size = 12),  
+          axis.title = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank()
+    )
+  
+  l[[length(l) + 1]] = plt
+}
+
+plt = grid.arrange(l[[1]], 
+                   l[[2]], 
+                   l[[3]], 
+                   l[[4]], 
+                   l[[5]], 
+                   l[[6]], 
+                   l[[7]], 
+                   nrow = 2,
+                   top = "Verteilungen der Wertungen")
+plt
+
+ggsave(filename = "Wertungsverteilung.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 3000, 
+       height = 2376, 
+       units = "px")
