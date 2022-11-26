@@ -5,6 +5,7 @@ Created on Wed Oct 12 12:23:37 2022
 @author: Patrick
 """
 
+#%% Import packages
 import os
 import pandas as pd
 import json
@@ -103,4 +104,5 @@ q = """
 """
 with engine.begin() as conn:     # TRANSACTION
     conn.execute(q)
+
 

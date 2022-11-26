@@ -5,7 +5,7 @@ Created on Wed Sep 21 17:18:09 2022
 @author: Patrick
 """
 
-
+#%% Import packages
 import os
 import pandas as pd
 import json
@@ -108,3 +108,4 @@ spielt_mit = pd.DataFrame(list(zip(movieId, actorId)),
 
 spielt_mit['upload_time'] = str(datetime.now())
 spielt_mit.to_sql("spielt_mit", engine, if_exists="append", index = False)
+# %%

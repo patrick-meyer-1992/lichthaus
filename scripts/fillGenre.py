@@ -4,7 +4,7 @@ Created on Sun Sep 18 16:32:29 2022
 
 @author: Patrick
 """
-
+#%% Import packages
 import os
 import pandas as pd
 import json
@@ -88,3 +88,5 @@ gehoert_zu = pd.DataFrame(list(zip(ID, bezeichnung)),
 
 gehoert_zu['upload_time'] = str(datetime.now())
 gehoert_zu.to_sql("gehoert_zu", engine, if_exists="append", index = False)
+
+# %%
