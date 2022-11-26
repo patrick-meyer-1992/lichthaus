@@ -1,0 +1,109 @@
+{
+    "id": "tt0373074",
+    "title": "Kung fu",
+    "rating": 7.7,
+    "rating_count": 137000,
+    "release_year": 2004,
+    "popularity": 2781,
+    "imdb_type": "movie",
+    "runtime": "1h 39m",
+    "genres": [
+        "Action",
+        "Comedy",
+        "Fantasy"
+    ],
+    "countries": [
+        "Hong Kong",
+        "China",
+        "United States"
+    ],
+    "languages": [
+        "Cantonese",
+        "Mandarin"
+    ],
+    "director_names": [
+        "Stephen Chow"
+    ],
+    "creator_names": [],
+    "description": "Set in Canton, China in the 1940s, the story revolves in a town ruled by the Axe Gang, Sing who desperately wants to become a member. He stumbles into a slum ruled by eccentric landlords who turns out to be the greatest kung-fu masters in disguise. Sing's actions eventually cause the Axe Gang and the slumlords to engage in an explosive kung-fu battle. Only one side will win and only one hero will emerge as the greatest kung-fu master of all.",
+    "aka": [
+        "Kung Fu Hustle"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjZiOTNlMzYtZWYwZS00YWJjLTk5NDgtODkwNjRhMDI0MjhjXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_QL75_UY281_CR5,0,190,281_FMwebp.webp",
+    "imdb_date": "2005-06-24",
+    "actors": [
+        {
+            "id": "nm0159507",
+            "name": "Stephen Chow"
+        },
+        {
+            "id": "nm0950757",
+            "name": "Wah Yuen"
+        },
+        {
+            "id": "nm1228408",
+            "name": "Qiu Yuen"
+        },
+        {
+            "id": "nm0398760",
+            "name": "Siu-Lung Leung"
+        },
+        {
+            "id": "nm0271815",
+            "name": "Xiaogang Feng"
+        },
+        {
+            "id": "nm1784503",
+            "name": "Zhihua Dong"
+        },
+        {
+            "id": "nm2185928",
+            "name": "Danny Kwok-Kwan Chan"
+        },
+        {
+            "id": "nm1125531",
+            "name": "Tze-Chung Lam"
+        },
+        {
+            "id": "nm1214151",
+            "name": "Kai-Man Tin"
+        },
+        {
+            "id": "nm1897757",
+            "name": "Kang Xi Jia"
+        },
+        {
+            "id": "nm0025546",
+            "name": "Hark-On Fung"
+        },
+        {
+            "id": "nm1785004",
+            "name": "Shengyi Huang"
+        },
+        {
+            "id": "nm0482695",
+            "name": "Suet Lam"
+        },
+        {
+            "id": "nm0950604",
+            "name": "Cheung-Yan Yuen"
+        },
+        {
+            "id": "nm1787710",
+            "name": "Chi Ling Chiu"
+        },
+        {
+            "id": "nm1789084",
+            "name": "Xing Yu"
+        },
+        {
+            "id": "nm1403892",
+            "name": "Yibai Zhang"
+        },
+        {
+            "id": "nm1959635",
+            "name": "Si Lu Ren"
+        }
+    ]
+}
