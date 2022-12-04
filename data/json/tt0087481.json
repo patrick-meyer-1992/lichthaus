@@ -1,1 +1,109 @@
-{"id":"tt0087481","title":"Non c'è due senza quattro","rating":7.1,"rating_count":10000,"release_year":1984,"popularity":null,"imdb_type":"movie","runtime":"1h 39m","genres":["Action","Comedy"],"countries":["Italy","Brazil"],"languages":["Italian","English","Portuguese"],"rated":"TV-PG","director_names":["Enzo Barboni"],"creator_names":[],"description":"Portuguese Brazilian billionaire cousins Bastiano and Antonio Coimbra de la Coronilla y Azevedo are in fear for their lives after several assassination attempts. Therefore, they have an agency find two look-alikes, stuntman Elliot Vance and the saxophone-playing small-time criminal Greg Wonder, to temporarily take their place and find out who is behind the assassination attempts. Elliot and Greg manage to fight their way through all kinds of situations without too much trouble while getting closer to the mastermind behind it all. Additionally they quickly come to like the jet-set life. The resulting damage to their reputation provokes the Coimbras to return to Rio ahead of time. This puts them right into the sights of their enemies, alongside the cousins' look-alikes.","aka":["Double Trouble"],"version":2,"image":"https://m.media-amazon.com/images/M/MV5BYTVmMTk1OGQtOTFhMy00OTE3LTllZGMtNGExZGE0MGNjMDU0XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_QL75_UY281_CR2,0,190,281_FMwebp.webp","imdb_date":"1984-10-21","actors":[{"id":"nm0001352","name":"Terence Hill"},{"id":"nm0817881","name":"Bud Spencer"},{"id":"nm0167168","name":"April Clough"},{"id":"nm0074784","name":"Harold Bergman"},{"id":"nm0939507","name":"C.V. Wood Jr."},{"id":"nm0718309","name":"Dary Reis"},{"id":"nm0141881","name":"Nello Pazzafini"},{"id":"nm0209068","name":"José Van de Kamp"},{"id":"nm0023974","name":"Fernando Amaral"},{"id":"nm0740073","name":"Roberto Roney"},{"id":"nm0033892","name":"Athayde Arcoverde"},{"id":"nm0671770","name":"Claudioney Penedo"},{"id":"nm0100004","name":"Dennis Bourke"},{"id":"nm0060482","name":"Giancarlo Bastianoni"},{"id":"nm0475959","name":"Carlos Kurt"},{"id":"nm6371689","name":"Franco Sattamini"},{"id":"nm0806367","name":"Sergio Smacchi"},{"id":"nm0880336","name":"Franco Ukmar"}]}
+{
+    "id": "tt0087481",
+    "title": "Vier FÃ¤uste gegen Rio",
+    "rating": 7.1,
+    "rating_count": 10000,
+    "release_year": 1984,
+    "popularity": null,
+    "imdb_type": "movie",
+    "runtime": "1h 39m",
+    "genres": [
+        "Action",
+        "Comedy"
+    ],
+    "countries": [
+        "Italy",
+        "Brazil"
+    ],
+    "languages": [
+        "Italian",
+        "English",
+        "Portuguese"
+    ],
+    "rated": "TV-PG",
+    "director_names": [
+        "Enzo Barboni"
+    ],
+    "creator_names": [],
+    "description": "Portuguese Brazilian billionaire cousins Bastiano and Antonio Coimbra de la Coronilla y Azevedo are in fear for their lives after several assassination attempts. Therefore, they have an agency find two look-alikes, stuntman Elliot Vance and the saxophone-playing small-time criminal Greg Wonder, to temporarily take their place and find out who is behind the assassination attempts. Elliot and Greg manage to fight their way through all kinds of situations without too much trouble while getting closer to the mastermind behind it all. Additionally they quickly come to like the jet-set life. The resulting damage to their reputation provokes the Coimbras to return to Rio ahead of time. This puts them right into the sights of their enemies, alongside the cousins' look-alikes.",
+    "aka": [
+        "Double Trouble"
+    ],
+    "version": 2,
+    "image": "https://m.media-amazon.com/images/M/MV5BYTVmMTk1OGQtOTFhMy00OTE3LTllZGMtNGExZGE0MGNjMDU0XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_QL75_UY281_CR2,0,190,281_FMwebp.webp",
+    "imdb_date": "1984-10-21",
+    "actors": [
+        {
+            "id": "nm0001352",
+            "name": "Terence Hill"
+        },
+        {
+            "id": "nm0817881",
+            "name": "Bud Spencer"
+        },
+        {
+            "id": "nm0167168",
+            "name": "April Clough"
+        },
+        {
+            "id": "nm0074784",
+            "name": "Harold Bergman"
+        },
+        {
+            "id": "nm0939507",
+            "name": "C.V. Wood Jr."
+        },
+        {
+            "id": "nm0718309",
+            "name": "Dary Reis"
+        },
+        {
+            "id": "nm0141881",
+            "name": "Nello Pazzafini"
+        },
+        {
+            "id": "nm0209068",
+            "name": "Josï¿½ Van de Kamp"
+        },
+        {
+            "id": "nm0023974",
+            "name": "Fernando Amaral"
+        },
+        {
+            "id": "nm0740073",
+            "name": "Roberto Roney"
+        },
+        {
+            "id": "nm0033892",
+            "name": "Athayde Arcoverde"
+        },
+        {
+            "id": "nm0671770",
+            "name": "Claudioney Penedo"
+        },
+        {
+            "id": "nm0100004",
+            "name": "Dennis Bourke"
+        },
+        {
+            "id": "nm0060482",
+            "name": "Giancarlo Bastianoni"
+        },
+        {
+            "id": "nm0475959",
+            "name": "Carlos Kurt"
+        },
+        {
+            "id": "nm6371689",
+            "name": "Franco Sattamini"
+        },
+        {
+            "id": "nm0806367",
+            "name": "Sergio Smacchi"
+        },
+        {
+            "id": "nm0880336",
+            "name": "Franco Ukmar"
+        }
+    ]
+}
