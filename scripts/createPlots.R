@@ -12,7 +12,7 @@ library(gridExtra)
 pth = dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(pth)
 
-#### Connect to database ####
+##### Connect to database ####
 db = 'lichthaus'
 host_db = 'lichthaus.ddns.net' 
 db_port = '54320' 
@@ -21,7 +21,7 @@ db_password = readLines(con = "../secrets.txt", warn = F)[2]
 
 con = dbConnect(RPostgres::Postgres(), dbname = db, host=host_db, port=db_port, user=db_user, password=db_password) 
 
-#### Download tables #### 
+##### Download tables #### 
 teilnehmer = tbl(con, "teilnehmer") %>% collect()
 schlaegt_vor = tbl(con, "schlaegt_vor") %>% select(!upload_time) %>% collect() 
 film = tbl(con, "film") %>% select(!upload_time) %>% collect()
@@ -113,7 +113,7 @@ ggsave(filename = "Wertung.png",
        height = 1188, 
        units = "px")
 
-#### Welcher Film wurde am häufigsten vorgeschlagen? ####
+##### Welcher Film wurde am häufigsten vorgeschlagen? ####
 tmp = schlaegt_vor %>% 
   select(vorname, id) %>% 
   group_by(id) %>% 
@@ -125,11 +125,12 @@ df = left_join(tmp, film[c("id", "titel", "image_link")], "id") %>%
   slice(1:10) %>% 
   arrange(freq)
 
-top_row = c()
-# Combine each movie into a picture
-for (i in 1:nrow(df)) {
+top_img = c()
+bottom_img = c()
+# Choose top images and combine them
+for (i in 6:10) {
   titel = df$titel[i]
-  freq = df$freq[i]
+  rating = df$freq[i]
   s = if (str_length(df$titel[i]) > 20) 11 else 18
   img = magick::image_read(path = df$image_link[i]) # Initialize image
   img = image_scale(image = img, geometry = "190") # Cut to...
@@ -138,51 +139,40 @@ for (i in 1:nrow(df)) {
   img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
   img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
   img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
-  img = image_annotate(img, paste0("(", freq, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
   img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
   img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
   
-  top_row = image_join(top_row, img)
+  top_img = image_join(top_img, img)
 }
-top_row = image_append(top_row)
-top_row = image_annotate(image = top_row, text = paste0("Anzahl Vorschläge"), size = 20, gravity = "north")
-image_write(top_row, path = paste0("..\\results\\Vorschlag", ".png"), format = "png")
+top_img = image_append(top_img)
+#top_img = image_annotate(image = top_img, text = paste0("Top"), size = 20, gravity = "north")
+
+# Choose flop images and combine them
+for (i in 1:5) {
+  titel = df$titel[i]
+  rating = df$freq[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+  
+  bottom_img = image_join(bottom_img, img)
+}
+bottom_img = image_append(bottom_img)
+#bottom_img = image_annotate(image = bottom_img, text = "Flop", size = 20, gravity = "north")
+
+comb_image = image_append(c(top_img, bottom_img), stack = T)
+image_write(comb_image, path = paste0("..\\results\\Vorschlag", ".png"), format = "png")
 
 
-
-# plt = ggplot(data = df) +
-#   geom_bar(mapping = aes(x = reorder(titel, freq), 
-#                          y = freq
-#   ),
-#   stat = "identity") +
-#   geom_text(aes(x = titel,
-#                 y = 0,
-#                 label = paste0(" ", titel, " (", freq, ")" )
-#                 ),
-#             angle = 90,
-#             size = 3.5,
-#             color = "white",
-#             hjust = 0
-#             ) +
-#   labs(title = "Welcher Film wurde am häufigsten vorgeschlagen?",
-#        x = "vorname",
-#        y = "Durchschnittliche Wertung") +
-#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
-#         axis.title = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank()
-#   )
-# 
-# plt
-# 
-# ggsave(filename = "Vorschlag.png", 
-#        plot = plt, 
-#        path = "..\\results", 
-#        width = 1500, 
-#        height = 1188, 
-#        units = "px")
-
-#### Wessen Vorschläge kommen am häufigsten durch die Murmelbahn ####
+##### Wessen Vorschläge kommen am häufigsten durch die Murmelbahn ####
 df = schlaegt_vor %>% 
   select(id, vorname, murmeled) %>% 
   group_by(vorname) %>% 
@@ -222,7 +212,7 @@ ggsave(filename = "Glück.png",
        height = 1188, 
        units = "px")
 
-#### Was ist unser Lieblingsgenre? ####
+##### Was ist unser Lieblingsgenre? ####
 # Welches Genre wurde am häufigsten geschaut?
 df = left_join(filmabend, gehoert_zu, by = "id") %>% 
   left_join(genre, by = "bezeichnung") %>%
@@ -413,7 +403,7 @@ ggsave(filename = "Konsonanten.png",
        height = 1188, 
        units = "px")
 
-#### Wer bewertet wessen Vorschläge wie gut? ####
+##### Wer bewertet wessen Vorschläge wie gut? ####
 # Einschränkung: Es werden nur die als Vorschlagende eines Films gewertet,
 # die ihn an dem Abend vorgeschlagen haben, an dem er gewählt wurde.
 df = left_join(schlaegt_vor, film, by = "id") %>% 
@@ -460,7 +450,7 @@ ggsave(filename = "Wertungsmatrix.png",
        height = 1188, 
        units = "px")
 
-#### Wer hat die meisten unterschiedlichen Vorschläge eingebracht? ####
+##### Wer hat die meisten unterschiedlichen Vorschläge eingebracht? ####
 df = # Anzahl individueller Vorschläge
   schlaegt_vor %>% 
   select(vorname, id) %>%
@@ -511,7 +501,7 @@ ggsave(filename = "Anzahl Vorschläge.png",
        units = "px")
 
 
-#### Wer hat am häufigsten für die Filme gestimmt, die an dem Abend auch gewonnen haben?####
+##### Wer hat am häufigsten für die Filme gestimmt, die an dem Abend auch gewonnen haben?####
 df = # Anzahl Abstimmungen für Sieger des Abends
   stimmt_fuer %>% 
   filter(sieger) %>% 
@@ -558,7 +548,7 @@ ggsave(filename = "Königsmacher.png",
        width = 1500, 
        height = 1188, 
        units = "px")
-#### Welcher Film hat am längsten gebraucht vom ersten Vorschlag bis zur Ausstrahlung? ####
+##### Welcher Film hat am längsten gebraucht vom ersten Vorschlag bis zur Ausstrahlung? ####
 df = 
   left_join(filmabend, schlaegt_vor, by = "id") %>% 
   select(id, datum, vorschlagsdatum) %>% 
@@ -571,13 +561,12 @@ df =
   slice(1:10) %>% 
   arrange(diff)
 
-#df$titel = str_replace(string = df$titel, pattern = ": ", replacement = ":\n ") #Temporary fix for long titles
-
-top_row = c()
-# Combine each movie into a picture
-for (i in 1:nrow(df)) {
+top_img = c()
+bottom_img = c()
+# Choose top images and combine them
+for (i in 6:10) {
   titel = df$titel[i]
-  diff = df$diff[i]
+  rating = df$diff[i]
   s = if (str_length(df$titel[i]) > 20) 11 else 18
   img = magick::image_read(path = df$image_link[i]) # Initialize image
   img = image_scale(image = img, geometry = "190") # Cut to...
@@ -586,46 +575,40 @@ for (i in 1:nrow(df)) {
   img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
   img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
   img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
-  img = image_annotate(img, paste0("(", diff, " Tage)"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_annotate(img, paste0("(", rating, " Tage)"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
   img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
   img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
   
-  top_row = image_join(top_row, img)
+  top_img = image_join(top_img, img)
 }
-top_row = image_append(top_row)
-top_row = image_annotate(image = top_row, text = paste0("Tage vom ersten Vorschlag bis zur Ausstrahlung"), size = 20, gravity = "north")
+top_img = image_append(top_img)
+#top_img = image_annotate(image = top_img, text = paste0("Top"), size = 20, gravity = "north")
+
+# Choose flop images and combine them
+for (i in 1:5) {
+  titel = df$titel[i]
+  rating = df$diff[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", rating, " Tage)"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+  
+  bottom_img = image_join(bottom_img, img)
+}
+bottom_img = image_append(bottom_img)
+#bottom_img = image_annotate(image = bottom_img, text = "Flop", size = 20, gravity = "north")
+
+comb_image = image_append(c(top_img, bottom_img), stack = T)
 image_write(top_row, path = paste0("..\\results\\Längste Wartezeit", ".png"), format = "png")
 
-# plt = ggplot(data = df) +
-#   geom_bar(mapping = aes(x = reorder(titel, diff), 
-#                          y = diff
-#   ),
-#   stat = "identity") +
-#   geom_text(aes(x = titel,
-#                 y = 0,
-#                 label = paste0(" ", titel, " (", diff, " Tage)" )),
-#             angle = 90,
-#             size = 2.5,
-#             color = "white",
-#             hjust = 0) +
-#   labs(title = "Welcher Film hat am längsten vom ersten Vorschlag zur Ausstrahlung gebraucht?",
-#        x = "Titel",
-#        y = "Dauer") +
-#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
-#         axis.title = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank()
-#   )
-# plt
-# 
-# ggsave(filename = "Längste Wartezeit.png", 
-#        plot = plt, 
-#        path = "..\\results", 
-#        width = 1500, 
-#        height = 1188, 
-#        units = "px")
 
-#### Welche Filme werden wie gut bewertet, wenn man die Person berücksichtigt, die ihn vorgeschlagen hat? ####
+##### Welche Filme werden wie gut bewertet, wenn man die Person berücksichtigt, die ihn vorgeschlagen hat? ####
 df = 
   left_join(schlaegt_vor, stimmt_fuer, by = "id") %>% 
   filter(sieger & vorschlagsdatum == stimmdatum) %>% 
@@ -643,11 +626,12 @@ df =
   select(titel, avg, image_link) %>% 
   arrange(avg)
 
-top_row = c()
-# Combine each movie into a picture
-for (i in 1:nrow(df)) {
+top_img = c()
+bottom_img = c()
+# Choose top images and combine them
+for (i in 6:10) {
   titel = df$titel[i]
-  avg = df$avg[i]
+  rating = df$avg[i]
   s = if (str_length(df$titel[i]) > 20) 11 else 18
   img = magick::image_read(path = df$image_link[i]) # Initialize image
   img = image_scale(image = img, geometry = "190") # Cut to...
@@ -656,47 +640,39 @@ for (i in 1:nrow(df)) {
   img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
   img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
   img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
-  img = image_annotate(img, paste0("(", avg, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
   img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
   img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
   
-  top_row = image_join(top_row, img)
+  top_img = image_join(top_img, img)
 }
-top_row = image_append(top_row)
-top_row = image_annotate(image = top_row, text = paste0("Beste Wertung (mit Vorschlagendem)"), size = 20, gravity = "north")
-image_write(top_row, path = paste0("..\\results\\Beste Filmwertungen (mit Vorschlagenden)", ".png"), format = "png")
+top_img = image_append(top_img)
+#top_img = image_annotate(image = top_img, text = paste0("Top"), size = 20, gravity = "north")
 
-# plt = ggplot(data = df) +
-#   geom_bar(mapping = aes(x = reorder(titel, avg), 
-#                          y = avg
-#   ),
-#   stat = "identity") +
-#   geom_text(aes(x = titel,
-#                 y = 0,
-#                 label = paste0(" ", titel, " (", avg, ")")),
-#             angle = 90,
-#             size = 3.5,
-#             color = "white",
-#             hjust = 0) +
-#   labs(title = "Beste Filme (mit Wertung des Vorschlagenden)",
-#        x = "Titel",
-#        y = "Durchschnittliche Wertung") +
-#   theme(plot.title = element_text(hjust = 0.5, size = 12),  
-#         axis.title = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank()
-#   )
-# 
-# plt
-# 
-# ggsave(filename = "Beste Filmwertungen (mit Vorschlagenden).png", 
-#        plot = plt, 
-#        path = "..\\results", 
-#        width = 1500, 
-#        height = 1188, 
-#        units = "px")
+# Choose flop images and combine them
+for (i in 1:5) {
+  titel = df$titel[i]
+  rating = df$avg[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+  
+  bottom_img = image_join(bottom_img, img)
+}
+bottom_img = image_append(bottom_img)
+comb_image = image_append(c(top_img, bottom_img), stack = T)
 
-#### Welche Filme werden wie gut bewertet, wenn man die Person ignoriert, die ihn vorgeschlagen hat? ####
+image_write(comb_image, path = paste0("..\\results\\Beste Filmwertungen (mit Vorschlagenden)", ".png"), format = "png")
+
+
+##### Welche Filme werden wie gut bewertet, wenn man die Person ignoriert, die ihn vorgeschlagen hat? ####
 df = 
   left_join(schlaegt_vor, stimmt_fuer, by = "id") %>% 
   filter(sieger & vorschlagsdatum == stimmdatum) %>% 
@@ -715,11 +691,12 @@ df =
   select(titel, avg, image_link) %>% 
   arrange(avg)
 
-top_row = c()
-# Combine each movie into a picture
-for (i in 1:nrow(df)) {
+top_img = c()
+bottom_img = c()
+# Choose top images and combine them
+for (i in 6:10) {
   titel = df$titel[i]
-  avg = df$avg[i]
+  rating = df$avg[i]
   s = if (str_length(df$titel[i]) > 20) 11 else 18
   img = magick::image_read(path = df$image_link[i]) # Initialize image
   img = image_scale(image = img, geometry = "190") # Cut to...
@@ -728,15 +705,36 @@ for (i in 1:nrow(df)) {
   img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
   img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
   img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
-  img = image_annotate(img, paste0("(", avg, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
   img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
   img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
   
-  top_row = image_join(top_row, img)
+  top_img = image_join(top_img, img)
 }
-top_row = image_append(top_row)
-top_row = image_annotate(image = top_row, text = paste0("Beste Wertung (ohne Vorschlagenden)"), size = 20, gravity = "north")
-image_write(top_row, path = paste0("..\\results\\Beste Filmwertungen (ohne Vorschlagenden)", ".png"), format = "png")
+top_img = image_append(top_img)
+#top_img = image_annotate(image = top_img, text = paste0("Top"), size = 20, gravity = "north")
+
+# Choose flop images and combine them
+for (i in 1:5) {
+  titel = df$titel[i]
+  rating = df$avg[i]
+  s = if (str_length(df$titel[i]) > 20) 11 else 18
+  img = magick::image_read(path = df$image_link[i]) # Initialize image
+  img = image_scale(image = img, geometry = "190") # Cut to...
+  img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+  img = image_border(image = img, geometry = "0x45") # Add grey...
+  img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+  img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+  img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+  img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+  img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+  
+  bottom_img = image_join(bottom_img, img)
+}
+bottom_img = image_append(bottom_img)
+comb_image = image_append(c(top_img, bottom_img), stack = T)
+
+image_write(comb_image, path = paste0("..\\results\\Beste Filmwertungen (ohne Vorschlagenden)", ".png"), format = "png")
 
 
 # plt = ggplot(data = df) +
@@ -770,7 +768,7 @@ image_write(top_row, path = paste0("..\\results\\Beste Filmwertungen (ohne Vorsc
 #        units = "px")
 
 
-#### Wie beeinflusst welches Genre die Wertung der einzelnen Teilnehmer (Regressionkoeffizienten)? ####
+##### Wie beeinflusst welches Genre die Wertung der einzelnen Teilnehmer (Regressionkoeffizienten)? ####
 df = 
   read.csv("../results/predictedRatings.csv") %>% 
   tibble()
@@ -823,7 +821,7 @@ ggsave(filename = "Genrekoeffizienten.png",
 
 
 
-#### Wessen Bewertungen haben die höchste Korrelation mit den Ratings von imdb? ####
+##### Wessen Bewertungen haben die höchste Korrelation mit den Ratings von imdb? ####
 df = 
   left_join(bewertet, film, by = "id") %>% 
   select(vorname, id, wertung, imdb_rating) %>% 
@@ -835,12 +833,6 @@ df =
             high_conf = cor.test(wertung, imdb_rating, method = "pearson")[["conf.int"]][2]) %>% 
   mutate(direction = if_else(correlation < 0, 270, 90))
 
-tmp = 
-  left_join(bewertet, film, by = "id") %>% 
-  select(vorname, id, wertung, imdb_rating) %>% 
-  filter(vorname == "Timo")
-
-plot(tmp$wertung, tmp$imdb_rating)
 
 plt = ggplot(data = df) +
   geom_bar(mapping = aes(x = reorder(vorname, correlation), 
@@ -872,7 +864,7 @@ ggsave(filename = "Korrelation mit imdb-Ratings.png",
        height = 1188, 
        units = "px")
 
-#### Die Top 5 und Worst 5 Vorschläge von jedem (gem. Wertung jedes Teilnehmers) ####
+##### Die Top 5 und Worst 5 Vorschläge von jedem (gem. Wertung jedes Teilnehmers) ####
 df =
   left_join(vorschlagende, select(bewertet, !vorname), by = "id") %>% 
   select(id, vorname, wertung) %>% 
@@ -949,7 +941,7 @@ for(name in unique(df$vorname)){
 
 
 
-#### Histogram der Wertungen jedes Teilnehmers ####
+##### Histogram der Wertungen jedes Teilnehmers ####
 
 nms = 
   bewertet %>% 
@@ -1013,4 +1005,118 @@ ggsave(filename = "Wertungsverteilung.png",
        path = "..\\results", 
        width = 3000, 
        height = 2376, 
+       units = "px")
+
+##### Die 5 längsten und 5 kürzesten Vorschläge eines jeden Teilnehmers ####
+df =
+  left_join(select(vorschlagende, vorname, id), 
+            select(film, id, titel, laufzeit, image_link), by = "id")  %>% 
+  filter(!is.na(laufzeit))
+
+for(name in unique(df$vorname)){
+  top_img = c()
+  flop_img = c()
+  
+  # Filter candidate
+  tmp = 
+    df %>% 
+    filter(vorname == name) %>% 
+    arrange(desc(laufzeit))
+  
+  if(nrow(tmp) > 5) {
+    # Choose top and flop rows
+    n = nrow(tmp)
+    top = tmp[1:5,] %>% 
+      arrange(laufzeit)
+    flop = tmp[(n-4):n,] %>% 
+      arrange(laufzeit)
+    
+    
+    # Choose top images and combine them
+    for (i in 1:nrow(top)) {
+      titel = top$titel[i]
+      rating = top$laufzeit[i]
+      s = if (str_length(top$titel[i]) > 20) 11 else 18
+      img = magick::image_read(path = top$image_link[i]) # Initialize image
+      img = image_scale(image = img, geometry = "190") # Cut to...
+      img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+      img = image_border(image = img, geometry = "0x45") # Add grey...
+      img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+      img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+      img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+      img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+      img = image_border(image = img, color = "white", geometry = "0x50") # Add white border on top + bottom
+      img = image_crop(image = img, geometry = paste0("0x390")) # Remove white border from bottom
+      
+      top_img = image_join(top_img, img)
+    }
+    top_img = image_append(top_img)
+    top_img = image_annotate(image = top_img, text = paste0(name, "\n", "Längste"), size = 20, gravity = "north")
+    
+    # Choose flop images and combine them
+    for (i in 1:nrow(flop)) {
+      titel = flop$titel[i]
+      rating = flop$laufzeit[i]
+      s = if (str_length(flop$titel[i]) > 20) 11 else 18
+      img = magick::image_read(path = flop$image_link[i]) # Initialize image
+      img = image_scale(image = img, geometry = "190") # Cut to...
+      img = image_crop(image = img, geometry = paste0("0x281+0")) # ...correct size
+      img = image_border(image = img, geometry = "0x45") # Add grey...
+      img = image_crop(image = img, geometry = paste0("0x326+0+45")) # ...border on bottom
+      img = image_border(image = img, color = "white", geometry = "5x0") # Add white border on sides
+      img = image_annotate(img, paste0(titel), size = s, gravity = "south", color = "black", location = "+0+24") # Annotate
+      img = image_annotate(img, paste0("(", rating, ")"), size = 18, gravity = "south", color = "black", location = "+0+2") # Annotate
+      img = image_border(image = img, color = "white", geometry = "0x30") # Add white border on top
+      
+      flop_img = image_join(flop_img, img)
+    }
+    flop_img = image_append(flop_img)
+    flop_img = image_annotate(image = flop_img, text = "Kürzeste", size = 20, gravity = "north")
+    
+    comb_image = image_append(c(top_img, flop_img), stack = T)
+    #print(comb_image)
+    image_write(comb_image, path = paste0("..\\results\\Längste-Kürzeste-Vorschläge_", name, ".png"), format = "png")
+  }
+}
+comb_image
+
+#### Wer stimmt am häufigsten für den gleichen Film wie jemand anderes? Gibt es "Cluster"? ####
+df =
+  stimmt_fuer %>% 
+  left_join(stimmt_fuer, by = c("id", "stimmdatum")) %>% 
+  select(!contains("sieger.")) %>% 
+  select(!contains("wahldurchgang.")) %>% 
+  #filter(vorname.x != vorname.y) %>% 
+  filter(vorname.x != "unknown" & vorname.y != "unknown") %>% 
+  filter(vorname.x != "Nikita" & vorname.y != "Nikita") %>% 
+  filter(vorname.x != "Marco" & vorname.y != "Marco") %>% 
+  group_by(vorname.x, vorname.y) %>% 
+  summarise(n = n()) %>% 
+  group_by(vorname.x) %>% 
+  mutate(ratio = round(n / sum(n), 2)) 
+
+plt = ggplot(df, aes(vorname.x, vorname.y, fill= ratio)) + 
+  geom_tile(show.legend = F) +
+  geom_text(aes(
+    label = paste0(round(ratio, 2), "%")),
+    angle = 0,
+    size = 3.5,
+    #color = df$clr,
+    hjust = 0.5) +
+  scale_fill_distiller(palette = "Greys") +
+  labs(title = "Wer wie oft für den gleichen Film stimmt wie jemand anderes",
+       x = "Abstimmer",
+       y = "Teilnehmer") +
+  theme(plot.title = element_text(hjust = 0.5, size = 12), 
+        axis.title = element_text(size = 5), 
+        axis.text = element_text(size = 8)
+  )
+
+plt
+
+ggsave(filename = "Einigkeit.png", 
+       plot = plt, 
+       path = "..\\results", 
+       width = 1500, 
+       height = 1188, 
        units = "px")
